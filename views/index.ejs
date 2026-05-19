@@ -1,0 +1,568 @@
+﻿<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<main class="overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink" aria-label="Hero">
+
+  <!-- Background image with luxury overlay -->
+  <div class="absolute inset-0 transition-transform duration-[20000ms] ease-out scale-105 hover:scale-110">
+    <img
+      src="/images/hero.png"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover opacity-90"
+      loading="eager"
+    >
+    <!-- Gradient shifting from left (dark for text) to right (transparent for the subject) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-base via-base/60 to-transparent"></div>
+    <!-- Bottom fade to blend seamlessly into the next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-base to-transparent"></div>
+    <!-- Top shadow gradient specifically to guarantee Navigation legibility -->
+    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base/80 to-transparent z-0"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 text-left pt-32 md:pt-40 pb-20">
+    <div class="max-w-3xl flex flex-col items-start">
+      <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-none border-b border-gold/30 text-gold mb-10 md:mb-12 fade-up backdrop-blur-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+        <p class="text-[10px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
+      </div>
+      
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-light leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 fade-up delay-1 drop-shadow-2xl">
+        Awaken.<br>Heal.<br><span class="italic text-gold">Transform.</span>
+      </h1>
+      
+      <p class="font-sans text-stone/80 text-lg md:text-2xl font-light leading-relaxed max-w-xl mb-16 fade-up delay-2">
+        Traditional Hatha Yoga and Sound Healing in the ancient city of Bhaktapur. A quiet space to return to yourself.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-start gap-6 fade-up delay-3 w-full sm:w-auto">
+        <a href="#services"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold text-base text-[12px] font-sans font-bold uppercase tracking-widest2 px-10 py-5 hover:bg-stone hover:scale-105 hover:shadow-glow transition-all duration-500 rounded-none border border-gold">
+          Begin Your Journey
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="#contact"
+           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 border border-stone/30 text-stone text-[12px] font-sans font-bold uppercase tracking-widest2 px-10 py-5 hover:border-gold hover:text-gold transition-all duration-500 backdrop-blur-sm rounded-none">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-12 left-6 md:left-12 flex flex-col items-center gap-4 text-stone/40 animate-bounce">
+    <span class="text-[9px] font-sans uppercase tracking-widest3 rotate-90 origin-left ml-6 mb-6">Discover</span>
+    <div class="w-px h-16 bg-gradient-to-b from-gold/50 to-transparent"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     INTRO STRIP
+════════════════════════════════════════════════ -->
+<section class="bg-sage py-16 px-6 md:px-12 relative overflow-hidden" aria-label="Studio tagline">
+  <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
+    <p class="font-serif italic text-white/90 text-2xl md:text-4xl font-light text-center md:text-left leading-snug">
+      "Step onto the path of awareness, health and harmony."
+    </p>
+    <div class="flex items-center gap-8 text-white/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
+      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>Est. Bhaktapur</span>
+      <span class="w-px h-6 bg-white/20"></span>
+      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>All Levels Welcome</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════ -->
+<section id="services" class="py-32 md:py-48 px-6 md:px-12 bg-base relative border-b border-line" aria-labelledby="services-heading">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-20 md:mb-28 max-w-2xl fade-up text-center mx-auto">
+      <div class="inline-flex items-center justify-center gap-4 mb-6">
+        <span class="w-12 h-px bg-gold/50"></span>
+        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">What We Offer</p>
+        <span class="w-12 h-px bg-gold/50"></span>
+      </div>
+      <h2 id="services-heading" class="font-serif text-5xl md:text-7xl font-light text-stone leading-tight">
+        Practices for body, mind & soul
+      </h2>
+    </div>
+
+    <!-- Primary services -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+      <% const primary = [
+        {
+          num: '01',
+          name: 'Regular Yoga Classes',
+          desc: 'Daily Hatha Yoga sessions to build strength, flexibility, and inner stillness. Open to all levels.',
+          tag: 'Daily · All Levels'
+        },
+        {
+          num: '02',
+          name: 'Therapeutic Yoga',
+          desc: 'Personalised sessions designed around your body and health goals, paired with a guided diet plan.',
+          tag: 'Personalised'
+        },
+        {
+          num: '03',
+          name: 'Sound Healing',
+          desc: 'Gentle vibrational therapy using Tibetan singing bowls to release tension and restore harmony.',
+          tag: 'Healing · Relaxation'
+        },
+        {
+          num: '04',
+          name: 'Singing Bowl Training',
+          desc: 'Professional certification courses at Levels 1, 2, and 3 — from beginner to advanced practitioner.',
+          tag: 'Certification L1–L3'
+        },
+        {
+          num: '05',
+          name: "Yoga Teacher's Training",
+          desc: 'Comprehensive programmes to become a certified yoga instructor, grounded in authentic tradition.',
+          tag: 'Certification'
+        },
+        {
+          num: '06',
+          name: 'Retreats & Tours',
+          desc: 'Immersive yoga retreats, spiritual tours, and mindfulness hikes through the sacred landscapes of Nepal.',
+          tag: 'Multi-day'
+        }
+      ] %>
+
+      <% primary.forEach(function(s, i) { %>
+      <article class="bg-surface rounded-none border border-line p-8 md:p-12 flex flex-col gap-6 md:gap-8 group hover:border-gold transition-all duration-700 relative fade-up delay-<%= (i % 3) + 1 %> overflow-hidden">
+        <!-- Decorative bg circle on hover -->
+        <div class="absolute -right-20 -top-20 w-48 h-48 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/20 transition-colors duration-700 pointer-events-none"></div>
+        
+        <div class="flex items-start justify-between relative z-10">
+          <span class="text-[14px] font-sans font-light text-muted tracking-widest2 group-hover:text-gold transition-colors duration-500"><%= s.num %></span>
+          <span class="text-[9px] font-sans font-bold uppercase tracking-widest3 text-terra border border-terra/30 px-4 py-2 rounded-full group-hover:border-gold group-hover:text-gold transition-colors duration-500"><%= s.tag %></span>
+        </div>
+        <div class="flex-grow relative z-10">
+          <h3 class="font-serif text-3xl md:text-4xl font-light text-stone group-hover:text-gold mb-5 leading-snug transition-colors duration-500"><%= s.name %></h3>
+          <p class="font-sans text-base md:text-lg text-muted group-hover:text-stone font-light leading-relaxed transition-colors duration-500"><%= s.desc %></p>
+        </div>
+        <div class="mt-auto pt-6 flex items-center gap-4 relative z-10">
+          <span class="text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-20px] group-hover:translate-x-0">Explore</span>
+          <div class="w-0 h-px bg-gold transition-all duration-700 group-hover:w-20"></div>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+
+    <!-- Secondary services row -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <% const secondary = ['Kids Yoga', 'Corporate Yoga', 'Yogic Zumba', 'Mindfulness Hikes', 'Spiritual Tours'] %>
+      <% secondary.forEach(function(name) { %>
+      <div class="bg-transparent rounded-full px-8 py-4 border border-line text-center hover:border-gold hover:bg-gold/5 group transition-all duration-500 cursor-default">
+        <span class="font-sans text-xs font-light text-muted group-hover:text-gold uppercase tracking-widest3 transition-colors duration-500"><%= name %></span>
+      </div>
+      <% }) %>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════ -->
+<section id="about" class="py-32 md:py-48 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="about-heading">
+  <!-- Decorative background elements -->
+  <div class="absolute -left-40 top-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center relative z-10">
+
+    <!-- Images -->
+    <div class="relative fade-up order-2 lg:order-1 group">
+      <!-- Ambient glow behind main image -->
+      <div class="absolute inset-0 bg-gold/10 rounded-none transform rotate-3 scale-105 transition-transform duration-1000 group-hover:rotate-6"></div>
+      
+      <!-- Main Image -->
+      <div class="overflow-hidden rounded-none shadow-2xl transition-transform duration-1000 relative z-10 group-hover:-translate-y-4">
+        <img
+          src="/images/girl-with-tibetean-bowl.png"
+          alt="Yoga practitioner in a peaceful pose"
+          class="w-full aspect-[4/5] object-cover filter grayscale opacity-80 transition-all duration-1000 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Floating Transparent PNG -->
+      <div class="absolute -bottom-16 -right-10 md:-right-20 w-2/3 max-w-[300px] transition-transform duration-1000 delay-100 z-20 group-hover:-translate-y-8 group-hover:rotate-6 pointer-events-none">
+        <img
+          src="/images/tibetansingingbowl.png"
+          alt="Tibetan singing bowls"
+          class="w-full h-auto object-contain filter grayscale opacity-80 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-[0_0_40px_rgba(196,162,90,0.4)]"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="order-1 lg:order-2 fade-up delay-2">
+      <div class="inline-flex items-center gap-4 mb-6">
+        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Our Story</span>
+        <span class="w-16 h-px bg-gold/50"></span>
+      </div>
+      <h2 id="about-heading" class="font-serif text-5xl md:text-7xl font-light text-stone leading-tight mb-10">
+        A sanctuary for<br><span class="italic text-gold">inner growth</span>
+      </h2>
+      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
+        <p>
+          Nestled in the ancient city of Bhaktapur, Pragya Path was founded with a single intention —
+          to offer a genuine space where people can slow down, breathe, and reconnect with themselves.
+        </p>
+        <p>
+          We draw from the deep roots of Hatha Yoga and the meditative tradition of Sound Healing,
+          offering practices that are both time-honoured and accessible to modern life.
+        </p>
+        <p class="font-light text-stone">
+          Whether you are a complete beginner or an experienced practitioner, you are welcome here.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-14 grid grid-cols-3 gap-8 pt-10 border-t border-line">
+        <div>
+          <div class="font-serif text-5xl text-gold mb-2">11+</div>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Services</div>
+        </div>
+        <div>
+          <div class="font-serif text-5xl text-gold mb-2">2×</div>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Daily Classes</div>
+        </div>
+        <div>
+          <div class="font-serif text-5xl text-gold mb-2">All</div>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Levels</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     GALLERY
+════════════════════════════════════════════════ -->
+<section id="gallery" class="py-32 md:py-48 px-4 md:px-6 bg-base border-b border-line" aria-labelledby="gallery-heading">
+  <div class="max-w-[100rem] mx-auto">
+    <div class="text-center mb-24 fade-up">
+      <h2 id="gallery-heading" class="font-serif text-5xl md:text-7xl font-light text-stone">
+        Glimpses of the <span class="italic text-gold">Sanctuary</span>
+      </h2>
+    </div>
+
+    <!-- Gallery Grid (10 Images) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-max">
+      
+      <% const galleryImages = [
+        { src: 'sound healing group.jpeg', alt: 'Group Healing Session', classes: 'col-span-2 row-span-2 h-[316px] md:h-[604px]' },
+        { src: 'girl-with-tibetean-bowl.png', alt: 'Tibetan Bowl Practice', classes: 'col-span-1 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'healing sound.jpeg', alt: 'Sound Resonance', classes: 'col-span-1 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'with foregin guest group photo.jpeg', alt: 'Global Community', classes: 'col-span-1 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'yoda session.jpeg', alt: 'Hatha Yoga Flow', classes: 'col-span-1 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'sound healing glimp.jpeg', alt: 'Vibrational Therapy', classes: 'col-span-2 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'yoga traning.jpeg', alt: 'Teacher Training', classes: 'col-span-2 row-span-1 h-[150px] md:h-[290px]' },
+        { src: 'sound healing.jpeg', alt: 'Deep Meditation', classes: 'col-span-1 row-span-2 h-[316px] md:h-[604px]' },
+        { src: 'group photo with guest.jpeg', alt: 'Sangha & Connection', classes: 'col-span-2 row-span-2 h-[316px] md:h-[604px]' },
+        { src: 'sound-healing.png', alt: 'Acoustic Healing', classes: 'col-span-1 row-span-2 h-[316px] md:h-[604px]' }
+      ]; %>
+
+      <% galleryImages.forEach(function(img, i) { 
+        // Create a slight delay cascade for animation
+        const delayClass = `delay-${(i % 3) + 1}`;
+      %>
+      <div class="<%= img.classes %> rounded-none overflow-hidden group relative fade-up <%= delayClass %> border border-line/20 hover:border-gold/50 transition-colors duration-700 bg-surface/30 shadow-luxury hover:shadow-glow z-10 hover:z-20">
+        <!-- Base darkness overlay -->
+        <div class="absolute inset-0 bg-base/40 group-hover:bg-transparent transition-colors duration-1000 z-10 pointer-events-none"></div>
+        
+        <!-- Image -->
+        <img 
+          src="/images/gallery/<%= encodeURIComponent(img.src) %>" 
+          alt="<%= img.alt %>" 
+          class="w-full h-full object-cover filter grayscale opacity-70 transition-all duration-[1500ms] ease-out group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100"
+          loading="lazy"
+        >
+
+        <!-- Elegant Caption Overlay -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-base via-base/80 to-transparent opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 z-20 pointer-events-none">
+          <div class="flex items-center gap-3">
+            <span class="w-4 h-px bg-gold"></span>
+            <p class="font-sans text-[10px] md:text-xs font-bold uppercase tracking-widest3 text-stone drop-shadow-md"><%= img.alt %></p>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════════ -->
+<section id="pricing" class="py-32 md:py-48 px-6 md:px-12 bg-surface border-b border-line" aria-labelledby="pricing-heading">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-24 text-center mx-auto max-w-2xl fade-up">
+      <div class="inline-flex items-center justify-center gap-4 mb-6">
+        <span class="w-12 h-px bg-gold/50"></span>
+        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Pricing & Schedule</p>
+        <span class="w-12 h-px bg-gold/50"></span>
+      </div>
+      <h2 id="pricing-heading" class="font-serif text-5xl md:text-7xl font-light text-stone">
+        Simple, transparent <span class="italic text-gold">pricing</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Pricing cards -->
+      <% const plans = [
+        { name: 'Drop-in',  local: 'Rs. 500',  intl: '$7',  note: 'Per single class' },
+        { name: 'Weekly',   local: 'Rs. 1,500', intl: '$20', note: '5 classes / week', highlight: true },
+        { name: 'Monthly',  local: 'Rs. 4,000', intl: '$50', note: 'Unlimited classes' }
+      ] %>
+
+      <% plans.forEach(function(p, i) { %>
+      <div class="fade-up delay-<%= i + 1 %> <%= p.highlight ? 'bg-base shadow-glow scale-100 md:scale-105 z-10 border border-gold/30' : 'bg-transparent border border-line hover:border-gold/50 hover:bg-base' %> p-8 md:p-14 flex flex-col gap-6 transition-all duration-700 transform md:hover:-translate-y-4 relative overflow-hidden group">
+        <% if (p.highlight) { %>
+          <div class="absolute -right-20 -top-20 w-48 h-48 bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+        <% } %>
+        <div class="relative z-10 text-center">
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest2 <%= p.highlight ? 'text-gold' : 'text-muted' %> mb-4"><%= p.note %></div>
+          <div class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %>"><%= p.name %></div>
+        </div>
+        <div class="flex flex-col gap-5 py-10 border-t border-b <%= p.highlight ? 'border-gold/20' : 'border-line/80' %> relative z-10">
+          <div class="flex justify-between items-end">
+            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 <%= p.highlight ? 'text-gold/70' : 'text-muted/60' %>">Nepali</span>
+            <span class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.local %></span>
+          </div>
+          <div class="flex justify-between items-end">
+            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 <%= p.highlight ? 'text-gold/70' : 'text-muted/60' %>">Int'l</span>
+            <span class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.intl %></span>
+          </div>
+        </div>
+        <a href="#contact"
+           class="text-center text-[12px] font-sans font-bold uppercase tracking-widest3 py-5 transition-all duration-500 relative overflow-hidden z-10 mt-4
+                  <%= p.highlight
+                    ? 'bg-gold text-base hover:bg-stone hover:scale-105'
+                    : 'bg-transparent border border-line text-stone hover:border-gold hover:bg-gold hover:text-base' %>">
+          Enquire Now
+        </a>
+      </div>
+      <% }) %>
+
+    </div>
+
+    <!-- Schedule note -->
+    <div class="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-center gap-6 p-8 bg-base border border-line fade-up max-w-4xl mx-auto group hover:border-gold/50 transition-colors duration-700">
+      <div class="shrink-0 w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center">
+        <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+        <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Daily Class Times</div>
+        <div class="hidden sm:block w-px h-8 bg-line"></div>
+        <div class="font-serif text-2xl font-light text-stone">
+          Morning &nbsp;·&nbsp; <span class="font-sans text-lg font-normal text-muted">6:00 – 9:00 AM</span> &nbsp;&nbsp;<span class="text-line hidden sm:inline">|</span>&nbsp;&nbsp; Evening &nbsp;·&nbsp; <span class="font-sans text-lg font-normal text-muted">5:00 – 8:00 PM</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════ -->
+<section id="contact" class="py-32 md:py-48 px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="contact-heading">
+  <!-- Decorative background -->
+  <div class="absolute -right-40 bottom-0 w-[50rem] h-[50rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 relative z-10">
+
+    <!-- Left: info -->
+    <div class="fade-up">
+      <div class="inline-flex items-center gap-4 mb-6">
+        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Get in Touch</span>
+        <span class="w-16 h-px bg-gold/50"></span>
+      </div>
+      <h2 id="contact-heading" class="font-serif text-6xl md:text-7xl font-light text-stone leading-tight mb-8">
+        We'd love to<br><span class="italic text-gold">hear from you</span>
+      </h2>
+      <p class="font-sans text-muted font-light leading-relaxed text-lg mb-16 max-w-md">
+        Whether you have a question about classes, want to arrange a retreat,
+        or simply want to know more — reach out and we'll get back to you soon.
+      </p>
+
+      <address class="not-italic space-y-10">
+        <a href="tel:+9779828589863" class="flex items-center gap-8 group">
+          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 3z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Phone</div>
+            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">+977 9828589863</div>
+          </div>
+        </a>
+
+        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-8 group">
+          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Email</div>
+            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">pragyapath1@gmail.com</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-8 group">
+          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Location</div>
+            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">Dattatraye, Bhaktapur, Nepal</div>
+          </div>
+        </div>
+      </address>
+    </div>
+
+    <!-- Right: form -->
+    <div class="fade-up delay-2 bg-surface p-8 md:p-16 relative">
+      <div class="absolute top-0 left-0 w-2 h-full bg-gold"></div>
+      <form action="/inquiry" method="POST" novalidate class="space-y-10" id="inquiry-form">
+        <% const errors = locals.errors || {}; const values = locals.values || {}; %>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div>
+            <label for="name" class="block text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-2">Name *</label>
+            <input
+              type="text" id="name" name="name"
+              value="<%= values.name || '' %>"
+              placeholder="Your name"
+              required
+              class="form-input <%= errors.name ? 'form-input-error' : '' %>"
+              autocomplete="name"
+            >
+            <% if (errors.name) { %>
+            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.name %></p>
+            <% } %>
+          </div>
+          <div>
+            <label for="email" class="block text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-2">Email *</label>
+            <input
+              type="email" id="email" name="email"
+              value="<%= values.email || '' %>"
+              placeholder="your@email.com"
+              required
+              class="form-input <%= errors.email ? 'form-input-error' : '' %>"
+              autocomplete="email"
+            >
+            <% if (errors.email) { %>
+            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.email %></p>
+            <% } %>
+          </div>
+        </div>
+
+        <div>
+          <label for="phone" class="block text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-2">Phone <span class="normal-case tracking-normal font-light text-muted">(optional)</span></label>
+          <input
+            type="tel" id="phone" name="phone"
+            value="<%= values.phone || '' %>"
+            placeholder="+977 ..."
+            class="form-input <%= errors.phone ? 'form-input-error' : '' %>"
+            autocomplete="tel"
+          >
+        </div>
+
+        <div>
+          <label for="message" class="block text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-2">Message *</label>
+          <textarea
+            id="message" name="message"
+            rows="4"
+            placeholder="Tell us what you're looking for..."
+            required
+            class="form-input resize-none <%= errors.message ? 'form-input-error' : '' %>"
+          ><%= values.message || '' %></textarea>
+          <% if (errors.message) { %>
+          <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.message %></p>
+          <% } %>
+        </div>
+
+        <button
+          type="submit" id="submit-btn"
+          class="w-full flex items-center justify-center gap-4 bg-gold text-base text-[12px] font-sans font-bold uppercase tracking-widest3
+                 py-6 hover:bg-stone hover:scale-[1.02] hover:shadow-glow transition-all duration-500 mt-8 group">
+          <span>Send Message</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- Scroll reveal -->
+<script>
+(function () {
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+
+  // Trigger hero items immediately
+  document.querySelectorAll('.hero-fade').forEach(function (el) {
+    el.classList.add('visible');
+  });
+
+  // Form submit state
+  var form = document.getElementById('inquiry-form');
+  var btn  = document.getElementById('submit-btn');
+  if (form && btn) {
+    form.addEventListener('submit', function () {
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-not-allowed');
+    });
+  }
+})();
+</script>
+
+<%- include('partials/footer') %>

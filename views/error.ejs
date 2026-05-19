@@ -1,0 +1,35 @@
+﻿<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<main class="min-h-screen flex items-center justify-center px-6 py-32 bg-stone">
+  <div class="max-w-lg w-full text-center fade-up visible">
+
+    <div class="w-16 h-16 rounded-full bg-terra/10 flex items-center justify-center mx-auto mb-8">
+      <svg class="w-7 h-7 text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+      </svg>
+    </div>
+
+    <p class="section-label mb-4">Error <%= statusCode %></p>
+    <h1 class="font-serif text-4xl font-light text-ink mb-5"><%= statusCode === 404 ? 'Page not found' : 'Something went wrong' %></h1>
+    <p class="font-sans text-muted font-light leading-relaxed text-[15px] mb-10"><%= message %></p>
+
+    <% if (locals.stack) { %>
+    <pre class="text-left bg-white border border-line rounded-xl p-6 text-[11px] font-mono text-muted overflow-auto max-h-40 mb-10"><%= stack %></pre>
+    <% } %>
+
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/"
+         class="inline-flex items-center gap-2 bg-ink text-white text-[11px] font-sans font-semibold uppercase tracking-widest2 px-8 py-4 rounded-full hover:bg-terra transition-colors duration-300">
+        Go Home
+      </a>
+      <a href="mailto:pragyapath1@gmail.com"
+         class="inline-flex items-center gap-2 border border-line text-ink text-[11px] font-sans font-semibold uppercase tracking-widest2 px-8 py-4 rounded-full hover:border-terra hover:text-terra transition-colors duration-300">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

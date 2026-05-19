@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #001B2A;
+    color: #E0E1DD;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: rgba(27, 38, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 225, 221, 0.1);
+  }
+}
