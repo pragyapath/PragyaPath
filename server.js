@@ -18,25 +18,29 @@ const app = express();
 app.use(compression()); // Gzip compression
 
 // Live Reload for Development (refreshes browser on file change)
-if (config.NODE_ENV !== 'production') {
-    const livereload = require('livereload');
-    const connectLiveReload = require('connect-livereload');
-    
-    // Setup livereload server
-    const liveReloadServer = livereload.createServer();
-    liveReloadServer.watch([
-        path.join(__dirname, 'public'),
-        path.join(__dirname, 'views')
-    ]);
-    
-    // Ping browser on Express restart
-    liveReloadServer.server.once('connection', () => {
-        setTimeout(() => {
-            liveReloadServer.refresh('/');
-        }, 100);
-    });
-    
-    app.use(connectLiveReload());
+if (process.env.NODE_ENV !== 'production') {
+    try {
+        const livereload = require('livereload');
+        const connectLiveReload = require('connect-livereload');
+        
+        // Setup livereload server
+        const liveReloadServer = livereload.createServer();
+        liveReloadServer.watch([
+            path.join(__dirname, 'public'),
+            path.join(__dirname, 'views')
+        ]);
+        
+        // Ping browser on Express restart
+        liveReloadServer.server.once('connection', () => {
+            setTimeout(() => {
+                liveReloadServer.refresh('/');
+            }, 100);
+        });
+        
+        app.use(connectLiveReload());
+    } catch (e) {
+        // Ignore missing dev dependencies
+    }
 }
 
 app.use(helmet({
@@ -156,9 +160,14 @@ app.use((err, req, res, next) => {
 });
 
 // --- START SERVER ---
-app.listen(config.PORT, () => {
-    console.log(`--- PRAGYA PATH SECURE SERVER ---`);
-    console.log(`Port: ${config.PORT}`);
-    console.log(`Environment: ${config.NODE_ENV}`);
-    console.log(`URL: http://localhost:${config.PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(config.PORT, () => {
+        console.log(`--- PRAGYA PATH SECURE SERVER ---`);
+        console.log(`Port: ${config.PORT}`);
+        console.log(`Environment: ${config.NODE_ENV}`);
+        console.log(`URL: http://localhost:${config.PORT}`);
+    });
+}
+
+// Export for Vercel Serverless
+module.exports = app;
