@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
+    "build": "npm run build:css",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:css\"",
     "dev:server": "nodemon -e js,ejs server.js",
     "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
