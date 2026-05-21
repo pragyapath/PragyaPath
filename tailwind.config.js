@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './views/**/*.ejs',
@@ -19,7 +19,7 @@ module.exports = {
         line:    '#8BD3DD', // Soft Aqua - borders and dividers
       },
       fontFamily: {
-        serif: ['"Montserrat"', 'system-ui', 'sans-serif'], // Replaced traditional serif with modern bold geometry
+        serif: ['"Playfair Display"', 'Georgia', 'serif'], // Elegant editorial serif for spiritual headings
         sans:  ['"Inter"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
