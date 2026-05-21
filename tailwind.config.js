@@ -7,19 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Grounded Sanctuary Palette (Psychology-driven for Wellness)
-        base:    '#1F2421', // Deep Forest/Olive - soothing, natural, deeply grounding
-        surface: '#29302B', // Soft elevated earth tone - reduces eye strain
-        stone:   '#F4EFE6', // Warm parchment/sand - gentle readability (no harsh whites)
-        ink:     '#161917', // Deepest shadow for inverted contrast
-        muted:   '#A3A8A4', // Soft sage green/grey for secondary reading
-        terra:   '#C57B57', // Earthy terracotta/clay - human connection, warmth
-        sage:    '#405045', // Mid-tone botanical green
-        gold:    '#C4A25A', // Antique brass/gold - spiritual richness, singing bowls
-        line:    '#3E4640', // Soft natural boundaries
+        // Modern & Bold Palette (Spiritual Contrast)
+        base:    '#F4F9F9', // Crisp Off-White - main background
+        surface: '#FFFFFF', // Pure White - elevated surface
+        stone:   '#0F383D', // Very Dark Teal - primary text
+        ink:     '#EBF3F3', // Light Tinted Background - subtle contrast areas
+        muted:   '#1A6A73', // Deep Teal - secondary text/elements
+        terra:   '#EE7924', // Vibrant Orange - active accents
+        sage:    '#8BD3DD', // Soft Aqua - section backgrounds/accents
+        gold:    '#EE7924', // Vibrant Orange - primary CTAs and highlights
+        line:    '#8BD3DD', // Soft Aqua - borders and dividers
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Montserrat"', 'system-ui', 'sans-serif'], // Replaced traditional serif with modern bold geometry
         sans:  ['"Inter"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {

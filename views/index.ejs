@@ -70,10 +70,10 @@
 <section class="bg-sage py-16 px-6 md:px-12 relative overflow-hidden" aria-label="Studio tagline">
   <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-    <p class="font-serif italic text-white/90 text-2xl md:text-4xl font-light text-center md:text-left leading-snug">
-      "Step onto the path of awareness, health and harmony."
+    <p class="font-serif italic text-stone/90 text-2xl md:text-4xl font-light text-center md:text-left leading-snug">
+      "Yoga is not just repetition of few postures - it is more about the exploration and discovery of the subtle energies of life."
     </p>
-    <div class="flex items-center gap-8 text-white/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
+    <div class="flex items-center gap-8 text-stone/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
       <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>Est. Bhaktapur</span>
       <span class="w-px h-6 bg-white/20"></span>
       <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>All Levels Welcome</span>
@@ -172,9 +172,335 @@
       </div>
       <% }) %>
     </div>
+  </div>
+</section>
+
+<!-- 
+     HIKING & NATURE RETREATS
+-->
+<section id="hiking" class="py-32 md:py-48 px-6 md:px-12 bg-ink relative border-b border-line overflow-hidden" aria-labelledby="hiking-heading">
+  <!-- Decorative background elements -->
+  <div class="absolute -right-40 -bottom-40 w-[40rem] h-[40rem] bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center relative z-10">
+
+    <!-- Content -->
+    <div class="order-1 lg:order-1 fade-up relative z-20">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="w-12 h-px bg-gold/50"></span>
+        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Nature Retreats</p>
+      </div>
+
+      <h2 id="hiking-heading" class="font-serif text-5xl md:text-7xl font-light text-stone leading-tight mb-10">
+        Connect with <br><span class="italic text-gold">Nature</span>
+      </h2>
+
+      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
+        <p>
+          Beyond the mat and the singing bowls, true healing happens when we step outside. Our guided hiking retreats take you into the breathtaking hills surrounding the Kathmandu Valley.
+        </p>
+        <p>
+          Experience mindful walking, outdoor meditation sessions, and breathtaking panoramic views of the Himalayas. These hikes are designed to ground your energy, clear your mind, and deepen your spiritual practice in the embrace of nature.
+        </p>
+      </div>
+
+      <div class="mt-14 pt-10 border-t border-line flex flex-wrap gap-8">
+        <div>
+          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Local
+          </div>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Trails</div>
+        </div>
+        <div>
+          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            Morning
+          </div>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Sessions</div>
+        </div>
+      </div>
+      
+      <div class="mt-12">
+        <a href="#contact" class="inline-flex items-center gap-3 bg-gold text-base text-[11px] font-sans font-bold uppercase tracking-widest2 px-10 py-5 hover:bg-surface hover:text-stone hover:shadow-glow transition-all duration-500 rounded-none border border-gold group">
+          Join a Hike
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Mini-Game / Simulation -->
+    <div class="relative fade-up delay-2 order-2 lg:order-2 group">
+      <!-- Ambient glow -->
+      <div class="absolute inset-0 bg-sage/20 rounded-none transform -rotate-3 scale-105 transition-transform duration-1000 group-hover:-rotate-6"></div>
+      
+      <!-- Canvas Container -->
+      <div class="overflow-hidden rounded-none shadow-2xl transition-transform duration-1000 relative z-10 group-hover:-translate-y-4 bg-ink border border-line/20">
+        <canvas id="hiking-canvas" class="w-full aspect-[4/5] object-cover cursor-pointer touch-none transition-all duration-1000 group-hover:scale-105"></canvas>
+      </div>
+    </div>
 
   </div>
 </section>
+
+<!-- Hiking Interactive Script (Playable Mini-Game) -->
+<script>
+  (function() {
+    const canvas = document.getElementById('hiking-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    
+    // Game state
+    let scrollX = 0;
+    let targetScrollX = 0;
+    
+    // Physics / Jumping
+    let hikerYOffset = 0;
+    let hikerVY = 0;
+    let isJumping = false;
+    const gravity = 0.6;
+    const jumpPower = -11;
+    
+    // Game mechanics
+    let score = 0;
+    let rocks = [];
+    let nextRockX = 600;
+    let gameState = 'playing'; // 'playing', 'hit'
+    let hitTimer = 0;
+    
+    // Colors matching palette
+    const COLOR_SKY = '#F4F9F9';
+    const COLOR_SUN = '#EE7924';
+    const COLOR_MOUNTAIN_FAR = '#8BD3DD';
+    const COLOR_MOUNTAIN_MID = '#1A6A73';
+    const COLOR_MOUNTAIN_NEAR = '#0F383D';
+    
+    function resize() {
+      w = canvas.parentElement.clientWidth;
+      h = canvas.parentElement.clientHeight;
+      canvas.width = w * window.devicePixelRatio;
+      canvas.height = h * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    
+    window.addEventListener('resize', resize);
+    setTimeout(resize, 100);
+    
+    // Controls: Any click/tap makes the hiker jump
+    const jump = (e) => {
+      e.preventDefault(); 
+      if(!isJumping) {
+        isJumping = true;
+        hikerVY = jumpPower;
+        if(gameState === 'hit') gameState = 'playing';
+      }
+    };
+    
+    canvas.addEventListener('mousedown', jump);
+    canvas.addEventListener('touchstart', jump, {passive: false});
+    // Remove pointer-events from canvas temporarily if user wants to scroll past it, 
+    // but the aspect ratio requires them to touch it. 
+    // We only prevent default on the canvas itself, so scrolling outside works.
+    
+    // Terrain math (reused for drawing and collision)
+    function getTerrainY(worldX, yBase, amplitude, frequency) {
+      const noise = Math.sin(worldX * frequency) * amplitude 
+                  + Math.cos(worldX * frequency * 2.5) * (amplitude * 0.3);
+      return yBase - noise;
+    }
+    
+    // Draw mountain layer
+    function drawMountains(offset, yBase, amplitude, frequency, color) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for(let x = 0; x <= w; x += 10) {
+        ctx.lineTo(x, getTerrainY(x + offset, yBase, amplitude, frequency));
+      }
+      ctx.lineTo(w, h);
+      ctx.fill();
+    }
+    
+    // Draw Hiker
+    let stepCycle = 0;
+    function drawHiker(x, baseY) {
+      ctx.save();
+      ctx.translate(x, baseY + hikerYOffset);
+      
+      // Stop walking animation if jumping or hit
+      if(!isJumping && gameState !== 'hit') {
+        stepCycle += 0.2;
+      }
+      
+      const bob = isJumping ? -2 : Math.sin(stepCycle * 2) * 2;
+      
+      ctx.fillStyle = gameState === 'hit' ? '#FF5555' : COLOR_SUN;
+      
+      // Torso/Backpack
+      ctx.beginPath();
+      ctx.roundRect(-4, bob - 16, 8, 16, 3);
+      ctx.fill();
+      
+      // Head
+      ctx.beginPath();
+      ctx.arc(0, bob - 24, 6, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Backpack detailing
+      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
+      ctx.beginPath();
+      ctx.roundRect(-7, bob - 14, 5, 12, 2); 
+      ctx.fill();
+      
+      // Legs
+      ctx.strokeStyle = gameState === 'hit' ? '#FF5555' : COLOR_SUN;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      
+      // Left leg
+      ctx.beginPath();
+      ctx.moveTo(-1, bob);
+      ctx.lineTo(isJumping ? -4 : -2 + Math.sin(stepCycle) * 8, bob + 12);
+      ctx.stroke();
+      
+      // Right leg
+      ctx.beginPath();
+      ctx.moveTo(2, bob);
+      ctx.lineTo(isJumping ? 4 : 2 + Math.sin(stepCycle + Math.PI) * 8, bob + 12);
+      ctx.stroke();
+      
+      // Hiking stick (hide if hit)
+      if (gameState !== 'hit') {
+        ctx.strokeStyle = COLOR_MOUNTAIN_NEAR;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(8, bob - 5);
+        ctx.lineTo(12 + Math.sin(stepCycle + Math.PI) * 5, bob + 14);
+        ctx.stroke();
+      }
+      
+      ctx.restore();
+    }
+    
+    // Draw obstacles (rocks)
+    function drawRocks(terrainParams) {
+      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
+      for (let i = rocks.length - 1; i >= 0; i--) {
+        const r = rocks[i];
+        const screenX = r.x - scrollX;
+        
+        // Remove offscreen
+        if (screenX < -50) {
+          rocks.splice(i, 1);
+          continue;
+        }
+        
+        // Draw if on screen
+        if (screenX < w + 50) {
+          const terrainY = getTerrainY(r.x, ...terrainParams);
+          
+          ctx.beginPath();
+          // Draw a jagged rock shape
+          ctx.moveTo(screenX - 10, terrainY);
+          ctx.lineTo(screenX - 5, terrainY - 15);
+          ctx.lineTo(screenX + 5, terrainY - 18);
+          ctx.lineTo(screenX + 12, terrainY - 10);
+          ctx.lineTo(screenX + 15, terrainY);
+          ctx.fill();
+          
+          // Collision Check
+          const hikerScreenX = w / 2;
+          if (!r.passed && screenX > hikerScreenX - 15 && screenX < hikerScreenX + 15) {
+             // Hiker is over the rock X-wise. Check Y-wise.
+             if (hikerYOffset > -15) { // Collided!
+                gameState = 'hit';
+                hitTimer = 30;
+                score = Math.max(0, score - 5);
+                r.passed = true;
+             } else {
+                // Successfully jumped over!
+                score += 10;
+                r.passed = true;
+             }
+          }
+        }
+      }
+    }
+    
+    function loop() {
+      // Auto run
+      const speed = gameState === 'hit' ? 0.5 : 3.5;
+      targetScrollX += speed;
+      scrollX += (targetScrollX - scrollX) * 0.2;
+      
+      // Generate new rocks
+      if (scrollX + w > nextRockX) {
+        rocks.push({ x: nextRockX, passed: false });
+        nextRockX += 300 + Math.random() * 400; // random gap between 300-700px
+      }
+      
+      // Physics (Gravity & Jumping)
+      if(isJumping) {
+        hikerVY += gravity;
+        hikerYOffset += hikerVY;
+        if(hikerYOffset >= 0) {
+          hikerYOffset = 0;
+          hikerVY = 0;
+          isJumping = false;
+        }
+      }
+      
+      // Hit flash logic
+      if (hitTimer > 0) hitTimer--;
+      if (hitTimer === 0 && gameState === 'hit') gameState = 'playing';
+      
+      // Background / Sky
+      ctx.fillStyle = hitTimer > 0 && hitTimer % 4 < 2 ? '#FFDDDD' : COLOR_SKY;
+      ctx.fillRect(0, 0, w, h);
+      
+      // Sun
+      ctx.fillStyle = COLOR_SUN;
+      ctx.beginPath();
+      ctx.arc(w * 0.7 - (scrollX * 0.02), h * 0.25, w * 0.1, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Parallax Layers
+      drawMountains(scrollX * 0.3, h * 0.45, h * 0.15, 0.004, COLOR_MOUNTAIN_FAR);
+      drawMountains(scrollX * 0.6, h * 0.65, h * 0.12, 0.007, COLOR_MOUNTAIN_MID);
+      
+      // Foreground Layer Params
+      const fgParams = [h * 0.85, h * 0.08, 0.012];
+      drawMountains(scrollX, fgParams[0], fgParams[1], fgParams[2], COLOR_MOUNTAIN_NEAR);
+      
+      // Obstacles
+      drawRocks(fgParams);
+      
+      // Get exact Y position of foreground at center of screen for the hiker to stand on
+      const hikerTerrainY = getTerrainY(scrollX + w/2, fgParams[0], fgParams[1], fgParams[2]);
+      drawHiker(w/2, hikerTerrainY);
+      
+      // UI / Text
+      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
+      ctx.font = '800 16px Montserrat, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`Zen Points: ${score}`, 20, 30);
+      
+      ctx.fillStyle = COLOR_SKY;
+      ctx.font = '600 12px Montserrat, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.globalAlpha = 0.9;
+      // letterSpacing hack for canvas
+      const text = "TAP TO JUMP";
+      ctx.fillText(text, w/2, h - 20);
+      ctx.globalAlpha = 1.0;
+      
+      requestAnimationFrame(loop);
+    }
+    
+    loop();
+  })();
+</script>
 
 
 <!-- ═══════════════════════════════════════════════

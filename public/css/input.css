@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #1F2421;
+    background-color: #F4F9F9;
   }
   body {
     @apply bg-base text-stone antialiased;
