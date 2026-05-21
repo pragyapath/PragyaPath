@@ -33,7 +33,7 @@
         <p class="text-[10px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
       </div>
       
-      <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-light leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 fade-up delay-1 drop-shadow-2xl">
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-medium leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 fade-up delay-1 drop-shadow-2xl">
         Awaken.<br>Heal.<br><span class="italic text-gold">Transform.</span>
       </h1>
       
@@ -70,7 +70,7 @@
 <section class="bg-sage py-16 px-6 md:px-12 relative overflow-hidden" aria-label="Studio tagline">
   <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-    <p class="font-serif italic text-stone/90 text-2xl md:text-4xl font-light text-center md:text-left leading-snug">
+    <p class="font-serif italic text-stone/90 text-2xl md:text-4xl font-medium text-center md:text-left leading-snug">
       "Yoga is not just repetition of few postures - it is more about the exploration and discovery of the subtle energies of life."
     </p>
     <div class="flex items-center gap-8 text-stone/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
@@ -95,7 +95,7 @@
         <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">What We Offer</p>
         <span class="w-12 h-px bg-gold/50"></span>
       </div>
-      <h2 id="services-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone leading-tight">
+      <h2 id="services-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
         Practices for body, mind & soul
       </h2>
     </div>
@@ -152,7 +152,7 @@
           <span class="text-[9px] font-sans font-bold uppercase tracking-widest3 text-terra border border-terra/30 px-4 py-2 rounded-full group-hover:border-gold group-hover:text-gold transition-colors duration-500"><%= s.tag %></span>
         </div>
         <div class="flex-grow relative z-10">
-          <h3 class="font-serif text-3xl md:text-4xl font-light text-stone group-hover:text-gold mb-5 leading-snug transition-colors duration-500"><%= s.name %></h3>
+          <h3 class="font-serif text-3xl md:text-4xl font-medium text-stone group-hover:text-gold mb-5 leading-snug transition-colors duration-500"><%= s.name %></h3>
           <p class="font-sans text-base md:text-lg text-muted group-hover:text-stone font-light leading-relaxed transition-colors duration-500"><%= s.desc %></p>
         </div>
         <div class="mt-auto pt-6 flex items-center gap-4 relative z-10">
@@ -191,7 +191,7 @@
         <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Nature Retreats</p>
       </div>
 
-      <h2 id="hiking-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone leading-tight mb-10">
+      <h2 id="hiking-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
         Connect with <br><span class="italic text-gold">Nature</span>
       </h2>
 
@@ -544,7 +544,7 @@
         <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Our Story</span>
         <span class="w-16 h-px bg-gold/50"></span>
       </div>
-      <h2 id="about-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone leading-tight mb-10">
+      <h2 id="about-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
         A sanctuary for<br><span class="italic text-gold">inner growth</span>
       </h2>
       <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
@@ -587,7 +587,7 @@
 <section id="gallery" class="py-12 md:py-16 px-4 md:px-6 bg-base border-b border-line" aria-labelledby="gallery-heading">
   <div class="max-w-[100rem] mx-auto">
     <div class="text-center mb-24 fade-up">
-      <h2 id="gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone">
+      <h2 id="gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone">
         Glimpses of the <span class="italic text-gold">Sanctuary</span>
       </h2>
     </div>
@@ -652,7 +652,7 @@
         <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Pricing & Schedule</p>
         <span class="w-12 h-px bg-gold/50"></span>
       </div>
-      <h2 id="pricing-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone">
+      <h2 id="pricing-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone">
         Simple, transparent <span class="italic text-gold">pricing</span>
       </h2>
     </div>
@@ -673,16 +673,16 @@
         <% } %>
         <div class="relative z-10 text-center">
           <div class="text-[11px] font-sans font-bold uppercase tracking-widest2 <%= p.highlight ? 'text-gold' : 'text-muted' %> mb-4"><%= p.note %></div>
-          <div class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %>"><%= p.name %></div>
+          <div class="font-serif text-4xl font-medium <%= p.highlight ? 'text-stone' : 'text-stone' %>"><%= p.name %></div>
         </div>
         <div class="flex flex-col gap-5 py-10 border-t border-b <%= p.highlight ? 'border-gold/20' : 'border-line/80' %> relative z-10">
           <div class="flex justify-between items-end">
             <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 <%= p.highlight ? 'text-gold/70' : 'text-muted/60' %>">Nepali</span>
-            <span class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.local %></span>
+            <span class="font-serif text-4xl font-medium <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.local %></span>
           </div>
           <div class="flex justify-between items-end">
             <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 <%= p.highlight ? 'text-gold/70' : 'text-muted/60' %>">Int'l</span>
-            <span class="font-serif text-4xl font-light <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.intl %></span>
+            <span class="font-serif text-4xl font-medium <%= p.highlight ? 'text-stone' : 'text-stone' %> leading-none"><%= p.intl %></span>
           </div>
         </div>
         <a href="#contact"
@@ -708,7 +708,7 @@
       <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
         <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Daily Class Times</div>
         <div class="hidden sm:block w-px h-8 bg-line"></div>
-        <div class="font-serif text-2xl font-light text-stone">
+        <div class="font-serif text-2xl font-medium text-stone">
           Morning &nbsp;·&nbsp; <span class="font-sans text-lg font-normal text-muted">6:00 – 9:00 AM</span> &nbsp;&nbsp;<span class="text-line hidden sm:inline">|</span>&nbsp;&nbsp; Evening &nbsp;·&nbsp; <span class="font-sans text-lg font-normal text-muted">5:00 – 8:00 PM</span>
         </div>
       </div>
@@ -732,7 +732,7 @@
         <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Get in Touch</span>
         <span class="w-16 h-px bg-gold/50"></span>
       </div>
-      <h2 id="contact-heading" class="font-serif text-6xl md:text-7xl font-light text-stone leading-tight mb-8">
+      <h2 id="contact-heading" class="font-serif text-6xl md:text-7xl font-medium text-stone leading-tight mb-8">
         We'd love to<br><span class="italic text-gold">hear from you</span>
       </h2>
       <p class="font-sans text-muted font-light leading-relaxed text-lg mb-10 max-w-md">

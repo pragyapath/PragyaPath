@@ -19,7 +19,7 @@ module.exports = {
         line:    '#8BD3DD', // Soft Aqua - borders and dividers
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'], // Elegant editorial serif for spiritual headings
+        serif: ['"Outfit"', 'system-ui', 'sans-serif'], // Elegant editorial serif for spiritual headings
         sans:  ['"Inter"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {

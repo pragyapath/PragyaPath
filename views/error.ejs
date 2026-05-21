@@ -12,7 +12,7 @@
     </div>
 
     <p class="section-label mb-4">Error <%= statusCode %></p>
-    <h1 class="font-serif text-4xl font-light text-ink mb-5"><%= statusCode === 404 ? 'Page not found' : 'Something went wrong' %></h1>
+    <h1 class="font-serif text-4xl font-medium text-ink mb-5"><%= statusCode === 404 ? 'Page not found' : 'Something went wrong' %></h1>
     <p class="font-sans text-muted font-light leading-relaxed text-[15px] mb-10"><%= message %></p>
 
     <% if (locals.stack) { %>
