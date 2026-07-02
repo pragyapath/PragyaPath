@@ -13,9 +13,9 @@ module.exports = {
         stone:   '#0F383D', // Very Dark Teal - primary text
         ink:     '#EBF3F3', // Light Tinted Background - subtle contrast areas
         muted:   '#1A6A73', // Deep Teal - secondary text/elements
-        terra:   '#EE7924', // Vibrant Orange - active accents
+        terra:   '#EE7924', // Vibrant Orange - energetic accents
         sage:    '#8BD3DD', // Soft Aqua - section backgrounds/accents
-        gold:    '#EE7924', // Vibrant Orange - primary CTAs and highlights
+        gold:    '#C49A5C', // Warm Muted Gold - premium CTAs and highlights
         line:    '#8BD3DD', // Soft Aqua - borders and dividers
       },
       fontFamily: {
@@ -27,7 +27,9 @@ module.exports = {
         widest3: '0.35em',
       },
       boxShadow: {
-        'glow': '0 0 50px -15px rgba(196, 162, 90, 0.25)',
+        'glow': '0 0 50px -15px rgba(196, 154, 92, 0.30)',
+        'card': '0 4px 24px rgba(15, 56, 61, 0.06)',
+        'card-hover': '0 12px 48px rgba(15, 56, 61, 0.10)',
       }
     }
   },

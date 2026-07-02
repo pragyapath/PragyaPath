@@ -1,6 +1,6 @@
 ﻿<!-- NAV -->
 <nav id="nav" aria-label="Main navigation"
-     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 text-stone bg-base/50 backdrop-blur-md border-b border-line/50">
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 text-stone">
 
   <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between">
 
@@ -15,12 +15,13 @@
 
     <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-10" role="list">
-      <li><a href="#services" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">Services</a></li>
-      <li><a href="#about" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">About</a></li>
-      <li><a href="#hiking" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">Hiking</a></li>
-      <li><a href="#gallery" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">Gallery</a></li>
-      <li><a href="#pricing" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">Pricing</a></li>
-      <li><a href="#contact" class="nav-link relative text-[11px] font-sans font-medium uppercase tracking-widest2 opacity-70 hover:opacity-100 transition-opacity duration-200 after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full">Contact</a></li>
+      <li><a href="#gratitude" class="nav-link">Gratitude</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#programs" class="nav-link">Programs</a></li>
+      <li><a href="#art-gallery" class="nav-link">Art Gallery</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#newsrooms" class="nav-link">Newsrooms</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
 
     <!-- Mobile toggle -->
@@ -34,25 +35,26 @@
 
 <!-- Mobile drawer -->
 <div id="nav-drawer"
-     class="fixed inset-0 z-40 bg-base flex flex-col items-center justify-center
+     class="fixed inset-0 z-40 bg-base/95 flex flex-col items-center justify-center
             opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-3xl"
      role="dialog" aria-modal="true" aria-label="Navigation menu">
 
   <button id="nav-close" aria-label="Close menu"
-          class="absolute top-6 right-6 p-2 rounded-full bg-line text-stone hover:bg-gold hover:text-base transition-all duration-300 transform hover:scale-110">
+          class="absolute top-6 right-6 p-2 rounded-full bg-line/30 text-stone hover:bg-gold hover:text-white transition-all duration-300 transform hover:scale-110">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
     </svg>
   </button>
 
   <nav class="flex flex-col items-center gap-8 w-full px-6" aria-label="Mobile links">
-    <a href="/"        class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">Home</a>
-    <a href="#services" class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">Services</a>
-    <a href="#about"    class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">About</a>
-    <a href="#hiking"   class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">Hiking</a>
-    <a href="#gallery"  class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">Gallery</a>
-    <a href="#pricing"  class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2 border-b border-line/50">Pricing</a>
-    <a href="#contact"  class="drawer-link text-4xl md:text-5xl font-serif font-medium text-stone hover:text-gold transition-colors w-full text-center py-2">Contact</a>
+    <a href="/" class="drawer-link">Home</a>
+    <a href="#gratitude" class="drawer-link">Gratitude</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#programs" class="drawer-link">Programs</a>
+    <a href="#art-gallery" class="drawer-link">Art Gallery</a>
+    <a href="#gallery" class="drawer-link">Gallery</a>
+    <a href="#newsrooms" class="drawer-link">Newsrooms</a>
+    <a href="#contact" class="drawer-link border-b-0">Contact</a>
   </nav>
 </div>
 
@@ -63,21 +65,41 @@
   const drawer   = document.getElementById('nav-drawer');
   const closeBtn = document.getElementById('nav-close');
   const links    = document.querySelectorAll('.drawer-link');
-  const logoName = document.getElementById('nav-logo-name');
-  const logoSub  = document.getElementById('nav-logo-sub');
+  const navLinks = document.querySelectorAll('.nav-link');
 
   /* ── Scroll state ── */
   function onScroll() {
     if (window.scrollY > 40) {
-      nav.classList.add('bg-surface/95', 'backdrop-blur-xl', 'border-line', 'shadow-2xl');
-      nav.classList.remove('bg-base/50', 'backdrop-blur-md', 'border-line/50', 'py-4');
+      nav.classList.add('glass', 'shadow-lg', 'border-b', 'border-line/20');
+      nav.classList.remove('bg-transparent', 'border-transparent');
     } else {
-      nav.classList.remove('bg-surface/95', 'backdrop-blur-xl', 'border-line', 'shadow-2xl');
-      nav.classList.add('bg-base/50', 'backdrop-blur-md', 'border-line/50', 'py-4');
+      nav.classList.remove('glass', 'shadow-lg', 'border-b', 'border-line/20');
+      nav.classList.add('bg-transparent', 'border-transparent');
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ── Active nav link on scroll ── */
+  var sections = document.querySelectorAll('section[id]');
+  function setActiveLink() {
+    var scrollPos = window.scrollY + 200;
+    sections.forEach(function (section) {
+      var top = section.offsetTop;
+      var height = section.offsetHeight;
+      var id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(function (link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll', setActiveLink, { passive: true });
+  setActiveLink();
 
   /* ── Mobile drawer ── */
   function open() {
@@ -95,7 +117,7 @@
 
   toggle.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
-  links.forEach(l => l.addEventListener('click', close));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  links.forEach(function (l) { l.addEventListener('click', close); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
 </script>
