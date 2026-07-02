@@ -396,3 +396,568 @@ section {
   position: relative;
   overflow-x: hidden;
 }
+
+
+/* ═══════════════════════════════════════════════
+   GALLERY SPECIFIC FIXES
+   ═══════════════════════════════════════════════ */
+
+/* Preview Gallery Grid - Better responsive columns */
+.grid.grid-cols-2.md\:grid-cols-5 {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+  .grid.grid-cols-2.md\:grid-cols-5 {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid.grid-cols-2.md\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Masonry Modal Gallery */
+.gallery-masonry-modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .gallery-masonry-modal {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-masonry-modal {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-masonry-modal {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Gallery Modal Styling */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 56, 61, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  background: rgba(15, 56, 61, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .gallery-modal-header {
+    padding: 2rem 3rem;
+  }
+}
+
+.gallery-modal-body {
+  padding: 1.5rem;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .gallery-modal-body {
+    padding: 2rem 3rem;
+  }
+}
+
+.gallery-modal-close {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.gallery-modal-close:hover {
+  color: #C49A5C;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+/* Modal Filter Buttons */
+.modal-filter {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-filter:hover {
+  border-color: #C49A5C;
+  color: #C49A5C;
+  background: rgba(196, 154, 92, 0.1);
+}
+
+.modal-filter.active {
+  background: #C49A5C;
+  color: white;
+  border-color: #C49A5C;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.lightbox-nav:hover {
+  background: rgba(196, 154, 92, 0.9);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .lightbox-prev {
+    left: 3rem;
+  }
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .lightbox-next {
+    right: 3rem;
+  }
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.lightbox-close:hover {
+  background: rgba(196, 154, 92, 0.9);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+/* Gallery Item Improvements */
+.gallery-masonry-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gallery-masonry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Aspect Square for Preview Gallery */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Background for gallery items */
+.bg-surface\/30 {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ═══════════════════════════════════════════════
+   FIX TEXT VISIBILITY & FORM INPUTS
+   ═══════════════════════════════════════════════ */
+
+/* Form Input Visibility Fix */
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  background: white !important;
+  color: #2D3748 !important;
+  border: 2px solid #E2E8F0 !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+  width: 100%;
+}
+
+.form-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: #C49A5C !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(196, 154, 92, 0.1) !important;
+}
+
+.form-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #A0AEC0 !important;
+  opacity: 1 !important;
+}
+
+/* Form Label Visibility */
+.form-label,
+label {
+  color: #2D3748 !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Card Text Visibility - Art Classes, Services, etc */
+.service-item,
+.article-card,
+.team-card,
+[class*="card"] {
+  background: white !important;
+  color: #2D3748 !important;
+}
+
+.service-item h3,
+.service-item h4,
+.service-item p,
+.article-card h3,
+.article-card h4,
+.article-card p,
+.team-card h3,
+.team-card h4,
+.team-card p {
+  color: #2D3748 !important;
+}
+
+/* Ensure all text in cards is visible */
+[class*="card"] h1,
+[class*="card"] h2,
+[class*="card"] h3,
+[class*="card"] h4,
+[class*="card"] h5,
+[class*="card"] h6,
+[class*="card"] p,
+[class*="card"] span,
+[class*="card"] a {
+  color: #2D3748 !important;
+}
+
+/* Link hover colors in cards */
+[class*="card"] a:hover {
+  color: #C49A5C !important;
+}
+
+/* Section specific fixes */
+#art-gallery .service-item,
+#art-gallery [class*="card"] {
+  background: white !important;
+}
+
+#art-gallery h3,
+#art-gallery h4,
+#art-gallery p,
+#art-gallery span {
+  color: #2D3748 !important;
+}
+
+/* Contact form specific */
+#contact input,
+#contact textarea,
+#contact label {
+  color: #2D3748 !important;
+}
+
+#contact input,
+#contact textarea {
+  background: white !important;
+  border: 2px solid #E2E8F0 !important;
+}
+
+/* Ensure select dropdowns are visible */
+select {
+  background: white !important;
+  color: #2D3748 !important;
+  border: 2px solid #E2E8F0 !important;
+  padding: 1rem !important;
+}
+
+/* Button text always visible */
+button,
+.btn-primary,
+.btn-outline,
+[class*="btn"] {
+  font-weight: 600 !important;
+}
+
+.btn-primary {
+  background: #C49A5C !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-outline {
+  background: transparent !important;
+  color: #2D3748 !important;
+  border: 2px solid #2D3748 !important;
+}
+
+.btn-outline:hover {
+  background: #2D3748 !important;
+  color: white !important;
+}
+
+/* Make sure placeholder text is visible */
+::-webkit-input-placeholder {
+  color: #A0AEC0 !important;
+  opacity: 1 !important;
+}
+
+::-moz-placeholder {
+  color: #A0AEC0 !important;
+  opacity: 1 !important;
+}
+
+:-ms-input-placeholder {
+  color: #A0AEC0 !important;
+  opacity: 1 !important;
+}
+
+::placeholder {
+  color: #A0AEC0 !important;
+  opacity: 1 !important;
+}
+
+/* Error message visibility */
+.form-error,
+.error-message,
+[class*="error"] {
+  color: #E53E3E !important;
+  font-size: 0.875rem !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Success message visibility */
+.form-success,
+.success-message,
+[class*="success"] {
+  color: #38A169 !important;
+  font-size: 0.875rem !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Ensure dark backgrounds have light text */
+.bg-stone,
+.bg-ink,
+.bg-surface\/30,
+[style*="background: rgb(15"],
+[style*="background: rgba(15"] {
+  color: white !important;
+}
+
+.bg-stone *,
+.bg-ink *,
+[style*="background: rgb(15"] *,
+[style*="background: rgba(15"] * {
+  color: white !important;
+}
+
+/* But forms on dark backgrounds need white inputs */
+.bg-stone input,
+.bg-stone textarea,
+.bg-ink input,
+.bg-ink textarea,
+[style*="background: rgb(15"] input,
+[style*="background: rgba(15"] input,
+[style*="background: rgb(15"] textarea,
+[style*="background: rgba(15"] textarea {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+.bg-stone input::placeholder,
+.bg-stone textarea::placeholder,
+.bg-ink input::placeholder,
+.bg-ink textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.bg-stone label,
+.bg-ink label {
+  color: white !important;
+}
+
+/* Typography fixes for better contrast */
+body {
+  color: #2D3748;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2D3748;
+}
+
+p {
+  color: #4A5568;
+}
+
+/* Links default color */
+a {
+  color: #2D3748;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #C49A5C;
+}
+
+/* Ensure card titles are always visible */
+.card-title,
+[class*="title"] {
+  color: #2D3748 !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure descriptions are visible */
+.card-description,
+[class*="description"],
+[class*="excerpt"] {
+  color: #4A5568 !important;
+}
