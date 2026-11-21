@@ -1116,3 +1116,24 @@ body { font-size: 1.0625rem; letter-spacing: 0.002em; }
 
 /* One orchestrated entrance in the hero; sections below stay still */
 .fade-up, .stagger-child { opacity: 1 !important; transform: none !important; }
+
+/* ── Hike list + dusk illustration ── */
+.hike-list { border-top: 1px solid #DDD5C7; max-width: 30rem; }
+.hike-list li {
+  display: flex; align-items: center; gap: .9rem;
+  padding: .85rem 0; border-bottom: 1px solid #DDD5C7;
+  color: var(--indigo); font-weight: 500;
+}
+.hike-list li::before {
+  content: ""; width: 7px; height: 7px; flex: none;
+  border: 1px solid var(--brass-deep); transform: rotate(45deg);
+}
+.hike-scene .hs-cloud { animation: hs-drift 38s ease-in-out infinite alternate; }
+.hike-scene .hs-flags { transform-origin: 200px 450px; animation: hs-sway 6s ease-in-out infinite alternate; }
+.hike-scene .hs-stars { animation: hs-twinkle 5s ease-in-out infinite alternate; }
+@keyframes hs-drift { from { transform: translateX(-30px); } to { transform: translateX(40px); } }
+@keyframes hs-sway { from { transform: rotate(-.6deg); } to { transform: rotate(.6deg); } }
+@keyframes hs-twinkle { from { opacity: .5; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .hike-scene .hs-cloud, .hike-scene .hs-flags, .hike-scene .hs-stars { animation: none; }
+}
