@@ -1,341 +1,148 @@
-﻿<%- include('partials/head') %>
+<%- include('partials/head') %>
 <%- include('partials/nav') %>
 
 <main class="overflow-x-hidden">
+<%
+  // Shared bits for this page
+  const waLink = 'https://wa.me/9779828589863?text=' + encodeURIComponent("Namaste! I'd like to know more about classes at Pragya Path.");
+  const waIcon = '<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+  // Newsroom stays hidden until there are real articles to link to
+  const showNewsroom = false;
+%>
 
 <!-- ═══════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink" aria-label="Hero">
+<section class="relative min-h-[92svh] flex items-end md:items-center overflow-hidden bg-dusk" aria-label="Welcome">
+  <img
+    src="/images/hero.webp"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+    fetchpriority="high"
+  >
+  <!-- Dusk wash: solid on the left/bottom where text sits, clear over the teacher -->
+  <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-dusk via-dusk/75 to-dusk/10" aria-hidden="true"></div>
 
-  <!-- Background image with luxury overlay -->
-  <div class="absolute inset-0 transition-transform duration-[20000ms] ease-out scale-105 hover:scale-110">
-    <img
-      src="/images/hero.webp"
-      alt=""
-      role="presentation"
-      class="w-full h-full object-cover opacity-90"
-      loading="eager"
-    >
-    <!-- Gradient shifting from left (dark for text) to right (transparent for the subject) -->
-    <div class="absolute inset-0 bg-gradient-to-r from-base via-base/60 to-transparent"></div>
-    <!-- Bottom fade to blend seamlessly into the next section -->
-    <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-base to-transparent"></div>
-    <!-- Top shadow gradient specifically to guarantee Navigation legibility -->
-    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base/80 to-transparent z-0"></div>
-    <!-- Radial vignette for cinematic depth -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, transparent 30%, rgba(15,56,61,0.25) 100%);"></div>
-    <!-- Grain texture -->
-    <div class="grain"></div>
-  </div>
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-12 pt-32 pb-14 md:py-40">
+    <div class="max-w-2xl">
+      <p class="hero-reveal font-ui font-medium text-[#F3A26B] text-base md:text-lg mb-5">Hatha Yoga &amp; Sound Healing in Bhaktapur, Nepal</p>
 
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 text-left pt-32 md:pt-40 pb-20">
-    <div class="max-w-3xl flex flex-col items-start">
-      <div class="badge hero-reveal">
-        <span class="badge-dot"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
-      </div>
-      
-      <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-medium leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 hero-reveal d1 drop-shadow-2xl">
-        Awaken.<br>Heal.<br><span class="italic text-gold">Transform.</span>
+      <h1 class="hero-title hero-reveal d1">
+        <span>Awaken<i>.</i></span>
+        <span>Heal<i>.</i></span>
+        <span>Transform<i>.</i></span>
       </h1>
-      
-      <p class="font-sans text-stone/80 text-lg md:text-2xl font-light leading-relaxed max-w-xl mb-10 hero-reveal d2">
-        Traditional Hatha Yoga and Sound Healing in the ancient city of Bhaktapur. A quiet space to return to yourself.
+
+      <p class="hero-reveal d2 font-sans text-[#D9DAEA] text-lg md:text-xl leading-relaxed max-w-lg mt-6 mb-9">
+        Daily classes in a quiet studio in the old city. Come as you are — beginners are always welcome.
       </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-start gap-6 hero-reveal d3 w-full sm:w-auto">
-        <a href="#programs" class="btn-primary w-full sm:w-auto group">
-          Begin Your Journey
-          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a href="#contact" class="btn-outline w-full sm:w-auto">
-          Get in Touch
-        </a>
+
+      <div class="hero-reveal d3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href="#schedule" class="btn-primary">See class times</a>
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-ghost-light"><%- waIcon %>Message us on WhatsApp</a>
       </div>
     </div>
-  </div>
-
-  <!-- Scroll hint -->
-  <div class="absolute bottom-12 left-6 md:left-12 flex flex-col items-center gap-3 hero-reveal d4">
-    <div class="scroll-indicator-line"></div>
-    <span class="text-[10px] font-sans uppercase tracking-widest3 text-stone/40 writing-mode-vertical" style="writing-mode: vertical-rl; letter-spacing: 0.35em;">Scroll</span>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     INTRO STRIP
+     QUOTE
 ════════════════════════════════════════════════ -->
-<section class="bg-sage py-16 relative overflow-hidden" aria-label="Studio tagline">
-  <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
-  <div class="grain" style="opacity:0.02;"></div>
-
-  <!-- Desktop: full quote layout -->
-  <div class="hidden md:flex max-w-7xl mx-auto px-6 md:px-12 flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-    <p class="font-serif italic text-stone/90 text-2xl md:text-4xl font-medium text-center md:text-left leading-snug">
-      "Yoga is not just repetition of few postures — it is more about the exploration and discovery of the subtle energies of life."
-    </p>
-    <div class="flex items-center gap-8 text-stone/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
-      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>Est. Bhaktapur</span>
-      <span class="w-px h-6 bg-white/20"></span>
-      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>All Levels Welcome</span>
-    </div>
-  </div>
-
-  <!-- Mobile: marquee ticker -->
-  <div class="md:hidden marquee-wrap relative z-10">
-    <div class="marquee-track">
-      <% const tagItems = [
-        'Traditional Hatha Yoga', 'Sound Healing', 'Bhaktapur, Nepal', 'All Levels Welcome',
-        'Tibetan Singing Bowls', 'Mindfulness Hikes', 'Yoga Teacher Training', 'Sacred Retreats',
-        'Traditional Hatha Yoga', 'Sound Healing', 'Bhaktapur, Nepal', 'All Levels Welcome',
-        'Tibetan Singing Bowls', 'Mindfulness Hikes', 'Yoga Teacher Training', 'Sacred Retreats'
-      ]; %>
-      <% tagItems.forEach(function(item) { %>
-      <span class="flex items-center gap-6 px-8 py-4 text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone/70 shrink-0">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
-        <%= item %>
-      </span>
-      <% }); %>
-    </div>
-  </div>
+<section class="bg-base py-16 md:py-24 px-5 sm:px-6 md:px-12" aria-label="Our approach">
+  <figure class="max-w-4xl mx-auto">
+    <blockquote class="font-sans italic text-stone text-2xl md:text-4xl leading-snug md:leading-tight">
+      “Yoga is not just repetition of a few postures — it is the exploration and discovery of the subtle energies of life.”
+    </blockquote>
+    <figcaption class="mt-6 font-ui text-muted text-base">The idea every class at Pragya Path starts from</figcaption>
+  </figure>
 </section>
 
 
 <!-- ═══════════════════════════════════════════════
-     GRATITUDE (Crown Chakra)
+     PROGRAMS
 ════════════════════════════════════════════════ -->
-<section id="gratitude" class="py-12 md:py-20 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="gratitude-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 -top-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
-
-    <!-- Image -->
-    <div class="fade-up order-2 lg:order-1 group relative">
-      <!-- Tilted gold backing card -->
-      <div class="absolute inset-0 bg-gold/10 rounded-none transform rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
-      <!-- Image wrapper lifts on hover; img-hover handles inner scale -->
-      <div class="img-hover rounded-none shadow-2xl relative z-10"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
-        <img
-          src="/images/loard-shive.webp"
-          alt="Lord Shiva - The Adiyogi"
-          class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
-          loading="lazy"
-        >
-      </div>
-    </div>
-
-    <!-- Text -->
-    <div class="order-1 lg:order-2 fade-up delay-2">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Gratitude</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="gratitude-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        Honoring our <span class="italic text-gold">gurus</span>
-      </h2>
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
-        <p>
-          We bow in gratitude to the divine teachings of Lord Shiva, the Adiyogi, whose ancient wisdom of yoga and meditation forms the foundation of all our practices.
-        </p>
-        <p>
-          Our guidance flows from a lineage of dedicated gurus who have preserved these sacred traditions. Through their blessings and teachings, we are able to share authentic practices that transform lives.
-        </p>
-        <p class="font-light text-stone">
-          Every class, every session, every healing sound — all are offerings rooted in this timeless wisdom.
-        </p>
-      </div>
-
-      <!-- Decorative element -->
-      <div class="mt-12 flex items-center gap-4">
-        <div class="w-16 h-px bg-gold/50"></div>
-        <span class="font-serif italic text-gold text-lg">Namah Shivaya</span>
-        <div class="w-16 h-px bg-gold/50"></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     YOGA & SOUND HEALING PROGRAMS (Throat Chakra)
-════════════════════════════════════════════════ -->
-<section id="programs" class="py-12 md:py-16 px-6 md:px-12 bg-base relative border-b border-line" aria-labelledby="programs-heading">
+<section id="programs" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="programs-heading">
   <div class="max-w-7xl mx-auto">
 
-    <!-- Header -->
-    <div class="mb-20 md:mb-28 max-w-2xl fade-up text-center mx-auto">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Yoga & Sound Healing Programs</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="programs-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Practices for body, mind & soul
-      </h2>
+    <div class="mb-10 md:mb-14 max-w-2xl fade-up">
+      <p class="eyebrow">Classes &amp; training</p>
+      <h2 id="programs-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem]">Practices for body, mind and soul</h2>
+      <p class="mt-5 font-sans text-muted text-lg leading-relaxed">Drop in to a daily class, book a private session, or train to teach. Not sure which fits? Ask us and we'll suggest one.</p>
     </div>
 
-    <!-- Primary services -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+    <% const primary = [
+      { name: 'Regular yoga classes', desc: 'Daily Hatha Yoga to build strength, flexibility and inner stillness.', tag: 'Daily · all levels' },
+      { name: 'Therapeutic yoga', desc: 'One-to-one sessions shaped around your body and health goals, with a guided diet plan.', tag: 'Private' },
+      { name: 'Sound healing', desc: 'Tibetan singing bowls used to release tension and settle the nervous system.', tag: 'Relaxation' },
+      { name: 'Singing bowl training', desc: 'Certified courses at levels 1, 2 and 3, from first strike to practitioner.', tag: 'Certificate' },
+      { name: 'Yoga teacher training', desc: 'Become a certified yoga teacher, grounded in traditional Hatha practice.', tag: 'Certificate' },
+      { name: 'Retreats & tours', desc: 'Multi-day retreats, spiritual tours and mindful hikes around the Kathmandu Valley.', tag: 'Multi-day' }
+    ]; %>
 
-      <% const primary = [
-        {
-          num: '01',
-          name: 'Regular Yoga Classes',
-          desc: 'Daily Hatha Yoga sessions to build strength, flexibility, and inner stillness. Open to all levels.',
-          tag: 'Daily · All Levels'
-        },
-        {
-          num: '02',
-          name: 'Therapeutic Yoga',
-          desc: 'Personalised sessions designed around your body and health goals, paired with a guided diet plan.',
-          tag: 'Personalised'
-        },
-        {
-          num: '03',
-          name: 'Sound Healing',
-          desc: 'Gentle vibrational therapy using Tibetan singing bowls to release tension and restore harmony.',
-          tag: 'Healing · Relaxation'
-        },
-        {
-          num: '04',
-          name: 'Singing Bowl Training',
-          desc: 'Professional certification courses at Levels 1, 2, and 3 — from beginner to advanced practitioner.',
-          tag: 'Certification L1–L3'
-        },
-        {
-          num: '05',
-          name: "Yoga Teacher's Training",
-          desc: 'Comprehensive programmes to become a certified yoga instructor, grounded in authentic tradition.',
-          tag: 'Certification'
-        },
-        {
-          num: '06',
-          name: 'Retreats & Tours',
-          desc: 'Immersive yoga retreats, spiritual tours, and mindfulness hikes through the sacred landscapes of Nepal.',
-          tag: 'Multi-day'
-        }
-      ] %>
-
-      <% primary.forEach(function(s, i) { %>
-      <article class="card group stagger-child">
-        <!-- Decorative bg circle on hover -->
-        <div class="absolute -right-20 -top-20 w-48 h-48 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/15 transition-colors duration-700 pointer-events-none"></div>
-        
-        <div class="flex items-start justify-between relative z-10">
-          <span class="card-number"><%= s.num %></span>
-          <span class="card-tag"><%= s.tag %></span>
-        </div>
-        <div class="flex-grow relative z-10">
-          <h3 class="card-title"><%= s.name %></h3>
-          <p class="card-desc"><%= s.desc %></p>
-        </div>
-        <div class="mt-auto pt-6 flex items-center gap-4 relative z-10">
-          <span class="btn-ghost">
-            Explore
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </span>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <% primary.forEach(function(s) { %>
+      <article class="card stagger-child">
+        <span class="card-tag self-start"><%= s.tag %></span>
+        <h3 class="card-title mt-2 mb-0"><%= s.name %></h3>
+        <p class="card-desc"><%= s.desc %></p>
+        <a href="#contact" class="card-ask" data-topic="<%= s.name %>">Ask about <%= s.name.toLowerCase() %></a>
       </article>
       <% }) %>
     </div>
 
-    <!-- Secondary services row -->
-    <div class="flex flex-wrap justify-center gap-4 mb-16">
-      <% const secondary = ['Kids Yoga', 'Corporate Yoga', 'Yogic Zumba', 'Mindfulness Hikes', 'Spiritual Tours'] %>
-      <% secondary.forEach(function(name) { %>
-      <div class="bg-transparent rounded-full px-8 py-4 border border-line text-center hover:border-gold hover:bg-gold/5 group transition-all duration-500 cursor-default stagger-child">
-        <span class="font-sans text-xs font-light text-muted group-hover:text-gold uppercase tracking-widest3 transition-colors duration-500"><%= name %></span>
-      </div>
+    <div class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-3">
+      <span class="font-ui font-medium text-muted mr-1">Also on offer:</span>
+      <% ['Kids yoga', 'Corporate yoga', 'Yogic Zumba', 'Mindfulness hikes', 'Spiritual tours'].forEach(function(name) { %>
+      <a href="#contact" data-topic="<%= name %>" class="font-ui text-[0.9375rem] text-stone bg-surface border border-line rounded-full px-4 py-2 hover:border-gold hover:text-gold transition-colors"><%= name %></a>
       <% }) %>
     </div>
+  </div>
+</section>
 
-    <!-- Available Time & Book Now -->
-    <div id="schedule" class="max-w-4xl mx-auto fade-up">
-      <div class="card group">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <!-- Schedule Info -->
-          <div>
-            <div class="inline-flex items-center gap-3 mb-4">
-              <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <span class="section-label">Available Time</span>
-            </div>
-            <div class="space-y-4">
-              <div class="flex items-center gap-6 p-4 bg-ink/50 rounded-none border border-line/30">
-                <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="font-serif text-xl text-stone">Morning</span>
-                  <span class="font-sans text-base text-muted font-light ml-3">6:00 – 9:00 AM</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-6 p-4 bg-ink/50 rounded-none border border-line/30">
-                <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="font-serif text-xl text-stone">Evening</span>
-                  <span class="font-sans text-base text-muted font-light ml-3">5:00 – 8:00 PM</span>
-                </div>
-              </div>
-            </div>
-          </div>
+<!-- ═══════════════════════════════════════════════
+     SCHEDULE BAND
+════════════════════════════════════════════════ -->
+<section id="schedule" class="schedule-band px-5 sm:px-6 md:px-12 py-16 md:py-24" aria-labelledby="schedule-heading">
+  <div class="max-w-7xl mx-auto">
+    <h2 id="schedule-heading" class="font-ui font-semibold text-xl md:text-2xl text-white mb-8 md:mb-12">Classes run every day, twice a day</h2>
 
-          <!-- Book Now Button -->
-          <div class="flex flex-col items-start md:items-end gap-6">
-            <p class="font-sans text-sm text-muted font-light">Ready to begin your journey?</p>
-            <a href="#contact" class="btn-primary group">
-              Book Now
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
+      <div>
+        <p class="schedule-label mb-3">Morning</p>
+        <p class="schedule-time">6–9<small>am</small></p>
+      </div>
+      <div class="md:border-l md:border-white/15 md:pl-10">
+        <p class="schedule-label mb-3">Evening</p>
+        <p class="schedule-time">5–8<small>pm</small></p>
       </div>
     </div>
 
+    <div class="mt-12 md:mt-16 pt-8 border-t border-white/15 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <p class="font-sans text-[#D9DAEA] text-lg max-w-xl">Drop in for a single class or ask about weekly and monthly passes. Message us before your first visit so we can save you a mat.</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-light"><%- waIcon %>Book on WhatsApp</a>
+        <a href="#contact" class="btn-ghost-light">Send a message</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- 
      HIKING & NATURE RETREATS
 -->
-<section id="hiking" class="py-12 md:py-16 px-6 md:px-12 bg-ink relative border-b border-line overflow-hidden" aria-labelledby="hiking-heading">
-  <!-- Decorative background elements -->
-  <div class="absolute -right-40 -bottom-40 w-[40rem] h-[40rem] bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+<section id="hiking" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="hiking-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
 
     <!-- Content -->
     <div class="order-1 lg:order-1 fade-up relative z-20">
-      <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Nature Retreats</p>
-      </div>
+      <p class="eyebrow">Mindful hikes</p>
 
-      <h2 id="hiking-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        Connect with <br><span class="italic text-gold">Nature</span>
+      <h2 id="hiking-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem] mb-8">
+        Mindful walks in the hills
       </h2>
 
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
+      <div class="prose-body font-sans text-muted text-lg">
         <p>
           Beyond the mat and the singing bowls, true healing happens when we step outside. Our guided hiking retreats take you into the breathtaking hills surrounding the Kathmandu Valley.
         </p>
@@ -343,46 +150,18 @@
           Experience mindful walking, outdoor meditation sessions, and breathtaking panoramic views of the Himalayas. These hikes are designed to ground your energy, clear your mind, and deepen your spiritual practice in the embrace of nature.
         </p>
       </div>
-
-      <div class="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-line flex flex-wrap gap-x-10 gap-y-6">
-        <div>
-          <div class="font-serif text-2xl sm:text-4xl text-stone mb-2 flex items-center gap-2">
-            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Local
-          </div>
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Trails</div>
-        </div>
-        <div>
-          <div class="font-serif text-2xl sm:text-4xl text-stone mb-2 flex items-center gap-2">
-            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            Morning
-          </div>
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Sessions</div>
-        </div>
-      </div>
-      
       <div class="mt-12">
-        <a href="#contact" class="btn-primary group">
-          Join a Hike
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
+        <a href="#contact" data-topic="Mindfulness hikes" class="btn-primary">Ask about the next hike</a>
       </div>
     </div>
 
     <!-- Interactive Mini-Game / Simulation -->
     <div class="relative fade-up delay-2 order-2 lg:order-2 group">
-      <!-- Ambient glow backing -->
-      <div class="absolute inset-0 bg-sage/20 rounded-none transform -rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
 
       <!-- Canvas Container -->
-      <div class="rounded-none shadow-2xl relative z-10 bg-ink border border-line/20 img-hover"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
-        <canvas id="hiking-canvas" class="w-full aspect-[4/3] lg:aspect-square object-cover cursor-pointer touch-none"></canvas>
+      <div class="rounded-2xl overflow-hidden relative border border-line bg-surface">
+        <canvas id="hiking-canvas" class="w-full aspect-[4/3] lg:aspect-square cursor-pointer touch-none" aria-label="Small game: tap to help the hiker jump over rocks"></canvas>
       </div>
-    </div>
     </div>
 
   </div>
@@ -415,11 +194,11 @@
     let hitTimer = 0;
     
     // Colors matching palette
-    const COLOR_SKY = '#F4F9F9';
-    const COLOR_SUN = '#EE7924';
-    const COLOR_MOUNTAIN_FAR = '#8BD3DD';
-    const COLOR_MOUNTAIN_MID = '#1A6A73';
-    const COLOR_MOUNTAIN_NEAR = '#0F383D';
+    const COLOR_SKY = '#F6EFE6';
+    const COLOR_SUN = '#EC7A31';
+    const COLOR_MOUNTAIN_FAR = '#C9C6DA';
+    const COLOR_MOUNTAIN_MID = '#6B6F92';
+    const COLOR_MOUNTAIN_NEAR = '#1F2347';
     
     function resize() {
       w = canvas.parentElement.clientWidth;
@@ -627,16 +406,16 @@
       
       // UI / Text
       ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
-      ctx.font = '800 16px Montserrat, sans-serif';
+      ctx.font = '600 16px Outfit, sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(`Zen Points: ${score}`, 20, 30);
+      ctx.fillText(`Zen points: ${score}`, 20, 30);
       
       ctx.fillStyle = COLOR_SKY;
-      ctx.font = '600 12px Montserrat, sans-serif';
+      ctx.font = '600 13px Outfit, sans-serif';
       ctx.textAlign = 'center';
       ctx.globalAlpha = 0.9;
       // letterSpacing hack for canvas
-      const text = "TAP TO JUMP";
+      const text = "Tap to jump the rocks";
       ctx.fillText(text, w/2, h - 20);
       ctx.globalAlpha = 1.0;
       
@@ -651,108 +430,45 @@
 <!-- ═══════════════════════════════════════════════
      KALANIL ART GALLERY (Heart Chakra)
 ════════════════════════════════════════════════ -->
-<section id="art-gallery" class="py-12 md:py-16 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="art-gallery-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 -bottom-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+<section id="art-gallery" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-surface relative overflow-hidden" aria-labelledby="art-gallery-heading">
 
   <div class="max-w-7xl mx-auto relative z-10">
 
-    <!-- Header -->
-    <div class="mb-16 md:mb-24 text-center max-w-2xl mx-auto fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Kalanil Art Gallery</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="art-gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Where art meets <span class="italic text-gold">wellness</span>
-      </h2>
-      <p class="mt-6 font-sans text-muted font-light text-lg">
-        Express your creativity through art classes and discover unique paintings that inspire peace and transformation.
-      </p>
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+      <div class="lg:col-span-5 fade-up">
+        <p class="eyebrow">Kalanil Art Gallery</p>
+        <h2 id="art-gallery-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem]">Where art meets wellness</h2>
+        <p class="mt-5 font-sans text-muted text-lg leading-relaxed">Our sister gallery shares the studio. Join a drawing class, or take home a painting made in Bhaktapur.</p>
 
-    <!-- Art Classes -->
-    <div class="mb-20 fade-up">
-      <div class="flex items-center gap-4 mb-10">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Art Classes</h3>
+        <div class="mt-8 rounded-2xl border border-line bg-base p-6">
+          <h3 class="font-ui font-semibold text-lg text-stone">Paintings for sale</h3>
+          <ul class="mt-3 font-sans text-muted space-y-1.5">
+            <li>Oil and acrylic</li>
+            <li>Watercolour</li>
+            <li>Portraits, painted to order</li>
+            <li>Mixed media</li>
+          </ul>
+          <a href="#contact" data-topic="Paintings for sale" class="card-ask mt-4">Ask for photos and prices</a>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="lg:col-span-7">
+        <h3 class="font-ui font-semibold text-xl text-stone mb-4">Drawing classes</h3>
         <% const artClasses = [
-          {
-            name: 'Regular Drawing Classes',
-            desc: 'Consistent practice sessions to build foundational drawing skills and artistic expression.',
-            tag: 'Ongoing'
-          },
-          {
-            name: 'Special Drawing Classes',
-            desc: 'Focused workshops on specific techniques and advanced artistic methods.',
-            tag: 'Workshop'
-          },
-          {
-            name: 'Saturday Drawing Classes',
-            desc: 'Weekend sessions perfect for those with busy schedules who want to explore art.',
-            tag: 'Weekend'
-          }
+          { name: 'Regular drawing classes', desc: 'Steady weekly practice to build drawing skills from the ground up.', tag: 'Ongoing' },
+          { name: 'Special drawing workshops', desc: 'Focused sessions on one technique or medium at a time.', tag: 'Workshop' },
+          { name: 'Saturday drawing classes', desc: 'A weekend class for anyone who works through the week.', tag: 'Saturdays' }
         ]; %>
-
-        <% artClasses.forEach(function(c, i) { %>
-        <div class="card group stagger-child">
-          <div class="absolute -right-16 -top-16 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/15 transition-colors duration-700 pointer-events-none"></div>
-          
-          <div class="relative z-10">
-            <span class="card-tag"><%= c.tag %></span>
-          </div>
-          <div class="flex-grow relative z-10">
-            <h4 class="card-title text-2xl md:text-2xl"><%= c.name %></h4>
-            <p class="card-desc text-base"><%= c.desc %></p>
-          </div>
-          <a href="#contact" class="mt-auto btn-ghost">
-            Book Now
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
+        <div class="grid grid-cols-1 gap-4">
+          <% artClasses.forEach(function(c) { %>
+          <article class="card stagger-child">
+            <span class="card-tag self-start"><%= c.tag %></span>
+            <h4 class="card-title text-xl mt-2 mb-0"><%= c.name %></h4>
+            <p class="card-desc"><%= c.desc %></p>
+            <a href="#contact" class="card-ask" data-topic="<%= c.name %>">Book a place</a>
+          </article>
+          <% }) %>
         </div>
-        <% }) %>
-      </div>
-    </div>
-
-    <!-- Paintings on Sale -->
-    <div class="fade-up">
-      <div class="flex items-center gap-4 mb-10">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Paintings on Sale</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <% const paintings = [
-          { name: 'Oil / Acrylic Painting', medium: 'Oil & Acrylic' },
-          { name: 'Water Colour Painting', medium: 'Water Colour' },
-          { name: 'Portrait', medium: 'Oil / Acrylic / Water' },
-          { name: 'Other Paintings', medium: 'Mixed Media' }
-        ]; %>
-
-        <% paintings.forEach(function(p, i) { %>
-        <div class="bg-base border border-line p-6 flex flex-col items-center text-center group hover:border-gold transition-all duration-500">
-          <!-- Painting placeholder -->
-          <div class="w-full aspect-square bg-gradient-to-br from-sage/50 via-base to-surface border border-line/30 mb-6 flex items-center justify-center group-hover:border-gold/50 transition-colors duration-500 img-hover">
-            <svg class="w-12 h-12 text-gold/30 group-hover:text-gold/60 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h4 class="font-serif text-lg font-medium text-stone group-hover:text-gold mb-2 transition-colors duration-500"><%= p.name %></h4>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-4"><%= p.medium %></p>
-          <a href="#contact" class="mt-auto inline-flex items-center gap-2 text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone hover:text-gold transition-all duration-500 group/btn">
-            Buy Now
-            <svg class="w-3 h-3 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-        <% }) %>
       </div>
     </div>
 
@@ -761,42 +477,19 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     ABOUT
+     GRATITUDE (Crown Chakra)
 ════════════════════════════════════════════════ -->
-<section id="about" class="py-12 md:py-16 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="about-heading">
-  <!-- Decorative background elements -->
-  <div class="absolute -left-40 top-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+<section id="gratitude" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="gratitude-heading">
 
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
 
-    <!-- Images -->
-    <div class="relative fade-up order-2 lg:order-1 group">
-      <!-- Ambient glow backing -->
-      <div class="absolute inset-0 bg-gold/10 rounded-none transform rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
-
-      <!-- Main Image — lift on hover, inner img scales via img-hover -->
-      <div class="img-hover rounded-none shadow-2xl relative z-10"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
+    <!-- Image -->
+    <div class="fade-up order-2 lg:order-1 group relative">
+      <div class="rounded-2xl overflow-hidden relative z-10">
         <img
-          src="/images/girl-with-tibetean-bowl.webp"
-          alt="Yoga practitioner in a peaceful pose"
-          class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
-          loading="lazy"
-        >
-      </div>
-
-      <!-- Floating Singing Bowl PNG -->
-      <div class="absolute -bottom-16 -right-10 md:-right-20 w-2/3 max-w-[300px] z-20 pointer-events-none img-hover-light"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease; will-change: transform;"
-           data-parallax-float>
-        <img
-          src="/images/tibetansingingbowl.webp"
-          alt="Tibetan singing bowls"
-          class="w-full h-auto object-contain filter grayscale opacity-80 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-          style="transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, filter;"
+          src="/images/loard-shive.webp"
+          alt="Statue of Lord Shiva as Adiyogi, the first yogi"
+          class="w-full aspect-[4/3] lg:aspect-square object-cover"
           loading="lazy"
         >
       </div>
@@ -804,14 +497,64 @@
 
     <!-- Text -->
     <div class="order-1 lg:order-2 fade-up delay-2">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Our Story</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="about-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        A sanctuary for<br><span class="italic text-gold">inner growth</span>
+      <p class="eyebrow">Gratitude</p>
+      <h2 id="gratitude-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem] mb-8">
+        Honouring our gurus
       </h2>
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
+      <div class="prose-body font-sans text-muted text-lg">
+        <p>
+          We bow in gratitude to the divine teachings of Lord Shiva, the Adiyogi, whose ancient wisdom of yoga and meditation forms the foundation of all our practices.
+        </p>
+        <p>
+          Our guidance flows from a lineage of dedicated gurus who have preserved these sacred traditions. Through their blessings and teachings, we are able to share authentic practices that transform lives.
+        </p>
+        <p class="text-stone">
+          Every class, every session, every healing sound — all are offerings rooted in this timeless wisdom.
+        </p>
+      </div>
+
+      <p class="mt-8 font-sans italic text-bronze text-xl">Om Namah Shivaya</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════ -->
+<section id="about" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-surface relative overflow-hidden" aria-labelledby="about-heading">
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+
+    <!-- Images -->
+    <div class="relative fade-up order-2 lg:order-1 group">
+      <div class="rounded-2xl overflow-hidden relative z-10">
+        <img
+          src="/images/girl-with-tibetean-bowl.webp"
+          alt="Yoga practitioner in a peaceful pose"
+          class="w-full aspect-[4/3] lg:aspect-square object-cover"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Floating Singing Bowl PNG -->
+      <div class="absolute -bottom-10 -right-4 md:-right-12 w-1/2 max-w-[240px] z-20 pointer-events-none">
+        <img
+          src="/images/tibetansingingbowl.webp"
+          alt="Tibetan singing bowls"
+          class="w-full h-auto object-contain drop-shadow-[0_18px_24px_rgba(31,35,71,0.35)]"
+          loading="lazy"
+        >
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="order-1 lg:order-2 fade-up delay-2">
+      <p class="eyebrow">Our story</p>
+      <h2 id="about-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem] mb-8">
+        A sanctuary for inner growth
+      </h2>
+      <div class="prose-body font-sans text-muted text-lg">
         <p>
           Nestled in the ancient city of Bhaktapur, Pragya Path was founded with a single intention —
           to offer a genuine space where people can slow down, breathe, and reconnect with themselves.
@@ -820,25 +563,9 @@
           We draw from the deep roots of Hatha Yoga and the meditative tradition of Sound Healing,
           offering practices that are both time-honoured and accessible to modern life.
         </p>
-        <p class="font-light text-stone">
+        <p class="text-stone">
           Whether you are a complete beginner or an experienced practitioner, you are welcome here.
         </p>
-      </div>
-
-      <!-- Stats -->
-      <div class="mt-10 sm:mt-14 grid grid-cols-3 gap-4 sm:gap-8 pt-8 sm:pt-10 border-t border-line">
-        <div class="stagger-child">
-          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2"><span class="stat-count" data-target="11" data-suffix="+">11+</span></div>
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Services</div>
-        </div>
-        <div class="stagger-child">
-          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2"><span class="stat-count" data-target="2" data-suffix="×">2×</span></div>
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Daily Classes</div>
-        </div>
-        <div class="stagger-child">
-          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2">All</div>
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Levels</div>
-        </div>
       </div>
     </div>
 
@@ -850,12 +577,7 @@
     <!-- Management Team -->
     <div class="mb-20 fade-up">
       <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center gap-4 mb-6">
-          <span class="w-12 h-px bg-gold/50"></span>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Leadership</p>
-          <span class="w-12 h-px bg-gold/50"></span>
-        </div>
-        <h3 class="font-serif text-3xl md:text-4xl font-medium text-stone">Management Team</h3>
+                <h3 class="h-section text-2xl md:text-3xl">Who runs Pragya Path</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -865,7 +587,7 @@
             <span class="font-serif text-3xl text-gold">AD</span>
           </div>
           <h4 class="font-serif text-2xl font-medium text-stone mb-2">Aarati Dhakal</h4>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Pragya Path</p>
+          <p class="text-sm font-ui font-medium text-gold mb-4">Founder, Pragya Path</p>
           <p class="font-sans text-sm text-muted font-light leading-relaxed">Dedicated to sharing authentic yoga and sound healing traditions with the world.</p>
         </div>
 
@@ -875,7 +597,7 @@
             <span class="font-serif text-3xl text-gold">AB</span>
           </div>
           <h4 class="font-serif text-2xl font-medium text-stone mb-2">Anil Basnet</h4>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Kalanil Art Gallery</p>
+          <p class="text-sm font-ui font-medium text-gold mb-4">Founder, Kalanil Art Gallery</p>
           <p class="font-sans text-sm text-muted font-light leading-relaxed">Bringing art and creativity together with wellness and healing.</p>
         </div>
       </div>
@@ -884,12 +606,7 @@
     <!-- Our Trainers -->
     <div class="fade-up">
       <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center gap-4 mb-6">
-          <span class="w-12 h-px bg-gold/50"></span>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Expert Guidance</p>
-          <span class="w-12 h-px bg-gold/50"></span>
-        </div>
-        <h3 class="font-serif text-3xl md:text-4xl font-medium text-stone">Our Trainers</h3>
+                <h3 class="h-section text-2xl md:text-3xl">Our teachers</h3>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -918,28 +635,14 @@
 <!-- ═══════════════════════════════════════════════
      GALLERY (Solar Plexus Chakra)
 ════════════════════════════════════════════════ -->
-<section id="gallery" class="py-12 md:py-16 px-4 md:px-6 bg-base border-b border-line" aria-labelledby="gallery-heading">
+<section id="gallery" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="gallery-heading">
   <div class="max-w-[140rem] mx-auto">
     <div class="text-center mb-12 fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Galleries</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone">
-        Glimpses of the <span class="italic text-gold">Sanctuary</span>
+      <p class="eyebrow">Photos</p>
+      <h2 id="gallery-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem]">
+        Inside the studio
       </h2>
-      <p class="mt-4 font-sans text-sm text-muted font-light">50 photos</p>
-    </div>
-
-    <!-- Tabs -->
-    <div class="flex justify-center gap-4 mb-8 fade-up">
-      <button id="tab-photos" class="gallery-tab active px-8 py-3 text-[11px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold text-base transition-all duration-300">
-        Photos
-      </button>
-      <button id="tab-videos" class="gallery-tab px-8 py-3 text-[11px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted hover:border-gold hover:text-gold transition-all duration-300">
-        Videos
-      </button>
+      <p class="mt-4 font-sans text-muted text-lg">Classes, sound baths, trainings and the people who come to them.</p>
     </div>
 
     <!-- Photos Tab -->
@@ -965,62 +668,7 @@
 
       <!-- View All Button -->
       <div class="text-center mb-8">
-        <button id="view-all-btn" class="btn-primary group">
-          View All Photos (50)
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Videos Tab -->
-    <div id="gallery-videos" class="gallery-content hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Sound Healing Session</h4>
-            <p class="font-sans text-sm text-muted font-light">Experience the healing power of Tibetan singing bowls</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Morning Yoga Flow</h4>
-            <p class="font-sans text-sm text-muted font-light">Traditional Hatha Yoga practice in the morning light</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Singing Bowl Training</h4>
-            <p class="font-sans text-sm text-muted font-light">Learn the art of playing Tibetan singing bowls</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Retreat Highlights</h4>
-            <p class="font-sans text-sm text-muted font-light">Moments from our yoga retreats in Nepal</p>
-          </div>
-        </div>
+        <button id="view-all-btn" class="btn-primary">See all 50 photos</button>
       </div>
     </div>
   </div>
@@ -1031,15 +679,15 @@
   <div class="gallery-modal-header">
     <div>
       <h3 class="font-serif text-xl font-medium text-stone">All Photos</h3>
-      <p id="modal-counter" class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mt-1">50 photos</p>
+      <p id="modal-counter" class="text-sm font-ui font-medium text-muted mt-1">50 photos</p>
     </div>
     <div class="flex items-center gap-4">
       <div class="hidden md:flex gap-2" id="modal-filters">
-        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
-        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
-        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
-        <button data-filter="training" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
-        <button data-filter="community" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
+        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-sm font-ui font-medium border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
+        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
+        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
+        <button data-filter="training" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
+        <button data-filter="community" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
       </div>
       <button id="modal-close-btn" class="gallery-modal-close">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1144,24 +792,6 @@
   var lightboxImg = document.getElementById('lightbox-img');
   var lightboxCounter = document.getElementById('lightbox-counter');
 
-  // Tab switching
-  document.getElementById('tab-photos').addEventListener('click', function() {
-    document.getElementById('gallery-photos').classList.remove('hidden');
-    document.getElementById('gallery-videos').classList.add('hidden');
-    this.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
-    this.classList.remove('text-muted', 'border-line');
-    document.getElementById('tab-videos').classList.remove('active', 'bg-gold', 'text-white', 'border-gold');
-    document.getElementById('tab-videos').classList.add('text-muted', 'border-line');
-  });
-
-  document.getElementById('tab-videos').addEventListener('click', function() {
-    document.getElementById('gallery-videos').classList.remove('hidden');
-    document.getElementById('gallery-photos').classList.add('hidden');
-    this.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
-    this.classList.remove('text-muted', 'border-line');
-    document.getElementById('tab-photos').classList.remove('active', 'bg-gold', 'text-white', 'border-gold');
-    document.getElementById('tab-photos').classList.add('text-muted', 'border-line');
-  });
 
   // View All button - open modal
   document.getElementById('view-all-btn').addEventListener('click', function() {
@@ -1201,7 +831,7 @@
     filteredImages.forEach(function(img, i) {
       html += '<div class="gallery-masonry-item img-hover cursor-pointer" data-idx="' + i + '">' +
         '<img src="' + img.src.replace(/\.webp$/, '-sm.webp') + '" alt="' + img.alt + '" class="w-full object-cover" loading="lazy" decoding="async">' +
-        '<div class="img-caption"><p class="font-sans text-[10px] font-bold uppercase tracking-widest3 text-white/90">' + img.alt + '</p></div>' +
+        '<div class="img-caption"><p class="font-ui text-sm font-medium text-white">' + img.alt + '</p></div>' +
         '</div>';
     });
     modalGrid.innerHTML = html;
@@ -1263,18 +893,15 @@
 <!-- ═══════════════════════════════════════════════
      NEWSROOMS (Sacral Chakra)
 ════════════════════════════════════════════════ -->
-<section id="newsrooms" class="py-12 md:py-16 px-6 md:px-12 bg-surface border-b border-line" aria-labelledby="newsrooms-heading">
+<% if (showNewsroom) { %>
+<section id="newsrooms" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-surface relative overflow-hidden" aria-labelledby="newsrooms-heading">
   <div class="max-w-7xl mx-auto relative z-10">
 
     <!-- Header -->
     <div class="mb-16 md:mb-24 text-center max-w-2xl mx-auto fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Newsrooms</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="newsrooms-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Stay <span class="italic text-gold">informed</span>
+      <p class="eyebrow">Newsrooms</p>
+      <h2 id="newsrooms-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem]">
+        Stay informed
       </h2>
       <p class="mt-6 font-sans text-muted font-light text-lg">
         Read our latest articles, news, and interviews about yoga, wellness, and spiritual growth.
@@ -1284,8 +911,7 @@
     <!-- Articles -->
     <div class="mb-16 fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Articles</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Articles</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1297,7 +923,7 @@
 
         <% articles.forEach(function(a) { %>
         <article class="article-card group stagger-child">
-          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4"><%= a.date %></div>
+          <div class="text-sm font-ui font-medium text-gold mb-4"><%= a.date %></div>
           <h4 class="font-serif text-xl font-medium text-stone mb-4"><%= a.title %></h4>
           <p class="font-sans text-muted font-light leading-relaxed mb-6"><%= a.excerpt %></p>
           <a href="#" class="btn-ghost">
@@ -1314,8 +940,7 @@
     <!-- Online News -->
     <div class="mb-16 fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Online News</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Online News</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1328,9 +953,9 @@
         <% news.forEach(function(n) { %>
         <article class="article-card group stagger-child">
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= n.date %></span>
+            <span class="text-sm font-ui font-medium text-gold"><%= n.date %></span>
             <span class="w-1 h-1 bg-gold rounded-full"></span>
-            <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted"><%= n.source %></span>
+            <span class="text-sm font-ui font-medium text-muted"><%= n.source %></span>
           </div>
           <h4 class="font-serif text-lg font-medium text-stone"><%= n.title %></h4>
         </article>
@@ -1341,8 +966,7 @@
     <!-- Interviews -->
     <div class="fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Interviews</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Interviews</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1360,7 +984,7 @@
             </div>
             <div>
               <h4 class="font-serif text-lg font-medium text-stone"><%= interview.name %></h4>
-              <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= interview.role %></p>
+              <p class="text-sm font-ui font-medium text-gold"><%= interview.role %></p>
             </div>
           </div>
           <p class="font-sans text-sm text-muted font-light italic">"<%= interview.topic %>"</p>
@@ -1371,72 +995,69 @@
 
   </div>
 </section>
+<% } %>
 
 <!-- ═══════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════════ -->
-<section id="contact" class="py-12 md:py-16 px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="contact-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 bottom-0 w-[50rem] h-[50rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+<section id="contact" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="contact-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative z-10">
 
     <!-- Left: info -->
     <div class="fade-up">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Get in Touch</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="contact-heading" class="font-serif text-4xl sm:text-5xl md:text-7xl font-medium text-stone leading-tight mb-8">
-        We'd love to<br><span class="italic text-gold">hear from you</span>
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem] mb-8">
+        We'd love to hear from you
       </h2>
-      <p class="font-sans text-muted font-light leading-relaxed text-lg mb-10 max-w-md">
-        Whether you have a question about classes, want to arrange a retreat,
-        or simply want to know more — reach out and we'll get back to you soon.
+      <p class="font-sans text-muted leading-relaxed text-lg mb-8 max-w-md">
+        WhatsApp is the quickest way to reach us. For anything longer, use the form and we'll reply by email within a day.
       </p>
 
-      <address class="not-italic space-y-6 sm:space-y-10">
-        <a href="tel:+9779828589863" class="flex items-center gap-4 sm:gap-8 group">
-          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+      <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary mb-10"><%- waIcon %>Chat on WhatsApp</a>
+
+      <address class="not-italic space-y-5">
+        <a href="tel:+9779828589863" class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold transition-colors bg-surface">
+            <svg class="w-5 h-5 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 3z"/>
             </svg>
           </div>
           <div>
-            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Phone</div>
-            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-words">+977 9828589863</div>
+            <div class="text-sm font-ui text-muted mb-0.5">Phone</div>
+            <div class="font-ui font-medium text-lg sm:text-xl text-stone group-hover:text-gold transition-colors break-words">+977 9828589863</div>
           </div>
         </a>
 
-        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-4 sm:gap-8 group">
-          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold transition-colors bg-surface">
+            <svg class="w-5 h-5 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
             </svg>
           </div>
           <div class="min-w-0">
-            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Email</div>
-            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-all">pragyapath1@gmail.com</div>
+            <div class="text-sm font-ui text-muted mb-0.5">Email</div>
+            <div class="font-ui font-medium text-lg sm:text-xl text-stone group-hover:text-gold transition-colors break-all">pragyapath1@gmail.com</div>
           </div>
         </a>
 
-        <div class="flex items-center gap-4 sm:gap-8 group">
-          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold transition-colors bg-surface">
+            <svg class="w-5 h-5 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
             </svg>
           </div>
           <div>
-            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Location</div>
-            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-words">Dattatraye, Bhaktapur, Nepal</div>
+            <div class="text-sm font-ui text-muted mb-0.5">Location</div>
+            <div class="font-ui font-medium text-lg sm:text-xl text-stone group-hover:text-gold transition-colors break-words">Dattatraye, Bhaktapur, Nepal</div>
           </div>
         </div>
       </address>
 
       <!-- Social Media Links -->
       <div class="mt-12 pt-8 border-t border-line/50">
-        <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-6">Follow Us</div>
+        <div class="text-sm font-ui font-medium text-muted mb-6">Follow us</div>
         <div class="flex flex-wrap gap-4">
           <!-- WhatsApp -->
           <a href="https://wa.me/9779828589863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon">
@@ -1467,8 +1088,8 @@
      </div>
 
     <!-- Right: form -->
-    <div class="fade-up delay-2 bg-surface p-6 sm:p-10 md:p-16 relative">
-      <div class="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-gold via-gold/50 to-transparent"></div>
+    <div class="fade-up delay-2 bg-surface rounded-2xl border border-line p-6 sm:p-10 md:p-12 relative">
+      <h3 class="font-ui font-semibold text-xl text-stone mb-6">Send us a message</h3>
       <form action="/inquiry" method="POST" novalidate class="space-y-6" id="inquiry-form">
         <% const errors = locals.errors || {}; const values = locals.values || {}; %>
 
@@ -1484,7 +1105,7 @@
             >
             <label for="name" class="form-label">Name *</label>
             <% if (errors.name) { %>
-            <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.name %></p>
+            <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.name %></p>
             <% } %>
           </div>
           <div class="form-group">
@@ -1498,7 +1119,7 @@
             >
             <label for="email" class="form-label">Email *</label>
             <% if (errors.email) { %>
-            <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.email %></p>
+            <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.email %></p>
             <% } %>
           </div>
         </div>
@@ -1513,7 +1134,7 @@
           >
           <label for="phone" class="form-label">Phone <span class="normal-case tracking-normal font-light text-muted">(optional)</span></label>
           <% if (errors.phone) { %>
-          <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.phone %></p>
+          <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.phone %></p>
           <% } %>
         </div>
 
@@ -1527,18 +1148,16 @@
           ><%= values.message || '' %></textarea>
           <label for="message" class="form-label">Message *</label>
           <% if (errors.message) { %>
-          <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.message %></p>
+          <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.message %></p>
           <% } %>
         </div>
 
         <button
           type="submit" id="submit-btn"
-          class="btn-primary w-full py-5 mt-4 group">
-          <span>Send Message</span>
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
+          class="btn-primary w-full mt-2">
+          <span>Send message</span>
         </button>
+        <p class="font-sans text-sm text-muted">We only use your details to reply to you.</p>
       </form>
     </div>
 
@@ -1548,6 +1167,8 @@
 </main>
 
 <!-- Scroll reveal -->
+<a id="wa-fab" href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="wa-fab is-hidden" aria-label="Message Pragya Path on WhatsApp"><%- waIcon %></a>
+
 <script>
 (function () {
   // Hero reveal animations — fire immediately
@@ -1657,10 +1278,48 @@
   var btn  = document.getElementById('submit-btn');
   if (form && btn) {
     form.addEventListener('submit', function () {
-      btn.innerHTML = '<span>Sending...</span><svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+      btn.innerHTML = '<span>Sending…</span><svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
       btn.disabled = true;
       btn.classList.add('opacity-60', 'cursor-not-allowed');
     });
+  }
+
+  // ── "Ask about …" links pre-fill the message box ───────────────────────
+  var msg = document.getElementById('message');
+  document.querySelectorAll('[data-topic]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (!msg) return;
+      var topic = link.getAttribute('data-topic');
+      if (!msg.value.trim() || msg.dataset.prefilled === '1') {
+        msg.value = "Hi, I'd like to know more about " + topic.toLowerCase() + '. ';
+        msg.dataset.prefilled = '1';
+      }
+      setTimeout(function () { (document.getElementById('name') || msg).focus({ preventScroll: true }); }, 600);
+    });
+  });
+  if (msg) msg.addEventListener('input', function () { msg.dataset.prefilled = '0'; });
+
+  // ── Floating WhatsApp button: hidden while the hero, schedule band or
+  //    contact section covers the middle of the screen (they have their own CTAs)
+  var fab = document.getElementById('wa-fab');
+  if (fab) {
+    var fabZones = ['[aria-label="Welcome"]', '#schedule', '#contact']
+      .map(function (sel) { return document.querySelector(sel); })
+      .filter(Boolean);
+    var fabTick = false;
+    var updateFab = function () {
+      fabTick = false;
+      var mid = window.innerHeight / 2;
+      var over = fabZones.some(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top < mid && r.bottom > mid;
+      });
+      fab.classList.toggle('is-hidden', over);
+    };
+    var queueFab = function () { if (!fabTick) { fabTick = true; requestAnimationFrame(updateFab); } };
+    window.addEventListener('scroll', queueFab, { passive: true });
+    window.addEventListener('resize', queueFab);
+    updateFab();
   }
 
   // ── Smooth scroll for anchor links ────────────────────────────────────

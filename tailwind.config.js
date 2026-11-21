@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './views/**/*.ejs',
@@ -7,29 +7,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Modern & Bold Palette (Spiritual Contrast)
-        base:    '#F4F9F9', // Crisp Off-White - main background
-        surface: '#FFFFFF', // Pure White - elevated surface
-        stone:   '#0F383D', // Very Dark Teal - primary text
-        ink:     '#EBF3F3', // Light Tinted Background - subtle contrast areas
-        muted:   '#1A6A73', // Deep Teal - secondary text/elements
-        terra:   '#EE7924', // Vibrant Orange - energetic accents
-        sage:    '#8BD3DD', // Soft Aqua - section backgrounds/accents
-        gold:    '#C49A5C', // Warm Muted Gold - premium CTAs and highlights
-        line:    '#8BD3DD', // Soft Aqua - borders and dividers
+        // Pragya Path palette — saffron from the logo, dusk indigo of the
+        // Kathmandu Valley evening, on near-white paper.
+        // Token names are kept from the old theme so existing classes re-theme.
+        base:    '#FAF9F6', // paper — page background
+        surface: '#FFFFFF', // white — raised panels, form
+        stone:   '#1F2347', // dusk indigo — headings, primary text, dark bands
+        ink:     '#F0EEF4', // mist — alternate section background
+        muted:   '#4F5372', // indigo grey — body / secondary text (7:1 on paper)
+        gold:    '#B9541A', // deep saffron — links, buttons (AA with white text)
+        terra:   '#EC7A31', // logo saffron — accents on dark backgrounds only
+        sage:    '#E7E4EF', // soft mist — tinted fills
+        line:    '#E2DFEA', // hairlines and borders
+        bronze:  '#8F6430', // singing-bowl bronze — small details
+        dusk:    '#1F2347',
+        saffron: '#EC7A31',
       },
       fontFamily: {
-        serif: ['"Outfit"', 'system-ui', 'sans-serif'], // Elegant editorial serif for spiritual headings
-        sans:  ['"Inter"', 'system-ui', 'sans-serif'],
+        // `serif` = display face (Outfit, matches the logo lettering);
+        // `sans` = reading face (Literata). Names kept so existing classes still apply.
+        serif: ['"Outfit"', 'system-ui', 'sans-serif'],
+        sans:  ['"Literata"', 'Georgia', 'serif'],
+        ui:    ['"Outfit"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         widest2: '0.25em',
         widest3: '0.35em',
       },
       boxShadow: {
-        'glow': '0 0 50px -15px rgba(196, 154, 92, 0.30)',
-        'card': '0 4px 24px rgba(15, 56, 61, 0.06)',
-        'card-hover': '0 12px 48px rgba(15, 56, 61, 0.10)',
+        'glow': '0 0 50px -15px rgba(185, 84, 26, 0.30)',
+        'card': '0 4px 24px rgba(31, 35, 71, 0.06)',
+        'card-hover': '0 12px 48px rgba(31, 35, 71, 0.10)',
       }
     }
   },
