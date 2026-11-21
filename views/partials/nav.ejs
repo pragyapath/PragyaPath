@@ -5,29 +5,20 @@
         
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 group" aria-label="Pragya Path – Home">
-            <div class="w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 100 100" class="w-full h-full" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#C49A5C"/>
-                            <stop offset="100%" style="stop-color:#9D7A47"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M50 10 C63 10 80 32 80 50 C80 68 50 90 50 90 C50 90 20 68 20 50 C20 32 37 10 50 10" fill="url(#logoGrad)"/>
-                    <circle cx="50" cy="50" r="7" fill="white" opacity="0.95"/>
-                    <circle cx="50" cy="50" r="3" fill="#C49A5C"/>
-                </svg>
-            </div>
+            <picture class="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <source srcset="/images/brand/logo-mark.webp" type="image/webp">
+                <img src="/images/brand/logo-mark.png" alt="" width="256" height="208" class="h-9 md:h-11 w-auto">
+            </picture>
             <div class="flex flex-col">
-                <span class="text-lg font-serif font-semibold tracking-wider uppercase leading-none text-gray-800 group-hover:text-gold transition-colors duration-300">Pragya Path</span>
-                <span class="text-[9px] tracking-widest uppercase text-gray-500 font-medium mt-1">Yoga & Sound Healing</span>
+                <span class="brand-wordmark text-[17px] md:text-xl font-serif font-bold uppercase leading-none">Pragya Path</span>
+                <span class="brand-tagline text-[9px] md:text-[10px] font-serif font-medium mt-1 leading-none">Awaken. Heal. Transform.</span>
             </div>
         </a>
 
         <!-- Desktop Nav -->
         <ul class="hidden lg:flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider" role="list">
             <li><a href="/" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">Home</a></li>
-            <li><a href="#services" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">Services</a></li>
+            <li><a href="#programs" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">Programs</a></li>
             <li><a href="#schedule" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">Schedule</a></li>
             <li><a href="#about" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">About</a></li>
             <li><a href="#contact" class="nav-link px-4 py-2 text-gray-700 hover:text-gold hover:bg-gold/5 rounded-md transition-all duration-200">Contact</a></li>
@@ -59,7 +50,7 @@
     </button>
     <nav class="flex flex-col items-center gap-8" aria-label="Mobile navigation links">
         <a href="/" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">Home</a>
-        <a href="#services" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">Services</a>
+        <a href="#programs" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">Programs</a>
         <a href="#schedule" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">Schedule</a>
         <a href="#about" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">About</a>
         <a href="#contact" class="mobile-link text-3xl font-serif font-light tracking-wider hover:text-gold transition-colors">Contact</a>

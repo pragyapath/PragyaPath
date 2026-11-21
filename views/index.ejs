@@ -11,7 +11,7 @@
   <!-- Background image with luxury overlay -->
   <div class="absolute inset-0 transition-transform duration-[20000ms] ease-out scale-105 hover:scale-110">
     <img
-      src="/images/hero.png"
+      src="/images/hero.webp"
       alt=""
       role="presentation"
       class="w-full h-full object-cover opacity-90"
@@ -34,7 +34,7 @@
     <div class="max-w-3xl flex flex-col items-start">
       <div class="badge hero-reveal">
         <span class="badge-dot"></span>
-        <p class="text-[10px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
+        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
       </div>
       
       <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-medium leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 hero-reveal d1 drop-shadow-2xl">
@@ -46,7 +46,7 @@
       </p>
       
       <div class="flex flex-col sm:flex-row items-center justify-start gap-6 hero-reveal d3 w-full sm:w-auto">
-        <a href="#services" class="btn-primary w-full sm:w-auto group">
+        <a href="#programs" class="btn-primary w-full sm:w-auto group">
           Begin Your Journey
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -62,7 +62,7 @@
   <!-- Scroll hint -->
   <div class="absolute bottom-12 left-6 md:left-12 flex flex-col items-center gap-3 hero-reveal d4">
     <div class="scroll-indicator-line"></div>
-    <span class="text-[9px] font-sans uppercase tracking-widest3 text-stone/40 writing-mode-vertical" style="writing-mode: vertical-rl; letter-spacing: 0.35em;">Scroll</span>
+    <span class="text-[10px] font-sans uppercase tracking-widest3 text-stone/40 writing-mode-vertical" style="writing-mode: vertical-rl; letter-spacing: 0.35em;">Scroll</span>
   </div>
 </section>
 
@@ -125,7 +125,7 @@
            style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
            data-parallax-main>
         <img
-          src="/images/loard%20shive.png"
+          src="/images/loard-shive.webp"
           alt="Lord Shiva - The Adiyogi"
           class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
           loading="lazy"
@@ -261,7 +261,7 @@
     </div>
 
     <!-- Available Time & Book Now -->
-    <div class="max-w-4xl mx-auto fade-up">
+    <div id="schedule" class="max-w-4xl mx-auto fade-up">
       <div class="card group">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <!-- Schedule Info -->
@@ -344,20 +344,20 @@
         </p>
       </div>
 
-      <div class="mt-14 pt-10 border-t border-line flex flex-wrap gap-8">
+      <div class="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-line flex flex-wrap gap-x-10 gap-y-6">
         <div>
-          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
+          <div class="font-serif text-2xl sm:text-4xl text-stone mb-2 flex items-center gap-2">
             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             Local
           </div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Trails</div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Trails</div>
         </div>
         <div>
-          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
+          <div class="font-serif text-2xl sm:text-4xl text-stone mb-2 flex items-center gap-2">
             <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             Morning
           </div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Sessions</div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Sessions</div>
         </div>
       </div>
       
@@ -744,7 +744,7 @@
             </svg>
           </div>
           <h4 class="font-serif text-lg font-medium text-stone group-hover:text-gold mb-2 transition-colors duration-500"><%= p.name %></h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-4"><%= p.medium %></p>
+          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-4"><%= p.medium %></p>
           <a href="#contact" class="mt-auto inline-flex items-center gap-2 text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone hover:text-gold transition-all duration-500 group/btn">
             Buy Now
             <svg class="w-3 h-3 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -781,7 +781,7 @@
            style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
            data-parallax-main>
         <img
-          src="/images/girl-with-tibetean-bowl.png"
+          src="/images/girl-with-tibetean-bowl.webp"
           alt="Yoga practitioner in a peaceful pose"
           class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
           loading="lazy"
@@ -793,7 +793,7 @@
            style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease; will-change: transform;"
            data-parallax-float>
         <img
-          src="/images/tibetansingingbowl.png"
+          src="/images/tibetansingingbowl.webp"
           alt="Tibetan singing bowls"
           class="w-full h-auto object-contain filter grayscale opacity-80 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           style="transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, filter;"
@@ -826,18 +826,18 @@
       </div>
 
       <!-- Stats -->
-      <div class="mt-14 grid grid-cols-3 gap-8 pt-10 border-t border-line">
+      <div class="mt-10 sm:mt-14 grid grid-cols-3 gap-4 sm:gap-8 pt-8 sm:pt-10 border-t border-line">
         <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2"><span class="stat-count" data-target="11" data-suffix="+">11+</span></div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Services</div>
+          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2"><span class="stat-count" data-target="11" data-suffix="+">11+</span></div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Services</div>
         </div>
         <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2"><span class="stat-count" data-target="2" data-suffix="×">2×</span></div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Daily Classes</div>
+          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2"><span class="stat-count" data-target="2" data-suffix="×">2×</span></div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Daily Classes</div>
         </div>
         <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2">All</div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Levels</div>
+          <div class="font-serif text-3xl sm:text-5xl text-gold mb-2">All</div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted">Levels</div>
         </div>
       </div>
     </div>
@@ -865,7 +865,7 @@
             <span class="font-serif text-3xl text-gold">AD</span>
           </div>
           <h4 class="font-serif text-2xl font-medium text-stone mb-2">Aarati Dhakal</h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Pragya Path</p>
+          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Pragya Path</p>
           <p class="font-sans text-sm text-muted font-light leading-relaxed">Dedicated to sharing authentic yoga and sound healing traditions with the world.</p>
         </div>
 
@@ -875,7 +875,7 @@
             <span class="font-serif text-3xl text-gold">AB</span>
           </div>
           <h4 class="font-serif text-2xl font-medium text-stone mb-2">Anil Basnet</h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Kalanil Art Gallery</p>
+          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Kalanil Art Gallery</p>
           <p class="font-sans text-sm text-muted font-light leading-relaxed">Bringing art and creativity together with wellness and healing.</p>
         </div>
       </div>
@@ -947,19 +947,19 @@
     <!-- Compact Preview Grid (5 images) -->
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
       <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/sound%20healing%20group.jpeg" alt="Group Healing Session" class="w-full h-full object-cover" loading="lazy">
+        <img src="/images/gallery/sound-healing-group-sm.webp" alt="Group Healing Session" class="w-full h-full object-cover" loading="lazy">
       </div>
       <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/girl-with-tibetean-bowl.png" alt="Tibetan Bowl Practice" class="w-full h-full object-cover" loading="lazy">
+        <img src="/images/gallery/girl-with-tibetean-bowl-sm.webp" alt="Tibetan Bowl Practice" class="w-full h-full object-cover" loading="lazy">
       </div>
       <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A5972.jpg" alt="Yoga Session" class="w-full h-full object-cover" loading="lazy">
+        <img src="/images/gallery/2o3a5972-sm.webp" alt="Yoga Session" class="w-full h-full object-cover" loading="lazy">
       </div>
       <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A5994.jpg" alt="Sound Healing" class="w-full h-full object-cover" loading="lazy">
+        <img src="/images/gallery/2o3a5994-sm.webp" alt="Sound Healing" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A6005.jpg" alt="Yoga Practice" class="w-full h-full object-cover" loading="lazy">
+      <div class="img-hover aspect-square bg-surface/30 hidden md:block">
+        <img src="/images/gallery/2o3a6005-sm.webp" alt="Yoga Practice" class="w-full h-full object-cover" loading="lazy">
       </div>
     </div>
 
@@ -1031,15 +1031,15 @@
   <div class="gallery-modal-header">
     <div>
       <h3 class="font-serif text-xl font-medium text-stone">All Photos</h3>
-      <p id="modal-counter" class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mt-1">50 photos</p>
+      <p id="modal-counter" class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mt-1">50 photos</p>
     </div>
     <div class="flex items-center gap-4">
       <div class="hidden md:flex gap-2" id="modal-filters">
-        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
-        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
-        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
-        <button data-filter="training" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
-        <button data-filter="community" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
+        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
+        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
+        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
+        <button data-filter="training" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
+        <button data-filter="community" class="modal-filter px-4 py-1.5 text-[10px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
       </div>
       <button id="modal-close-btn" class="gallery-modal-close">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1080,56 +1080,56 @@
 (function() {
   // All gallery images data
   var allImages = [
-    { src: '/images/gallery/sound%20healing%20group.jpeg', alt: 'Group Healing Session', cat: 'healing' },
-    { src: '/images/gallery/girl-with-tibetean-bowl.png', alt: 'Tibetan Bowl Practice', cat: 'healing' },
-    { src: '/images/gallery/healing%20sound.jpeg', alt: 'Sound Resonance', cat: 'healing' },
-    { src: '/images/gallery/with%20foregin%20guest%20group%20photo.jpeg', alt: 'Global Community', cat: 'community' },
-    { src: '/images/gallery/yoda%20session.jpeg', alt: 'Hatha Yoga Flow', cat: 'yoga' },
-    { src: '/images/gallery/sound%20healing%20glimp.jpeg', alt: 'Vibrational Therapy', cat: 'healing' },
-    { src: '/images/gallery/yoga%20traning.jpeg', alt: 'Teacher Training', cat: 'training' },
-    { src: '/images/gallery/sound%20healing.jpeg', alt: 'Deep Meditation', cat: 'healing' },
-    { src: '/images/gallery/group%20photo%20with%20guest.jpeg', alt: 'Sangha & Connection', cat: 'community' },
-    { src: '/images/gallery/sound-healing.png', alt: 'Acoustic Healing', cat: 'healing' },
-    { src: '/images/gallery/2O3A5972.jpg', alt: 'Yoga Session 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5975.jpg', alt: 'Yoga Session 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5978.jpg', alt: 'Yoga Session 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5983.jpg', alt: 'Yoga Session 4', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5994.jpg', alt: 'Sound Healing 1', cat: 'healing' },
-    { src: '/images/gallery/2O3A5996.jpg', alt: 'Sound Healing 2', cat: 'healing' },
-    { src: '/images/gallery/2O3A5997.jpg', alt: 'Sound Healing 3', cat: 'healing' },
-    { src: '/images/gallery/2O3A5999.jpg', alt: 'Sound Healing 4', cat: 'healing' },
-    { src: '/images/gallery/2O3A6000.jpg', alt: 'Sound Healing 5', cat: 'healing' },
-    { src: '/images/gallery/2O3A6004.jpg', alt: 'Meditation Practice', cat: 'healing' },
-    { src: '/images/gallery/2O3A6005.jpg', alt: 'Yoga Practice 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6009.jpg', alt: 'Yoga Practice 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6010.jpg', alt: 'Yoga Practice 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6012.jpg', alt: 'Training 1', cat: 'training' },
-    { src: '/images/gallery/2O3A6013.jpg', alt: 'Training 2', cat: 'training' },
-    { src: '/images/gallery/2O3A6014.jpg', alt: 'Training 3', cat: 'training' },
-    { src: '/images/gallery/2O3A6019.jpg', alt: 'Singing Bowl', cat: 'healing' },
-    { src: '/images/gallery/2O3A6022.jpg', alt: 'Yoga Flow 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6023.jpg', alt: 'Yoga Flow 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6024.jpg', alt: 'Yoga Flow 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6025.jpg', alt: 'Sound Therapy', cat: 'healing' },
-    { src: '/images/gallery/2O3A6027.jpg', alt: 'Group Practice', cat: 'community' },
-    { src: '/images/gallery/2O3A6029.jpg', alt: 'Community Session', cat: 'community' },
-    { src: '/images/gallery/2O3A6034.jpg', alt: 'Yoga Class 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6035.jpg', alt: 'Yoga Class 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6038.jpg', alt: 'Healing Circle', cat: 'healing' },
-    { src: '/images/gallery/2O3A6039.jpg', alt: 'Sound Bath', cat: 'healing' },
-    { src: '/images/gallery/2O3A6040.jpg', alt: 'Meditation Group', cat: 'healing' },
-    { src: '/images/gallery/2O3A6041.jpg', alt: 'Yoga Retreat 1', cat: 'training' },
-    { src: '/images/gallery/2O3A6042.jpg', alt: 'Yoga Retreat 2', cat: 'training' },
-    { src: '/images/gallery/2O3A6044.jpg', alt: 'Bowl Healing', cat: 'healing' },
-    { src: '/images/gallery/2O3A6045.jpg', alt: 'Sound Session', cat: 'healing' },
-    { src: '/images/gallery/2O3A6047.jpg', alt: 'Yoga Workshop', cat: 'training' },
-    { src: '/images/gallery/2O3A6054.jpg', alt: 'Group Healing 2', cat: 'healing' },
-    { src: '/images/gallery/2O3A6056.jpg', alt: 'Yoga Practice 4', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6060.jpg', alt: 'Sound Healing 6', cat: 'healing' },
-    { src: '/images/gallery/2O3A6062.jpg', alt: 'Yoga Session 5', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6064.jpg', alt: 'Meditation Session', cat: 'healing' },
-    { src: '/images/gallery/2O3A6066.jpg', alt: 'Training Workshop', cat: 'training' },
-    { src: '/images/gallery/2O3A6068.jpg', alt: 'Final Session', cat: 'community' }
+    { src: '/images/gallery/sound-healing-group.webp', alt: 'Group Healing Session', cat: 'healing' },
+    { src: '/images/gallery/girl-with-tibetean-bowl.webp', alt: 'Tibetan Bowl Practice', cat: 'healing' },
+    { src: '/images/gallery/healing-sound.webp', alt: 'Sound Resonance', cat: 'healing' },
+    { src: '/images/gallery/with-foregin-guest-group-photo.webp', alt: 'Global Community', cat: 'community' },
+    { src: '/images/gallery/yoda-session.webp', alt: 'Hatha Yoga Flow', cat: 'yoga' },
+    { src: '/images/gallery/sound-healing-glimp.webp', alt: 'Vibrational Therapy', cat: 'healing' },
+    { src: '/images/gallery/yoga-traning.webp', alt: 'Teacher Training', cat: 'training' },
+    { src: '/images/gallery/sound-healing.webp', alt: 'Deep Meditation', cat: 'healing' },
+    { src: '/images/gallery/group-photo-with-guest.webp', alt: 'Sangha & Connection', cat: 'community' },
+    { src: '/images/gallery/sound-healing.webp', alt: 'Acoustic Healing', cat: 'healing' },
+    { src: '/images/gallery/2o3a5972.webp', alt: 'Yoga Session 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5975.webp', alt: 'Yoga Session 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5978.webp', alt: 'Yoga Session 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5983.webp', alt: 'Yoga Session 4', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5994.webp', alt: 'Sound Healing 1', cat: 'healing' },
+    { src: '/images/gallery/2o3a5996.webp', alt: 'Sound Healing 2', cat: 'healing' },
+    { src: '/images/gallery/2o3a5997.webp', alt: 'Sound Healing 3', cat: 'healing' },
+    { src: '/images/gallery/2o3a5999.webp', alt: 'Sound Healing 4', cat: 'healing' },
+    { src: '/images/gallery/2o3a6000.webp', alt: 'Sound Healing 5', cat: 'healing' },
+    { src: '/images/gallery/2o3a6004.webp', alt: 'Meditation Practice', cat: 'healing' },
+    { src: '/images/gallery/2o3a6005.webp', alt: 'Yoga Practice 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6009.webp', alt: 'Yoga Practice 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6010.webp', alt: 'Yoga Practice 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6012.webp', alt: 'Training 1', cat: 'training' },
+    { src: '/images/gallery/2o3a6013.webp', alt: 'Training 2', cat: 'training' },
+    { src: '/images/gallery/2o3a6014.webp', alt: 'Training 3', cat: 'training' },
+    { src: '/images/gallery/2o3a6019.webp', alt: 'Singing Bowl', cat: 'healing' },
+    { src: '/images/gallery/2o3a6022.webp', alt: 'Yoga Flow 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6023.webp', alt: 'Yoga Flow 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6024.webp', alt: 'Yoga Flow 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6025.webp', alt: 'Sound Therapy', cat: 'healing' },
+    { src: '/images/gallery/2o3a6027.webp', alt: 'Group Practice', cat: 'community' },
+    { src: '/images/gallery/2o3a6029.webp', alt: 'Community Session', cat: 'community' },
+    { src: '/images/gallery/2o3a6034.webp', alt: 'Yoga Class 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6035.webp', alt: 'Yoga Class 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6038.webp', alt: 'Healing Circle', cat: 'healing' },
+    { src: '/images/gallery/2o3a6039.webp', alt: 'Sound Bath', cat: 'healing' },
+    { src: '/images/gallery/2o3a6040.webp', alt: 'Meditation Group', cat: 'healing' },
+    { src: '/images/gallery/2o3a6041.webp', alt: 'Yoga Retreat 1', cat: 'training' },
+    { src: '/images/gallery/2o3a6042.webp', alt: 'Yoga Retreat 2', cat: 'training' },
+    { src: '/images/gallery/2o3a6044.webp', alt: 'Bowl Healing', cat: 'healing' },
+    { src: '/images/gallery/2o3a6045.webp', alt: 'Sound Session', cat: 'healing' },
+    { src: '/images/gallery/2o3a6047.webp', alt: 'Yoga Workshop', cat: 'training' },
+    { src: '/images/gallery/2o3a6054.webp', alt: 'Group Healing 2', cat: 'healing' },
+    { src: '/images/gallery/2o3a6056.webp', alt: 'Yoga Practice 4', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6060.webp', alt: 'Sound Healing 6', cat: 'healing' },
+    { src: '/images/gallery/2o3a6062.webp', alt: 'Yoga Session 5', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6064.webp', alt: 'Meditation Session', cat: 'healing' },
+    { src: '/images/gallery/2o3a6066.webp', alt: 'Training Workshop', cat: 'training' },
+    { src: '/images/gallery/2o3a6068.webp', alt: 'Final Session', cat: 'community' }
   ];
 
   var currentFilter = 'all';
@@ -1200,8 +1200,8 @@
     var html = '';
     filteredImages.forEach(function(img, i) {
       html += '<div class="gallery-masonry-item img-hover cursor-pointer" data-idx="' + i + '">' +
-        '<img src="' + img.src + '" alt="' + img.alt + '" class="w-full object-cover" loading="lazy">' +
-        '<div class="img-caption"><p class="font-sans text-[9px] font-bold uppercase tracking-widest3 text-white/90">' + img.alt + '</p></div>' +
+        '<img src="' + img.src.replace(/\.webp$/, '-sm.webp') + '" alt="' + img.alt + '" class="w-full object-cover" loading="lazy" decoding="async">' +
+        '<div class="img-caption"><p class="font-sans text-[10px] font-bold uppercase tracking-widest3 text-white/90">' + img.alt + '</p></div>' +
         '</div>';
     });
     modalGrid.innerHTML = html;
@@ -1297,7 +1297,7 @@
 
         <% articles.forEach(function(a) { %>
         <article class="article-card group stagger-child">
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4"><%= a.date %></div>
+          <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4"><%= a.date %></div>
           <h4 class="font-serif text-xl font-medium text-stone mb-4"><%= a.title %></h4>
           <p class="font-sans text-muted font-light leading-relaxed mb-6"><%= a.excerpt %></p>
           <a href="#" class="btn-ghost">
@@ -1328,9 +1328,9 @@
         <% news.forEach(function(n) { %>
         <article class="article-card group stagger-child">
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= n.date %></span>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= n.date %></span>
             <span class="w-1 h-1 bg-gold rounded-full"></span>
-            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted"><%= n.source %></span>
+            <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted"><%= n.source %></span>
           </div>
           <h4 class="font-serif text-lg font-medium text-stone"><%= n.title %></h4>
         </article>
@@ -1360,7 +1360,7 @@
             </div>
             <div>
               <h4 class="font-serif text-lg font-medium text-stone"><%= interview.name %></h4>
-              <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= interview.role %></p>
+              <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= interview.role %></p>
             </div>
           </div>
           <p class="font-sans text-sm text-muted font-light italic">"<%= interview.topic %>"</p>
@@ -1387,7 +1387,7 @@
         <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Get in Touch</span>
         <span class="w-16 h-px bg-gold/50"></span>
       </div>
-      <h2 id="contact-heading" class="font-serif text-6xl md:text-7xl font-medium text-stone leading-tight mb-8">
+      <h2 id="contact-heading" class="font-serif text-4xl sm:text-5xl md:text-7xl font-medium text-stone leading-tight mb-8">
         We'd love to<br><span class="italic text-gold">hear from you</span>
       </h2>
       <p class="font-sans text-muted font-light leading-relaxed text-lg mb-10 max-w-md">
@@ -1395,48 +1395,48 @@
         or simply want to know more — reach out and we'll get back to you soon.
       </p>
 
-      <address class="not-italic space-y-10">
-        <a href="tel:+9779828589863" class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+      <address class="not-italic space-y-6 sm:space-y-10">
+        <a href="tel:+9779828589863" class="flex items-center gap-4 sm:gap-8 group">
+          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
             <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 3z"/>
             </svg>
           </div>
           <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Phone</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">+977 9828589863</div>
+            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Phone</div>
+            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-words">+977 9828589863</div>
           </div>
         </a>
 
-        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-4 sm:gap-8 group">
+          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
             <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
             </svg>
           </div>
-          <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Email</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">pragyapath1@gmail.com</div>
+          <div class="min-w-0">
+            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Email</div>
+            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-all">pragyapath1@gmail.com</div>
           </div>
         </a>
 
-        <div class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
+        <div class="flex items-center gap-4 sm:gap-8 group">
+          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
             <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
             </svg>
           </div>
           <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Location</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">Dattatraye, Bhaktapur, Nepal</div>
+            <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Location</div>
+            <div class="font-serif text-xl sm:text-2xl lg:text-3xl text-stone group-hover:text-gold transition-colors break-words">Dattatraye, Bhaktapur, Nepal</div>
           </div>
         </div>
       </address>
 
       <!-- Social Media Links -->
       <div class="mt-12 pt-8 border-t border-line/50">
-        <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-6">Follow Us</div>
+        <div class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-muted mb-6">Follow Us</div>
         <div class="flex flex-wrap gap-4">
           <!-- WhatsApp -->
           <a href="https://wa.me/9779828589863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon">
@@ -1467,12 +1467,12 @@
      </div>
 
     <!-- Right: form -->
-    <div class="fade-up delay-2 bg-surface p-8 md:p-16 relative">
+    <div class="fade-up delay-2 bg-surface p-6 sm:p-10 md:p-16 relative">
       <div class="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-gold via-gold/50 to-transparent"></div>
-      <form action="/inquiry" method="POST" novalidate class="space-y-10" id="inquiry-form">
+      <form action="/inquiry" method="POST" novalidate class="space-y-6" id="inquiry-form">
         <% const errors = locals.errors || {}; const values = locals.values || {}; %>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="form-group">
             <input
               type="text" id="name" name="name"
@@ -1484,7 +1484,7 @@
             >
             <label for="name" class="form-label">Name *</label>
             <% if (errors.name) { %>
-            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.name %></p>
+            <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.name %></p>
             <% } %>
           </div>
           <div class="form-group">
@@ -1498,7 +1498,7 @@
             >
             <label for="email" class="form-label">Email *</label>
             <% if (errors.email) { %>
-            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.email %></p>
+            <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.email %></p>
             <% } %>
           </div>
         </div>
@@ -1524,13 +1524,13 @@
           ><%= values.message || '' %></textarea>
           <label for="message" class="form-label">Message *</label>
           <% if (errors.message) { %>
-          <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.message %></p>
+          <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.message %></p>
           <% } %>
         </div>
 
         <button
           type="submit" id="submit-btn"
-          class="btn-primary w-full py-6 mt-8 group">
+          class="btn-primary w-full py-5 mt-4 group">
           <span>Send Message</span>
           <svg class="w-5 h-5 transition-transform group-hover:translate-x-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>

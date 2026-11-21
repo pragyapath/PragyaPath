@@ -43,13 +43,17 @@ if (process.env.NODE_ENV !== 'production') {
     }
 }
 
+// Livereload endpoints are only allowed by the CSP in development
+const isDev = config.NODE_ENV !== 'production';
+const devReload = isDev ? ["http://localhost:35729"] : [];
+
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             ...helmet.contentSecurityPolicy.getDefaultDirectives(),
             "img-src": ["'self'", "data:", "https://images.unsplash.com"],
-            "script-src": ["'self'", "'unsafe-inline'", "http://localhost:35729"], // Allow livereload script
-            "connect-src": ["'self'", "ws://localhost:35729", "http://localhost:35729"], // Allow livereload websocket
+            "script-src": ["'self'", "'unsafe-inline'", ...devReload],
+            "connect-src": ["'self'", ...(isDev ? ["ws://localhost:35729", ...devReload] : [])],
             "frame-src": ["'self'", "https://www.google.com"],
         },
     },
@@ -61,7 +65,15 @@ app.use(express.urlencoded({ extended: false, limit: '10kb' }));
 app.use(express.json());
 
 // 3. Static Files
-app.use(express.static(path.join(__dirname, 'public')));
+// Cache images for a week in production; CSS revalidates daily
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: isDev ? 0 : '1d',
+    setHeaders: (res, filePath) => {
+        if (!isDev && /[\\/]images[\\/]/.test(filePath)) {
+            res.setHeader('Cache-Control', 'public, max-age=604800');
+        }
+    }
+}));
 
 // 4. View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -102,11 +114,16 @@ app.post('/inquiry', inquiryLimiter, async (req, res, next) => {
             return res.render('index', { errors, values });
         }
 
-        // Save to inquiries.json
-        const INQUIRIES_FILE = path.join(__dirname, 'inquiries.json');
-        const inquiries = await fs.readJson(INQUIRIES_FILE).catch(() => []);
-        inquiries.push({ ...values, date: new Date() });
-        await fs.writeJson(INQUIRIES_FILE, inquiries, { spaces: 2 });
+        // Save a local copy when the disk is writable. On Vercel the filesystem
+        // is read-only, so a failed write must not block the email.
+        try {
+            const INQUIRIES_FILE = path.join(__dirname, 'inquiries.json');
+            const inquiries = await fs.readJson(INQUIRIES_FILE).catch(() => []);
+            inquiries.push({ ...values, date: new Date() });
+            await fs.writeJson(INQUIRIES_FILE, inquiries, { spaces: 2 });
+        } catch (saveErr) {
+            console.warn('[inquiry] Could not save to inquiries.json:', saveErr.code || saveErr.message);
+        }
 
         // Send Email Notification
         await mailer.sendInquiryNotification(values);

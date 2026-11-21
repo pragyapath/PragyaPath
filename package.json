@@ -11,7 +11,8 @@
     "dev:server": "nodemon -e js,ejs server.js",
     "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
     "dev:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "test": "jest"
+    "test": "jest",
+    "images": "node scripts/optimize-images.js && node scripts/build-logo.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -26,9 +27,11 @@
   "devDependencies": {
     "concurrently": "^9.2.1",
     "connect-livereload": "^0.6.1",
+    "fast-check": "^3.23.2",
     "jest": "^29.7.0",
     "livereload": "^0.10.3",
     "nodemon": "^3.1.4",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.4"
   },
   "keywords": [

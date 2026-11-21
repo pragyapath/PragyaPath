@@ -9,7 +9,7 @@ Website for Pragya Path yoga studio in Bhaktapur, Nepal.
 | Server     | Node.js + Express                 |
 | Templates  | EJS (views/)                      |
 | Styles     | Tailwind CSS (compiled to CSS)    |
-| Email      | Nodemailer (Gmail SMTP)           |
+| Email      | Resend                            |
 | Dev runner | Nodemon                           |
 
 ## Getting Started
@@ -26,7 +26,7 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` and fill in your Gmail credentials (use an [App Password](https://support.google.com/accounts/answer/185833), not your account password).
+Edit `.env` and set `RESEND_API_KEY` (without it, inquiries are logged to the console instead of emailed).
 
 ### 3. Build CSS
 
@@ -86,3 +86,21 @@ npm run dev
 - Email sending is **skipped in development** — inquiries are logged to the console instead.
 - In production, set `NODE_ENV=production` and provide real email credentials.
 - Run `npm test` to execute unit tests.
+
+## Images
+
+Original photos live in `assets/images/` (not deployed). The site serves
+compressed WebP copies from `public/images/`, built by:
+
+```bash
+npm run images
+```
+
+To add a photo: drop it into `assets/images/gallery/`, run `npm run images`,
+then reference `/images/gallery/<name>.webp` (lightbox) and
+`/images/gallery/<name>-sm.webp` (grid thumbnail). File names are lower-cased
+and spaces become dashes.
+
+The logo source is `assets/brand/logo-original.webp`; the same command
+regenerates the navbar mark, footer logo and favicons in `public/images/brand/`.
+
