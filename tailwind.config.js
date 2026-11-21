@@ -26,10 +26,10 @@ module.exports = {
         dusk:    'rgb(var(--c-heading) / <alpha-value>)',
       },
       fontFamily: {
-        // serif = display (Bodoni Moda); sans/ui = Manrope; deva = Devanagari accents
-        serif: ['"Bodoni Moda"', 'Didot', 'Georgia', 'serif'],
-        sans:  ['"Manrope"', 'system-ui', 'sans-serif'],
-        ui:    ['"Manrope"', 'system-ui', 'sans-serif'],
+        // serif = display (Instrument Serif); sans/ui = Hanken Grotesk; deva = Devanagari accents
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans:  ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        ui:    ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
         deva:  ['"Tiro Devanagari Sanskrit"', '"Noto Serif Devanagari"', 'serif'],
       },
       letterSpacing: {

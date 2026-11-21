@@ -17,7 +17,7 @@
   }
 
   body {
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
     color: var(--heading);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
@@ -26,7 +26,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bodoni Moda', Didot, Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     color: var(--heading);
     overflow-wrap: break-word;
   }
@@ -78,7 +78,7 @@
     border: 1.5px solid var(--line-strong);
     border-radius: 0.5rem;
     padding: 0.875rem 1rem;
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
     font-size: 1rem; /* 16px stops iOS zooming into the field */
     line-height: 1.5;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -97,7 +97,7 @@
   .form-label {
     display: block;
     margin-bottom: 0.5rem;
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--heading);
@@ -116,7 +116,7 @@
     min-height: 48px;
     padding: 0.875rem 2rem;
     border-radius: 9999px;
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
@@ -333,7 +333,7 @@
 }
 
 .card-number {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.625rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -342,7 +342,7 @@
 }
 
 .card-tag {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--brass-text) !important;
@@ -353,7 +353,7 @@
 }
 
 .card-title {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--heading) !important;
@@ -362,7 +362,7 @@
 }
 
 .card-desc {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: var(--muted) !important;
@@ -374,7 +374,7 @@
    ═══════════════════════════════════════════════ */
 
 .section-label {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--accent) !important;
@@ -388,7 +388,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--heading) !important;
@@ -560,7 +560,7 @@
   border-radius: 9999px;
   border: 1px solid var(--line);
   background: transparent;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -743,7 +743,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.1);
@@ -786,7 +786,7 @@
 
 /* ═══════════════════════════════════════════════
    THEME — clean light by default, night indigo in dark mode
-   Display: Bodoni Moda · Text: Manrope · Accents: Tiro Devanagari
+   Display: Instrument Serif · Text: Hanken Grotesk · Accents: Tiro Devanagari
    Colours are RGB triplets so Tailwind's opacity modifiers work.
    ═══════════════════════════════════════════════ */
 
@@ -881,7 +881,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 /* Display headings */
 .h-section,
 .h-display {
-  font-family: 'Bodoni Moda', Didot, Georgia, serif;
+  font-family: 'Instrument Serif', Georgia, serif;
   font-weight: 500;
   font-optical-sizing: auto;
   letter-spacing: -0.015em;
@@ -901,14 +901,14 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
   font-size: 1.75rem; line-height: 1.2;
 }
 .deva-mark .gloss {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.875rem; font-weight: 600;
   padding-left: 0.9rem; border-left: 1px solid currentColor; line-height: 1.1;
 }
 
 .eyebrow {
   display: inline-block;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.9375rem; font-weight: 600;
   color: var(--brass-text);
   margin-bottom: 0.75rem;
@@ -946,7 +946,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
   display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem;
   min-height: 52px; padding: 0.9rem 1.9rem;
   border-radius: 2px;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.01em;
   white-space: nowrap; cursor: pointer;
   transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
@@ -970,7 +970,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 .card-ask, .link-line {
   display: inline-flex; align-items: center; gap: .5rem;
   align-self: flex-start;
-  font-family: 'Manrope', system-ui, sans-serif; font-weight: 600; font-size: .9375rem;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 600; font-size: .9375rem;
   color: var(--accent);
   text-decoration: none;
   background: linear-gradient(currentColor, currentColor) 0 100% / 30% 1px no-repeat;
@@ -981,7 +981,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 
 /* ── Hero ── */
 .hero-title {
-  font-family: 'Bodoni Moda', Didot, Georgia, serif;
+  font-family: 'Instrument Serif', Georgia, serif;
   font-weight: 400; font-optical-sizing: auto;
   color: var(--heading);
   letter-spacing: -0.02em;
@@ -1006,7 +1006,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
   .hero-facts > div:nth-child(3) { display: block; }
 }
 .hero-facts dt { font-size: .8125rem; font-weight: 600; color: var(--brass-text); margin-bottom: .25rem; }
-.hero-facts dd { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.4rem); color: var(--heading); }
+.hero-facts dd { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.4rem); color: var(--heading); }
 
 /* ── Program list (editorial rows) ── */
 .program-list { border-top: 1px solid var(--line-strong); }
@@ -1018,7 +1018,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
   .program-row { grid-template-columns: minmax(0, 1fr) auto; padding: 2.1rem 0; align-items: end; }
 }
 .program-row h3 {
-  font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500;
+  font-family: 'Instrument Serif', Georgia, serif; font-weight: 500;
   font-size: clamp(1.6rem, 2.6vw, 2.15rem); line-height: 1.1;
   color: var(--heading); transition: color .3s ease;
 }
@@ -1042,21 +1042,21 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 
 /* ── Quote ── */
 .pull-quote {
-  font-family: 'Bodoni Moda', Georgia, serif; font-style: italic; font-weight: 400;
+  font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400;
   font-size: clamp(1.75rem, 3.6vw, 3rem); line-height: 1.25;
   color: var(--heading);
 }
 
 /* ── Class times ── */
 .schedule-time {
-  font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400;
+  font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
   letter-spacing: -0.03em; line-height: .9;
   font-size: clamp(4rem, 12vw, 9rem);
   color: var(--heading);
   font-variant-numeric: lining-nums;
 }
 .schedule-time small {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
   font-size: .2em; letter-spacing: 0; font-weight: 600;
   color: var(--accent); margin-left: .4em; vertical-align: .9em;
 }
@@ -1073,7 +1073,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 }
 .team-avatar { width: 72px; height: 72px; }
 .team-avatar-sm { width: 64px; height: 64px; margin-left: auto; margin-right: auto; }
-.team-avatar span, .team-avatar-sm span { color: var(--brass-text) !important; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 1.35rem; }
+.team-avatar span, .team-avatar-sm span { color: var(--brass-text) !important; font-family: 'Instrument Serif', Georgia, serif; font-weight: 500; font-size: 1.35rem; }
 .team-card-sm { text-align: center; padding: 1rem .5rem; border: 0; background: transparent; }
 
 /* ── Gallery mosaic ── */
@@ -1094,7 +1094,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 .contact-row { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; padding: 1.1rem 0; border-top: 1px solid var(--line-strong); }
 .contact-row:last-child { border-bottom: 1px solid var(--line-strong); }
 .contact-row dt { font-size: .8125rem; font-weight: 600; color: var(--brass-text); }
-.contact-row dd { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--heading); overflow-wrap: anywhere; }
+.contact-row dd { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--heading); overflow-wrap: anywhere; }
 .contact-row a { transition: color .3s ease; }
 .contact-row a:hover { color: var(--accent); }
 .form-panel { background: var(--surface); color: var(--text); padding: 1.75rem; border-radius: 2px; border: 1px solid var(--line); box-shadow: var(--shadow); }
@@ -1128,8 +1128,8 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 .site-footer h3, .site-footer h4 { color: var(--brass-text); }
 
 /* Brand lockup in the nav */
-.brand-wordmark { font-family: 'Manrope', system-ui, sans-serif; color: var(--heading); letter-spacing: .14em; }
-.brand-tagline { font-family: 'Manrope', system-ui, sans-serif; color: var(--brass-text); letter-spacing: .02em; }
+.brand-wordmark { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: var(--heading); letter-spacing: .14em; }
+.brand-tagline { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: var(--brass-text); letter-spacing: .02em; }
 
 /* Nav */
 .site-nav { background: rgb(var(--c-bg) / 0); border-bottom: 1px solid transparent; transition: background-color .3s ease, border-color .3s ease; }
@@ -1159,9 +1159,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 /* Art classes list */
 .card { background: transparent; border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; padding: 1.5rem 0 .25rem; box-shadow: none; display: flex; flex-direction: column; gap: .35rem; }
 .card:hover { border-color: var(--line-strong); box-shadow: none; transform: none; }
-.card-title { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; color: var(--heading) !important; }
-.card-tag { font-family: 'Manrope', system-ui, sans-serif; font-size: .8125rem; font-weight: 600; color: var(--brass-text) !important; background: none; padding: 0; border: 0; border-radius: 0; text-transform: none; letter-spacing: 0; }
-.card-desc { font-family: 'Manrope', system-ui, sans-serif; color: var(--muted) !important; }
+.card-title { font-family: 'Instrument Serif', Georgia, serif; font-weight: 500; color: var(--heading) !important; }
+.card-tag { font-family: 'Hanken Grotesk', system-ui, sans-serif; font-size: .8125rem; font-weight: 600; color: var(--brass-text) !important; background: none; padding: 0; border: 0; border-radius: 0; text-transform: none; letter-spacing: 0; }
+.card-desc { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: var(--muted) !important; }
 
 /* ── Hike list + dusk illustration ── */
 .hike-list { border-top: 1px solid var(--line); max-width: 30rem; }
@@ -1254,3 +1254,163 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
 
 /* One orchestrated entrance in the hero; sections below stay still */
 .fade-up, .stagger-child { opacity: 1 !important; transform: none !important; }
+
+/* ═══════════════════════════════════════════════
+   EDITORIAL LAYER — Instrument Serif display, varied compositions
+   ═══════════════════════════════════════════════ */
+html { font-synthesis: none; }               /* Instrument Serif has one weight: never fake bold */
+.h-display, .h-section, .hero-type, .pull-quote, .schedule-time,
+.program-row h3, .card-title, .contact-row dd, .hero-facts dd, [class*="font-serif"] { font-weight: 400 !important; }
+
+.h-display { font-size: clamp(2.9rem, 6.2vw, 6rem); line-height: .98; letter-spacing: -0.012em; }
+.h-section { letter-spacing: -0.01em; line-height: 1; }
+body { font-size: 1.0625rem; }
+
+/* Hero */
+.hero-meta {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--line-strong);
+  font-size: .875rem; font-weight: 500; color: var(--muted);
+}
+.hero-meta .font-deva { font-size: 1.2rem; }
+.hero-type {
+  margin-top: clamp(2rem, 5vw, 4rem);
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--heading);
+  font-size: clamp(2.4rem, 12.2vw, 12.5rem);
+  line-height: .9;
+  letter-spacing: -0.02em;
+}
+.hero-line { display: flex; align-items: center; gap: .18em; flex-wrap: nowrap; white-space: nowrap; }
+.hero-indent { padding-left: 1.1em; }
+.hero-type i { font-style: normal; color: var(--saffron); }
+.pill {
+  display: inline-block; flex: none;
+  width: 1.55em; height: .74em; border-radius: 999px; overflow: hidden;
+  transform: translateY(.04em);
+  box-shadow: inset 0 0 0 1px rgb(var(--c-heading) / .08);
+}
+.pill-round { width: .74em; background: var(--bg-alt); }
+.pill img { width: 100%; height: 100%; object-fit: cover; }
+.pill-round img { object-fit: contain; padding: .06em; }
+@media (max-width: 639px) {
+  .hero-indent { padding-left: 0; }
+}
+.hero-foot {
+  display: grid; gap: 1.75rem; margin-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .hero-foot { grid-template-columns: minmax(0, 32rem) auto; justify-content: space-between; align-items: end; }
+}
+.hero-intro { font-size: 1.1875rem; line-height: 1.65; color: var(--text); }
+.hero-intro em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 1.3em; color: var(--heading); }
+.hero-wide { margin: 0; }
+.hero-wide img { display: block; width: 100%; height: clamp(320px, 62vh, 760px); object-fit: cover; object-position: 70% 40%; }
+
+/* Quote: hanging mark, offset caption */
+.quote-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 900px) {
+  .quote-grid { grid-template-columns: 2fr 8fr 2fr; column-gap: 2rem; }
+  .quote-grid .pull-quote { grid-column: 2; }
+  .quote-grid .quote-cap { grid-column: 2; }
+}
+.quote-mark { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(6rem, 12vw, 11rem); line-height: .7; color: var(--saffron); text-align: right; }
+@media (max-width: 899px) { .quote-mark { text-align: left; } }
+.pull-quote { font-style: normal; font-size: clamp(2rem, 4.4vw, 4rem); line-height: 1.08; letter-spacing: -0.01em; }
+.quote-cap { font-size: .9375rem; color: var(--muted); padding-top: 1.25rem; border-top: 1px solid var(--line-strong); max-width: 24rem; }
+
+/* Programs: large reveal list */
+.reveal-list { border-top: 1px solid var(--line-strong); }
+.reveal-row {
+  display: grid; align-items: center;
+  grid-template-columns: 64px 1fr; column-gap: 1rem; row-gap: .25rem;
+  padding: 1.25rem 0; border-bottom: 1px solid var(--line-strong);
+  color: var(--heading); text-decoration: none;
+  transition: color .3s ease;
+}
+.reveal-thumb { grid-row: span 2; width: 64px; height: 64px; object-fit: cover; border-radius: 2px; }
+.reveal-name { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.9rem, 4.2vw, 4rem); line-height: 1; letter-spacing: -0.01em; transition: transform .45s cubic-bezier(.2,.7,.2,1), color .3s ease; }
+.reveal-desc { font-size: .9375rem; color: var(--muted); line-height: 1.5; }
+.reveal-tag, .reveal-go { display: none; }
+@media (min-width: 900px) {
+  .reveal-row { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr) 8rem 3rem; column-gap: 2rem; padding: 1.6rem 0; }
+  .reveal-thumb { display: none; }
+  .reveal-tag { display: block; font-size: .8125rem; font-weight: 600; color: var(--brass-text); text-align: right; }
+  .reveal-go { display: block; font-size: .875rem; font-weight: 600; color: var(--accent); text-align: right; opacity: 0; transform: translateX(-6px); transition: opacity .3s ease, transform .3s ease; }
+  .reveal-row:hover .reveal-name, .reveal-row:focus-visible .reveal-name { transform: translateX(.35em); color: var(--accent); }
+  .reveal-row:hover .reveal-go, .reveal-row:focus-visible .reveal-go { opacity: 1; transform: none; }
+}
+.reveal-float {
+  position: fixed; left: 0; top: 0; z-index: 30; pointer-events: none;
+  width: 260px; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px;
+  opacity: 0; transform: translate3d(-9999px, 0, 0) scale(.92);
+  transition: opacity .3s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+  box-shadow: var(--shadow);
+}
+.reveal-float img { width: 100%; height: 100%; object-fit: cover; }
+.reveal-float.is-on { opacity: 1; }
+@media (hover: none), (max-width: 899px) { .reveal-float { display: none; } }
+
+/* Class times: big numerals + a drawn day */
+.schedule-time { font-size: clamp(4.5rem, 11vw, 10rem); line-height: .85; letter-spacing: -0.02em; }
+.schedule-time small { font-family: 'Hanken Grotesk', system-ui, sans-serif; font-size: .16em; vertical-align: 1.2em; margin-left: .35em; }
+.schedule-label { margin-bottom: .75rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line-strong); }
+.dayline-track { position: relative; height: 10px; border-radius: 999px; background: rgb(var(--c-heading) / .08); }
+.dayline-block { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--saffron); }
+.dayline-ticks { position: relative; height: 1.75rem; margin-top: .6rem; font-size: .8125rem; color: var(--muted); }
+.dayline-ticks span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.dayline-ticks span:first-child { transform: none; }
+
+/* Hiking: a wide two-line title, illustration on its own */
+.walk-title {
+  font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
+  color: var(--heading);
+  font-size: clamp(3.2rem, 9vw, 9rem); line-height: .92; letter-spacing: -0.018em;
+}
+.walk-figure { margin: 0; border-radius: 4px; overflow: hidden; }
+
+/* Art: three short columns with a rule above each */
+.art-cols { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 768px) { .art-cols { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+.art-cols article { border-top: 1px solid var(--line-strong); padding-top: 1.25rem; }
+.art-cols h3 { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.75rem, 2.6vw, 2.25rem); line-height: 1.05; color: var(--heading); margin-top: .5rem; }
+.art-when { font-size: .875rem; font-weight: 500; color: var(--brass-text); }
+.art-desc { margin-top: .75rem; color: var(--muted); line-height: 1.6; max-width: 30ch; }
+.art-cols .link-line { margin-top: 1rem; }
+.art-sale { margin-top: clamp(3rem, 6vw, 5rem); max-width: 48rem; color: var(--muted); line-height: 1.7; }
+
+/* Gratitude: full-bleed photograph, mantra set large over it */
+.guru-band { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(560px, 92vh, 960px); display: flex; align-items: flex-end; background: #14130F; }
+.guru-band > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; z-index: -2; }
+.guru-band::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(14,12,9,.05) 0%, rgba(14,12,9,.25) 45%, rgba(14,12,9,.82) 100%);
+}
+.guru-inner {
+  width: 100%; max-width: 88rem; margin: 0 auto;
+  padding: 0 1.25rem clamp(3rem, 7vw, 6rem);
+  display: grid; gap: 1.75rem; align-items: end; color: #F3EEE4;
+}
+@media (min-width: 640px) { .guru-inner { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 768px) { .guru-inner { padding-left: 3rem; padding-right: 3rem; } }
+@media (min-width: 1024px) { .guru-inner { grid-template-columns: 1fr 26rem; gap: 3rem; } }
+.guru-mantra { font-family: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', serif; font-size: clamp(3.4rem, 10vw, 9.5rem); line-height: 1.15; color: #F6D9A8; }
+.guru-text h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1; color: #fff; }
+.guru-text p { margin-top: .9rem; line-height: 1.65; color: rgba(243,238,228,.86); }
+
+/* About: opening sentence as the headline */
+.about-lead {
+  font-family: 'Instrument Serif', Georgia, serif; color: var(--heading);
+  font-size: clamp(2.1rem, 4.6vw, 4.4rem); line-height: 1.06; letter-spacing: -0.01em;
+  max-width: 27ch;
+}
+.people-title { margin-top: 3rem; font-family: "Hanken Grotesk", system-ui, sans-serif; font-size: 1rem; font-weight: 600; color: var(--heading); }
+.people { margin-top: 1rem; border-top: 1px solid var(--line-strong); }
+.people li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.people-name { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.5rem; line-height: 1.1; color: var(--heading); }
+.people-role { font-size: .9rem; color: var(--muted); text-align: right; }
+
+/* Keep the brand on one line on small phones */
+.brand-wordmark, .brand-tagline { white-space: nowrap; }
+@media (max-width: 379px) { .brand-tagline { display: none; } }

@@ -13,185 +13,154 @@
 %>
 
 <!-- ═══════════════════════════════════════════════
-     HERO
+     HERO — type-led, with photographs set inside the headline
 ════════════════════════════════════════════════ -->
-<section class="relative bg-paper overflow-hidden" aria-label="Welcome">
-  <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-14">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<section class="bg-paper overflow-hidden" aria-label="Welcome">
+  <div class="max-w-[88rem] mx-auto px-5 sm:px-6 md:px-12 pt-28 md:pt-36">
 
-      <div class="lg:col-span-7">
-        <p class="hero-reveal hero-deva mb-5" lang="ne">प्रज्ञा पथ</p>
-
-        <h1 class="hero-title hero-reveal d1">
-          <span>Awaken<i>.</i></span>
-          <span>Heal<i>.</i></span>
-          <span>Transform<i>.</i></span>
-        </h1>
-
-        <p class="hero-reveal d2 text-muted text-lg md:text-xl leading-relaxed max-w-xl mt-7 mb-9">
-          Hatha yoga and sound healing in a quiet studio in old Bhaktapur. Come as you are — beginners are always welcome.
-        </p>
-
-        <div class="hero-reveal d3 flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <a href="#schedule" class="btn-primary">See class times</a>
-          <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-quiet"><%- waIcon %>Message us on WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="lg:col-span-5 hero-reveal d2 pr-3 lg:pr-0">
-        <div class="framed arch hero-photo max-w-md mx-auto lg:ml-auto">
-          <img
-            src="/images/hero.webp"
-            alt="A teacher seated in meditation in the Pragya Path studio"
-            class="aspect-[4/5] object-cover object-[72%_center]"
-            fetchpriority="high"
-          >
-        </div>
-      </div>
+    <div class="hero-meta hero-reveal">
+      <span>Hatha yoga &amp; sound healing</span>
+      <span class="font-deva text-bronze" lang="ne">प्रज्ञा पथ</span>
+      <span class="hidden sm:inline">Dattatraye, Bhaktapur</span>
     </div>
 
-    <dl class="hero-facts hero-reveal d4 mt-14 md:mt-16">
-      <div><dt>Morning class</dt><dd>6 – 9 am</dd></div>
-      <div><dt>Evening class</dt><dd>5 – 8 pm</dd></div>
-      <div><dt>Studio</dt><dd>Dattatraye, Bhaktapur</dd></div>
-    </dl>
+    <h1 class="hero-type hero-reveal d1">
+      <span class="hero-line">Awaken <span class="pill" aria-hidden="true"><img src="/images/girl-with-tibetean-bowl.webp" alt=""></span> heal</span>
+      <span class="hero-line hero-indent">&amp; <span class="pill pill-round" aria-hidden="true"><img src="/images/tibetansingingbowl.webp" alt=""></span> <span>transform<i>.</i></span></span>
+    </h1>
+
+    <div class="hero-foot hero-reveal d2">
+      <p class="hero-intro">
+        <em>Pragya Path</em> means “the path of wisdom”. We teach traditional hatha yoga and sound healing in a quiet studio in old Bhaktapur — beginners are always welcome.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#schedule" class="btn-primary">See class times</a>
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-quiet"><%- waIcon %>WhatsApp us</a>
+      </div>
+    </div>
   </div>
+
+  <figure class="hero-wide hero-reveal d3">
+    <img
+      src="/images/hero.webp"
+      alt="A teacher seated in meditation beside a singing bowl"
+      fetchpriority="high"
+    >
+  </figure>
 </section>
 
 <!-- ═══════════════════════════════════════════════
      QUOTE
 ════════════════════════════════════════════════ -->
-<section class="bg-paper py-20 md:py-32 px-5 sm:px-6 md:px-12" aria-label="Our approach">
-  <figure class="max-w-4xl mx-auto text-center">
-    <div class="brass-rule max-w-xs mx-auto mb-10" aria-hidden="true"><%- lotus %></div>
+<section class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-40" aria-label="Our approach">
+  <figure class="max-w-[88rem] mx-auto quote-grid">
+    <span class="quote-mark" aria-hidden="true">“</span>
     <blockquote class="pull-quote">
-      “Yoga is not just repetition of a few postures — it is the exploration and discovery of the subtle energies of life.”
+      Yoga is not just repetition of a few postures — it is the exploration and discovery of the subtle energies of life.
     </blockquote>
-    <figcaption class="mt-8 text-muted text-base">The idea every class at Pragya Path starts from</figcaption>
+    <figcaption class="quote-cap">The idea every class at Pragya Path starts from</figcaption>
   </figure>
 </section>
 
 
 <!-- ═══════════════════════════════════════════════
-     PROGRAMS
+     PROGRAMS — large list; a photo follows the cursor on desktop
 ════════════════════════════════════════════════ -->
-<section id="programs" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="programs-heading">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-
-    <div class="lg:col-span-5">
-      <div class="lg:sticky lg:top-28">
-        <p class="deva-mark"><span class="deva" lang="ne">अभ्यास</span><span class="gloss">Practice</span></p>
-        <h2 id="programs-heading" class="h-display">Practices for body, mind and soul</h2>
-        <p class="lede mt-6">Drop in to a daily class, book a private session, or train to teach. Not sure which fits? Ask us and we'll suggest one.</p>
-
-        <div class="framed arch hidden lg:block mt-12 max-w-sm">
-          <img src="/images/sound-healing.webp" alt="Singing bowls laid out for a sound healing session" class="aspect-[4/5] object-cover" loading="lazy">
-        </div>
-      </div>
+<section id="programs" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-36" aria-labelledby="programs-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-12 md:mb-20">
+      <h2 id="programs-heading" class="h-display md:col-span-7">Six ways to practise with us</h2>
+      <p class="lede md:col-span-4 md:col-start-9">Drop in to a daily class, book a private session, or train to teach. Not sure which fits? Ask, and we'll suggest one.</p>
     </div>
 
     <% const primary = [
-      { name: 'Regular yoga classes', desc: 'Daily Hatha Yoga to build strength, flexibility and inner stillness.', tag: 'Daily, all levels' },
-      { name: 'Therapeutic yoga', desc: 'One-to-one sessions shaped around your body and health goals, with a guided diet plan.', tag: 'Private' },
-      { name: 'Sound healing', desc: 'Tibetan singing bowls used to release tension and settle the nervous system.', tag: 'Relaxation' },
-      { name: 'Singing bowl training', desc: 'Certified courses at levels 1, 2 and 3, from first strike to practitioner.', tag: 'Certificate course' },
-      { name: 'Yoga teacher training', desc: 'Become a certified yoga teacher, grounded in traditional Hatha practice.', tag: 'Certificate course' },
-      { name: 'Retreats & tours', desc: 'Multi-day retreats, spiritual tours and mindful hikes around the Kathmandu Valley.', tag: 'Multi-day' }
+      { name: 'Regular yoga classes', desc: 'Daily hatha yoga to build strength, flexibility and inner stillness.', tag: 'Daily, all levels', img: '/images/gallery/yoda-session-sm.webp' },
+      { name: 'Therapeutic yoga', desc: 'One-to-one sessions shaped around your body and health goals, with a guided diet plan.', tag: 'Private', img: '/images/girl-with-tibetean-bowl.webp' },
+      { name: 'Sound healing', desc: 'Tibetan singing bowls used to release tension and settle the nervous system.', tag: 'Relaxation', img: '/images/gallery/sound-healing-glimp-sm.webp' },
+      { name: 'Singing bowl training', desc: 'Certified courses at levels 1, 2 and 3, from first strike to practitioner.', tag: 'Certificate', img: '/images/gallery/healing-sound-sm.webp' },
+      { name: 'Yoga teacher training', desc: 'Become a certified yoga teacher, grounded in traditional hatha practice.', tag: 'Certificate', img: '/images/gallery/yoga-traning-sm.webp' },
+      { name: 'Retreats & tours', desc: 'Multi-day retreats, spiritual tours and mindful hikes around the Kathmandu Valley.', tag: 'Multi-day', img: '/images/gallery/group-photo-with-guest-sm.webp' }
     ]; %>
 
-    <div class="lg:col-span-7">
-      <div class="program-list">
-        <% primary.forEach(function(s) { %>
-        <article class="program-row">
-          <div>
-            <span class="tag"><%= s.tag %></span>
-            <h3><%= s.name %></h3>
-            <p><%= s.desc %></p>
-          </div>
-          <a href="#contact" class="card-ask" data-topic="<%= s.name %>">Ask about this</a>
-        </article>
-        <% }) %>
+    <ul class="reveal-list" role="list">
+      <% primary.forEach(function(s) { %>
+      <li>
+        <a href="#contact" class="reveal-row" data-topic="<%= s.name %>" data-img="<%= s.img %>">
+          <img class="reveal-thumb" src="<%= s.img %>" alt="" loading="lazy">
+          <span class="reveal-name"><%= s.name %></span>
+          <span class="reveal-desc"><%= s.desc %></span>
+          <span class="reveal-tag"><%= s.tag %></span>
+          <span class="reveal-go" aria-hidden="true">Ask</span>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <div class="reveal-float" aria-hidden="true"><img alt=""></div>
+
+    <p class="mt-10 text-muted leading-relaxed max-w-3xl">
+      <span class="font-semibold text-stone">Also on offer:</span>
+      <% const extras = ['Kids yoga', 'Corporate yoga', 'Yogic Zumba', 'Mindfulness hikes', 'Spiritual tours']; %>
+      <% extras.forEach(function(name, i) { %><a href="#contact" data-topic="<%= name %>" class="link-line !p-0 !inline"><%= name %></a><%= i < extras.length - 1 ? ', ' : '.' %> <% }) %>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CLASS TIMES — the day drawn as a line
+════════════════════════════════════════════════ -->
+<section id="schedule" class="band px-5 sm:px-6 md:px-12 py-24 md:py-36" aria-labelledby="schedule-heading">
+  <div class="max-w-[88rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10">
+
+    <div class="lg:col-span-4">
+      <h2 id="schedule-heading" class="h-display">Every day, twice a day</h2>
+      <p class="lede mt-6">Same times all week, including weekends. Drop in for one class or ask about weekly and monthly passes — message us first and we'll keep a mat for you.</p>
+      <div class="mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Book on WhatsApp</a>
+        <a href="#contact" class="btn-quiet">Send a message</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 lg:col-start-6">
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <p class="schedule-label">Morning</p>
+          <p class="schedule-time">6–9<small>am</small></p>
+        </div>
+        <div>
+          <p class="schedule-label">Evening</p>
+          <p class="schedule-time">5–8<small>pm</small></p>
+        </div>
       </div>
 
-      <p class="mt-10 text-muted leading-relaxed">
-        <span class="font-semibold text-stone">Also on offer:</span>
-        <% const extras = ['Kids yoga', 'Corporate yoga', 'Yogic Zumba', 'Mindfulness hikes', 'Spiritual tours']; %>
-        <% extras.forEach(function(name, i) { %><a href="#contact" data-topic="<%= name %>" class="link-line !p-0 !inline"><%= name %></a><%= i < extras.length - 1 ? ', ' : '.' %> <% }) %>
-      </p>
+      <!-- The day from 4am to 10pm, with the two class blocks marked -->
+      <div class="dayline mt-12" role="img" aria-label="Classes run from 6 to 9 in the morning and 5 to 8 in the evening">
+        <div class="dayline-track">
+          <span class="dayline-block" style="left: 11.11%; width: 16.67%;"></span>
+          <span class="dayline-block" style="left: 72.22%; width: 16.67%;"></span>
+        </div>
+        <div class="dayline-ticks" aria-hidden="true">
+          <span style="left: 0%">4am</span>
+          <span style="left: 22.22%">8am</span>
+          <span style="left: 44.44%">noon</span>
+          <span style="left: 66.67%">4pm</span>
+          <span style="left: 88.89%">8pm</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     SCHEDULE BAND
+     HIKING — wide heading, illustration leads, notes to the side
 ════════════════════════════════════════════════ -->
-<section id="schedule" class="band px-5 sm:px-6 md:px-12 py-20 md:py-32" aria-labelledby="schedule-heading">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
-      <div>
-        <p class="deva-mark"><span class="deva" lang="ne">समय</span><span class="gloss">Class times</span></p>
-        <h2 id="schedule-heading" class="h-display">Every day, twice a day</h2>
-      </div>
-      <p class="lede md:text-right md:max-w-sm">Same times all week, including weekends and holidays.</p>
-    </div>
+<section id="hiking" class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-36 overflow-hidden" aria-labelledby="hiking-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <p class="deva-mark"><span class="deva" lang="ne">यात्रा</span><span class="gloss">Journeys</span></p>
+    <h2 id="hiking-heading" class="walk-title">Mindful walks<br>in the hills</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 border-t border-line">
-      <div class="pt-8 pb-10 md:py-12 md:pr-10">
-        <p class="schedule-label mb-4">Morning</p>
-        <p class="schedule-time">6–9<small>am</small></p>
-      </div>
-      <div class="pt-8 pb-10 md:py-12 md:pl-12 border-t md:border-t-0 md:border-l border-line">
-        <p class="schedule-label mb-4">Evening</p>
-        <p class="schedule-time">5–8<small>pm</small></p>
-      </div>
-    </div>
-
-    <div class="pt-10 border-t border-line flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-      <p class="text-muted text-lg max-w-xl leading-relaxed">Drop in for a single class or ask about weekly and monthly passes. Message us before your first visit so we can save you a mat.</p>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Book on WhatsApp</a>
-        <a href="#contact" class="btn-quiet">Send a message</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--
-     HIKING & NATURE RETREATS
--->
-<section id="hiking" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-paper relative overflow-hidden" aria-labelledby="hiking-heading">
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-
-    <!-- Content -->
-    <div>
-      <p class="deva-mark"><span class="deva" lang="ne">यात्रा</span><span class="gloss">Journeys</span></p>
-
-      <h2 id="hiking-heading" class="h-display mb-8">
-        Mindful walks in the hills
-      </h2>
-
-      <div class="prose-body text-muted text-lg">
-        <p>
-          Beyond the mat and the singing bowls, healing also happens outdoors. Our guided hikes take you into the hills around the Kathmandu Valley.
-        </p>
-        <p>
-          Walk slowly, meditate in the open air and take in the Himalayan views. Each hike is paced so you return grounded and clear-headed, not tired.
-        </p>
-      </div>
-      <ul class="hike-list mt-8">
-        <li>Mindful walking at an unhurried pace</li>
-        <li>Meditation in the open air</li>
-        <li>Himalayan viewpoints above the valley</li>
-      </ul>
-      <div class="mt-10">
-        <a href="#contact" data-topic="Mindfulness hikes" class="btn-primary">Ask about the next hike</a>
-      </div>
-    </div>
-
-    <!-- Illustration: Himalayan ridges — soft morning in light mode, dusk in dark mode -->
-    <div class="relative pr-4 pb-4 lg:pr-6 lg:pb-6">
-      <figure class="framed">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 mt-12 md:mt-16 items-end">
+      <div class="lg:col-span-7">
+      <figure class="walk-figure">
         <svg class="hike-scene block w-full h-auto" viewBox="0 0 600 640" role="img" aria-labelledby="hike-scene-title">
           <title id="hike-scene-title">Illustration of a walker on a path through terraced hills below snowy Himalayan peaks, with prayer flags and a small stupa</title>
           <defs>
@@ -292,178 +261,114 @@
           <path class="hs-fore" d="M0 590 C140 560 260 600 380 580 C470 566 540 590 600 580 L600 640 L0 640Z"/>
         </svg>
       </figure>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ═══════════════════════════════════════════════
-     KALANIL ART GALLERY
-════════════════════════════════════════════════ -->
-<section id="art-gallery" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="art-gallery-heading">
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-    <div class="lg:col-span-5">
-      <p class="deva-mark"><span class="deva" lang="ne">कला</span><span class="gloss">Kalanil Art Gallery</span></p>
-      <h2 id="art-gallery-heading" class="h-display">Where art meets wellness</h2>
-      <p class="lede mt-6">Our sister gallery shares the studio. Join a drawing class, or take home a painting made in Bhaktapur.</p>
-
-      <div class="mt-10 pt-6 border-t border-line">
-        <h3 class="font-serif text-2xl font-medium text-stone">Paintings for sale</h3>
-        <p class="mt-3 text-muted leading-relaxed">Oil and acrylic, watercolour, mixed media, and portraits painted to order.</p>
-        <a href="#contact" data-topic="Paintings for sale" class="card-ask mt-3">Ask for photos and prices</a>
-      </div>
-    </div>
-
-    <div class="lg:col-span-7">
-      <% const artClasses = [
-        { name: 'Regular drawing classes', desc: 'Steady weekly practice to build drawing skills from the ground up.', tag: 'Ongoing' },
-        { name: 'Special drawing workshops', desc: 'Focused sessions on one technique or medium at a time.', tag: 'Workshop' },
-        { name: 'Saturday drawing classes', desc: 'A weekend class for anyone who works through the week.', tag: 'Saturdays' }
-      ]; %>
-      <div class="program-list">
-        <% artClasses.forEach(function(c) { %>
-        <article class="program-row">
-          <div>
-            <span class="tag"><%= c.tag %></span>
-            <h3><%= c.name %></h3>
-            <p><%= c.desc %></p>
-          </div>
-          <a href="#contact" class="card-ask" data-topic="<%= c.name %>">Book a place</a>
-        </article>
-        <% }) %>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     GRATITUDE
-════════════════════════════════════════════════ -->
-<section id="gratitude" class="bg-surface py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="gratitude-heading">
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
-
-    <div class="order-2 lg:order-1 pr-3 lg:pr-0">
-      <div class="framed">
-        <img
-          src="/images/loard-shive.webp"
-          alt="Statue of Lord Shiva as Adiyogi, the first yogi"
-          class="aspect-[4/5] object-cover"
-          loading="lazy"
-        >
-      </div>
-    </div>
-
-    <div class="order-1 lg:order-2">
-      <p class="deva-mark"><span class="deva" lang="ne">गुरु</span><span class="gloss">Gratitude</span></p>
-      <h2 id="gratitude-heading" class="h-display mb-8">
-        Honouring our gurus
-      </h2>
-      <div class="prose-body text-lg">
-        <p>
-          We bow in gratitude to Lord Shiva, the Adiyogi, whose teachings of yoga and meditation are the foundation of all our practice.
-        </p>
-        <p>
-          Our guidance comes from a lineage of gurus who kept these traditions alive. Through their blessings we can share authentic practice with you.
-        </p>
-        <p class="text-stone font-medium">
-          Every class, every session, every healing sound is an offering rooted in this wisdom.
-        </p>
       </div>
 
-      <p class="mt-10 font-deva text-3xl text-bronze" lang="sa">ॐ नमः शिवाय</p>
-      <p class="mt-1 text-sm text-muted">Om Namah Shivaya</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     ABOUT
-════════════════════════════════════════════════ -->
-<section id="about" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-paper relative overflow-hidden" aria-labelledby="about-heading">
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
-
-    <div class="lg:col-span-5 order-2 lg:order-1 relative pr-3 lg:pr-0">
-      <div class="framed arch max-w-md mx-auto lg:mx-0">
-        <img
-          src="/images/girl-with-tibetean-bowl.webp"
-          alt="A student playing a Tibetan singing bowl in the studio"
-          class="aspect-[4/5] object-cover"
-          loading="lazy"
-        >
-      </div>
-      <img
-        src="/images/tibetansingingbowl.webp"
-        alt=""
-        class="absolute -bottom-8 right-0 lg:-right-10 w-40 md:w-52 h-auto drop-shadow-[0_24px_28px_rgba(27,31,63,0.25)] pointer-events-none"
-        loading="lazy"
-      >
-    </div>
-
-    <div class="lg:col-span-7 order-1 lg:order-2">
-      <p class="deva-mark"><span class="deva" lang="ne">हाम्रो कथा</span><span class="gloss">Our story</span></p>
-      <h2 id="about-heading" class="h-display mb-8">
-        A sanctuary for inner growth
-      </h2>
-      <div class="prose-body text-muted text-lg">
-        <p>
-          Pragya Path was founded in the old city of Bhaktapur with one intention: to offer a genuine space where people can slow down, breathe, and reconnect with themselves.
-        </p>
-        <p>
-          We draw on the deep roots of Hatha Yoga and the meditative tradition of sound healing, and teach them in a way that fits modern life.
-        </p>
-        <p class="text-stone font-medium">
-          Whether you are a complete beginner or an experienced practitioner, you are welcome here.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Team -->
-  <div class="max-w-7xl mx-auto mt-24 md:mt-32">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
-      <div class="lg:col-span-5">
-        <h3 class="h-section text-3xl md:text-4xl">The people behind Pragya Path</h3>
-      </div>
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-10">
-        <div class="team-card">
-          <div class="team-avatar"><span>AD</span></div>
-          <h4 class="font-serif text-2xl font-medium text-stone mb-1">Aarati Dhakal</h4>
-          <p class="text-sm font-semibold text-bronze mb-3">Founder, Pragya Path</p>
-          <p class="text-muted leading-relaxed">Dedicated to sharing authentic yoga and sound healing traditions with the world.</p>
+      <div class="lg:col-span-4 lg:col-start-9 lg:pb-4">
+        <div class="prose-body text-muted text-lg">
+          <p>Healing also happens outdoors. Our guided hikes take you into the hills around the Kathmandu Valley.</p>
+          <p>We walk slowly, meditate in the open air and stop for the Himalayan views. Each hike is paced so you come back grounded, not tired.</p>
         </div>
-        <div class="team-card">
-          <div class="team-avatar"><span>AB</span></div>
-          <h4 class="font-serif text-2xl font-medium text-stone mb-1">Anil Basnet</h4>
-          <p class="text-sm font-semibold text-bronze mb-3">Founder, Kalanil Art Gallery</p>
-          <p class="text-muted leading-relaxed">Bringing art and creativity together with wellness and healing.</p>
+        <ul class="hike-list mt-8">
+          <li>Mindful walking at an unhurried pace</li>
+          <li>Meditation in the open air</li>
+          <li>Himalayan viewpoints above the valley</li>
+        </ul>
+        <div class="mt-10">
+          <a href="#contact" data-topic="Mindfulness hikes" class="btn-primary">Ask about the next hike</a>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="mt-16 pt-10 border-t border-line">
-      <h3 class="font-ui font-semibold text-stone mb-8">Our teachers</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        <% const trainers = [
-          { name: 'Aarati Dhakal', initials: 'AD' },
-          { name: 'Sumon Acharya', initials: 'SA' },
-          { name: 'Ramash Kadel', initials: 'RK' },
-          { name: 'Meena K. Raut', initials: 'MR' },
-          { name: 'Kalpana Gajmer', initials: 'KG' }
+
+<!-- ═══════════════════════════════════════════════
+     KALANIL ART GALLERY — three classes set side by side
+════════════════════════════════════════════════ -->
+<section id="art-gallery" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-32" aria-labelledby="art-gallery-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+      <h2 id="art-gallery-heading" class="h-display md:col-span-7">Drawing classes at Kalanil</h2>
+      <p class="lede md:col-span-4 md:col-start-9">Kalanil Art Gallery, our sister gallery, shares the studio. Come and draw with us, or take home a painting made in Bhaktapur.</p>
+    </div>
+
+    <% const artClasses = [
+      { name: 'Regular drawing classes', desc: 'Steady weekly practice to build drawing skills from the ground up.', when: 'Every week' },
+      { name: 'Special workshops', desc: 'Focused sessions on one technique or medium at a time.', when: 'Announced monthly' },
+      { name: 'Saturday classes', desc: 'A weekend class for anyone who works through the week.', when: 'Saturdays' }
+    ]; %>
+    <div class="art-cols mt-14 md:mt-20">
+      <% artClasses.forEach(function(c) { %>
+      <article>
+        <p class="art-when"><%= c.when %></p>
+        <h3><%= c.name %></h3>
+        <p class="art-desc"><%= c.desc %></p>
+        <a href="#contact" class="link-line" data-topic="<%= c.name %>">Book a place</a>
+      </article>
+      <% }) %>
+    </div>
+
+    <p class="art-sale">
+      Paintings for sale: oil and acrylic, watercolour, mixed media, and portraits painted to order.
+      <a href="#contact" data-topic="Paintings for sale" class="link-line !p-0 !inline">Ask for photos and prices</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     GRATITUDE — one full-bleed image, the mantra set large
+════════════════════════════════════════════════ -->
+<section id="gratitude" class="guru-band" aria-labelledby="gratitude-heading">
+  <img src="/images/loard-shive.webp" alt="Statue of Lord Shiva as Adiyogi, the first yogi" loading="lazy">
+  <div class="guru-inner">
+    <p class="guru-mantra" lang="sa">ॐ नमः शिवाय</p>
+    <div class="guru-text">
+      <h2 id="gratitude-heading">Honouring our gurus</h2>
+      <p>We bow to Lord Shiva, the Adiyogi, and to the line of teachers who kept these practices alive. Every class and every healing sound here is an offering to them.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT — a long opening sentence, then photo and people
+════════════════════════════════════════════════ -->
+<section id="about" class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-36 overflow-hidden" aria-labelledby="about-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <h2 id="about-heading" class="sr-only">About Pragya Path</h2>
+    <p class="about-lead">
+      Pragya Path began in the old city of Bhaktapur with one intention: a genuine place to slow down, breathe and come back to yourself.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 mt-16 md:mt-24">
+      <div class="lg:col-span-5 relative pr-6 pb-6 lg:pr-0">
+        <div class="framed arch max-w-md">
+          <img src="/images/girl-with-tibetean-bowl.webp" alt="A student playing a Tibetan singing bowl in the studio" class="aspect-[4/5] object-cover" loading="lazy">
+        </div>
+        <img src="/images/tibetansingingbowl.webp" alt="" class="absolute bottom-0 right-0 lg:right-4 w-36 md:w-48 h-auto drop-shadow-[0_24px_28px_rgba(27,31,63,0.25)] pointer-events-none" loading="lazy">
+      </div>
+
+      <div class="lg:col-span-6 lg:col-start-7">
+        <div class="prose-body text-muted text-lg">
+          <p>We teach Hatha Yoga and the meditative tradition of sound healing as they were taught to us, in a way that fits modern life.</p>
+          <p>Whether you are a complete beginner or have practised for years, you are welcome here.</p>
+        </div>
+
+        <h3 class="people-title">The people you'll meet</h3>
+        <% const people = [
+          { name: 'Aarati Dhakal', role: 'Founder of Pragya Path, teacher' },
+          { name: 'Anil Basnet', role: 'Founder of Kalanil Art Gallery' },
+          { name: 'Sumon Acharya', role: 'Teacher' },
+          { name: 'Ramash Kadel', role: 'Teacher' },
+          { name: 'Meena K. Raut', role: 'Teacher' },
+          { name: 'Kalpana Gajmer', role: 'Teacher' }
         ]; %>
-        <% trainers.forEach(function(t) { %>
-        <div class="team-card-sm">
-          <div class="team-avatar-sm"><span><%= t.initials %></span></div>
-          <h4 class="font-serif text-lg font-medium text-stone"><%= t.name %></h4>
-        </div>
-        <% }) %>
+        <ul class="people" role="list">
+          <% people.forEach(function(p) { %>
+          <li><span class="people-name"><%= p.name %></span><span class="people-role"><%= p.role %></span></li>
+          <% }) %>
+        </ul>
       </div>
     </div>
   </div>
@@ -472,11 +377,10 @@
 <!-- ═══════════════════════════════════════════════
      GALLERY
 ════════════════════════════════════════════════ -->
-<section id="gallery" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-ink relative overflow-hidden" aria-labelledby="gallery-heading">
-  <div class="max-w-7xl mx-auto">
+<section id="gallery" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-32" aria-labelledby="gallery-heading">
+  <div class="max-w-[88rem] mx-auto">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
       <div>
-        <p class="deva-mark"><span class="deva" lang="ne">झलक</span><span class="gloss">Photos</span></p>
         <h2 id="gallery-heading" class="h-display">Inside the studio</h2>
         <p class="lede mt-5">Classes, sound baths, trainings and the people who come to them.</p>
       </div>
@@ -819,9 +723,9 @@
 <!-- ═══════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════════ -->
-<section id="contact" class="bg-ink py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="contact-heading">
+<section id="contact" class="bg-ink py-24 md:py-36 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="contact-heading">
 
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
+  <div class="max-w-[88rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
 
     <!-- Left: info -->
     <div class="lg:col-span-5">
@@ -1101,6 +1005,30 @@
     window.addEventListener('scroll', queueFab, { passive: true });
     window.addEventListener('resize', queueFab);
     updateFab();
+  }
+
+  // ── Programs: a photo follows the cursor over the list (desktop, fine pointer) ──
+  var floatBox = document.querySelector('.reveal-float');
+  if (floatBox && window.matchMedia('(hover: hover) and (min-width: 900px)').matches) {
+    var floatImg = floatBox.querySelector('img');
+    var fx = 0, fy = 0, tx = 0, ty = 0, raf = null, on = false;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var step = function () {
+      fx += (tx - fx) * (still ? 1 : 0.18);
+      fy += (ty - fy) * (still ? 1 : 0.18);
+      floatBox.style.transform = 'translate3d(' + (fx + 28) + 'px,' + (fy - 160) + 'px,0) scale(' + (on ? 1 : .92) + ')';
+      raf = (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) ? requestAnimationFrame(step) : null;
+    };
+    var move = function (e) { tx = e.clientX; ty = e.clientY; if (!raf) raf = requestAnimationFrame(step); };
+    document.querySelectorAll('.reveal-row').forEach(function (row) {
+      row.addEventListener('mouseenter', function (e) {
+        floatImg.src = row.getAttribute('data-img');
+        if (!on) { fx = tx = e.clientX; fy = ty = e.clientY; }
+        on = true; floatBox.classList.add('is-on'); move(e);
+      });
+      row.addEventListener('mousemove', move);
+      row.addEventListener('mouseleave', function () { on = false; floatBox.classList.remove('is-on'); });
+    });
   }
 
   // ── Smooth scroll for anchor links ────────────────────────────────────
