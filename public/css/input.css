@@ -1171,14 +1171,85 @@ h1, h2, h3, h4, h5, h6 { color: var(--heading); }
   color: var(--heading); font-weight: 500;
 }
 .hike-list li::before { content: ""; width: 7px; height: 7px; flex: none; border: 1px solid var(--brass-text); transform: rotate(45deg); }
-.hike-scene .hs-cloud { animation: hs-drift 38s ease-in-out infinite alternate; }
-.hike-scene .hs-flags { transform-origin: 200px 450px; animation: hs-sway 6s ease-in-out infinite alternate; }
-.hike-scene .hs-stars { animation: hs-twinkle 5s ease-in-out infinite alternate; }
-@keyframes hs-drift { from { transform: translateX(-30px); } to { transform: translateX(40px); } }
+/* Scene colours: soft morning (light) and dusk (dark) */
+.hike-scene {
+  --hs-sky-1: #D9E2EE; --hs-sky-2: #ECE8E6; --hs-sky-3: #F8E6CF; --hs-sky-4: #F6D2A8;
+  --hs-glow-a: rgba(247, 194, 127, .75); --hs-glow-b: rgba(247, 194, 127, 0);
+  --hs-sun: #F7C27F;
+  --hs-haze-a: rgba(255, 255, 255, 0); --hs-haze-b: rgba(255, 255, 255, .35);
+  --hs-cloud: #FFFFFF; --hs-cloud-o: .85;
+  --hs-star-o: 0; --hs-bird: #5E5B85; --hs-bird-o: .7;
+  --hs-far: #CFCDE0; --hs-peak: #A9A6C6; --hs-snow: #FFFFFF;
+  --hs-mid: #8C88AE; --hs-terrace: rgba(255, 255, 255, .28);
+  --hs-string: #8C6A2F;
+  --hs-near: #615E8A; --hs-path: #FBE8C8;
+  --hs-stupa: #34335A; --hs-walker: #2B2A4D;
+  --hs-fore: #45436F;
+}
+:root[data-theme="dark"] .hike-scene {
+  --hs-sky-1: #11142B; --hs-sky-2: #25264A; --hs-sky-3: #6A4A62; --hs-sky-4: #D99060;
+  --hs-glow-a: rgba(246, 217, 166, .55); --hs-glow-b: rgba(232, 130, 58, 0);
+  --hs-sun: #F6D9A6;
+  --hs-haze-a: rgba(17, 20, 43, 0); --hs-haze-b: rgba(17, 20, 43, .25);
+  --hs-cloud: #F6D9A6; --hs-cloud-o: .18;
+  --hs-star-o: 1; --hs-bird-o: 0;
+  --hs-far: #4A4670; --hs-peak: #6E6A8A; --hs-snow: #E8DCC6;
+  --hs-mid: #3A3358; --hs-terrace: rgba(201, 165, 94, .18);
+  --hs-string: #C9A55E;
+  --hs-near: #1B1F3F; --hs-path: #C9A55E;
+  --hs-stupa: #0B0D20; --hs-walker: #0B0D20;
+  --hs-fore: #11142B;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hike-scene {
+    --hs-sky-1: #11142B; --hs-sky-2: #25264A; --hs-sky-3: #6A4A62; --hs-sky-4: #D99060;
+    --hs-glow-a: rgba(246, 217, 166, .55); --hs-glow-b: rgba(232, 130, 58, 0);
+    --hs-sun: #F6D9A6;
+    --hs-haze-a: rgba(17, 20, 43, 0); --hs-haze-b: rgba(17, 20, 43, .25);
+    --hs-cloud: #F6D9A6; --hs-cloud-o: .18;
+    --hs-star-o: 1; --hs-bird-o: 0;
+    --hs-far: #4A4670; --hs-peak: #6E6A8A; --hs-snow: #E8DCC6;
+    --hs-mid: #3A3358; --hs-terrace: rgba(201, 165, 94, .18);
+    --hs-string: #C9A55E;
+    --hs-near: #1B1F3F; --hs-path: #C9A55E;
+    --hs-stupa: #0B0D20; --hs-walker: #0B0D20;
+    --hs-fore: #11142B;
+  }
+}
+.hike-scene .hs-sky-1 { stop-color: var(--hs-sky-1); }
+.hike-scene .hs-sky-2 { stop-color: var(--hs-sky-2); }
+.hike-scene .hs-sky-3 { stop-color: var(--hs-sky-3); }
+.hike-scene .hs-sky-4 { stop-color: var(--hs-sky-4); }
+.hike-scene .hs-glow-a { stop-color: var(--hs-glow-a); }
+.hike-scene .hs-glow-b { stop-color: var(--hs-glow-b); }
+.hike-scene .hs-haze-a { stop-color: var(--hs-haze-a); }
+.hike-scene .hs-haze-b { stop-color: var(--hs-haze-b); }
+.hike-scene .hs-sun { fill: var(--hs-sun); }
+.hike-scene .hs-cloud { fill: var(--hs-cloud); opacity: var(--hs-cloud-o); }
+.hike-scene .hs-stars { fill: #F3E7D4; opacity: var(--hs-star-o); }
+.hike-scene .hs-birds { stroke: var(--hs-bird); opacity: var(--hs-bird-o); }
+.hike-scene .hs-far { fill: var(--hs-far); }
+.hike-scene .hs-peak { fill: var(--hs-peak); }
+.hike-scene .hs-snow { fill: var(--hs-snow); }
+.hike-scene .hs-mid { fill: var(--hs-mid); }
+.hike-scene .hs-terrace { stroke: var(--hs-terrace); }
+.hike-scene .hs-string { stroke: var(--hs-string); }
+.hike-scene .hs-near { fill: var(--hs-near); }
+.hike-scene .hs-path { stroke: var(--hs-path); }
+.hike-scene .hs-stupa { fill: var(--hs-stupa); }
+.hike-scene .hs-walker { fill: var(--hs-walker); stroke: var(--hs-walker); }
+.hike-scene .hs-fore { fill: var(--hs-fore); }
+.hike-scene * { transition: fill .4s ease, stroke .4s ease, opacity .4s ease, stop-color .4s ease; }
+
+/* Gentle motion: clouds drift, flags sway, stars twinkle */
+.hike-scene .hs-cloud { animation: hs-drift 40s ease-in-out infinite alternate; }
+.hike-scene .hs-flags { transform-box: view-box; transform-origin: 200px 445px; animation: hs-sway 6s ease-in-out infinite alternate; }
+.hike-scene .hs-stars circle { animation: hs-twinkle 5s ease-in-out infinite alternate; }
+@keyframes hs-drift { from { transform: translateX(-24px); } to { transform: translateX(32px); } }
 @keyframes hs-sway { from { transform: rotate(-.6deg); } to { transform: rotate(.6deg); } }
 @keyframes hs-twinkle { from { opacity: .5; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
-  .hike-scene .hs-cloud, .hike-scene .hs-flags, .hike-scene .hs-stars { animation: none; }
+  .hike-scene .hs-cloud, .hike-scene .hs-flags, .hike-scene .hs-stars circle { animation: none; }
 }
 
 /* One orchestrated entrance in the hero; sections below stay still */

@@ -189,83 +189,107 @@
       </div>
     </div>
 
-    <!-- Illustration: Himalayan ridges at dusk, in the site palette -->
-    <div class="relative pr-3 lg:pr-0">
+    <!-- Illustration: Himalayan ridges — soft morning in light mode, dusk in dark mode -->
+    <div class="relative pr-4 pb-4 lg:pr-6 lg:pb-6">
       <figure class="framed">
         <svg class="hike-scene block w-full h-auto" viewBox="0 0 600 640" role="img" aria-labelledby="hike-scene-title">
-          <title id="hike-scene-title">Illustration of Himalayan ridges at dusk with prayer flags and a walking path</title>
+          <title id="hike-scene-title">Illustration of a walker on a path through terraced hills below snowy Himalayan peaks, with prayer flags and a small stupa</title>
           <defs>
             <linearGradient id="hs-sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#11142B"/>
-              <stop offset=".3" stop-color="#25264A"/>
-              <stop offset=".48" stop-color="#6A4A62"/>
-              <stop offset=".6" stop-color="#D08A5E"/>
-              <stop offset=".7" stop-color="#EDB57A"/>
+              <stop offset="0" class="hs-sky-1"/>
+              <stop offset=".35" class="hs-sky-2"/>
+              <stop offset=".55" class="hs-sky-3"/>
+              <stop offset=".68" class="hs-sky-4"/>
             </linearGradient>
-            <radialGradient id="hs-sun" cx=".5" cy=".5" r=".5">
-              <stop offset="0" stop-color="#F6D9A6"/>
-              <stop offset=".6" stop-color="#E8A266"/>
-              <stop offset="1" stop-color="#E8823A" stop-opacity="0"/>
+            <radialGradient id="hs-glow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" class="hs-glow-a"/>
+              <stop offset="1" class="hs-glow-b"/>
             </radialGradient>
-            <linearGradient id="hs-snow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F3E7D4"/>
-              <stop offset="1" stop-color="#C9A55E" stop-opacity=".35"/>
+            <linearGradient id="hs-haze" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" class="hs-haze-a"/>
+              <stop offset="1" class="hs-haze-b"/>
             </linearGradient>
+            <filter id="hs-soft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
           </defs>
 
           <rect width="600" height="640" fill="url(#hs-sky)"/>
 
-          <!-- stars -->
-          <g fill="#F3E7D4" class="hs-stars">
+          <!-- stars (dark mode only) -->
+          <g class="hs-stars">
             <circle cx="70" cy="60" r="1.2"/><circle cx="140" cy="110" r=".9"/><circle cx="230" cy="48" r="1.1"/>
             <circle cx="380" cy="80" r=".9"/><circle cx="470" cy="40" r="1.3"/><circle cx="540" cy="120" r=".8"/>
             <circle cx="300" cy="140" r=".7"/><circle cx="40" cy="170" r=".8"/>
           </g>
 
-          <!-- setting sun -->
-          <circle cx="252" cy="300" r="130" fill="url(#hs-sun)" opacity=".6"/>
-          <circle cx="252" cy="300" r="38" fill="#F6D9A6"/>
+          <!-- sun with a soft glow, resting between the peaks -->
+          <circle cx="252" cy="292" r="140" fill="url(#hs-glow)"/>
+          <circle class="hs-sun" cx="252" cy="292" r="40"/>
 
-          <!-- drifting cloud bands -->
-          <g class="hs-cloud" fill="#F6D9A6" opacity=".22">
-            <rect x="-40" y="236" width="240" height="3" rx="1.5"/><rect x="40" y="246" width="150" height="2" rx="1"/>
-            <rect x="330" y="196" width="200" height="3" rx="1.5"/>
+          <!-- soft clouds -->
+          <g class="hs-cloud" filter="url(#hs-soft)">
+            <ellipse cx="110" cy="208" rx="90" ry="12"/>
+            <ellipse cx="160" cy="222" rx="60" ry="8"/>
+            <ellipse cx="470" cy="168" rx="80" ry="10"/>
           </g>
 
-          <!-- far snow peaks -->
-          <path d="M0 400 L70 330 L110 352 L170 262 L215 318 L250 296 L320 214 L372 290 L410 268 L470 330 L520 300 L600 360 L600 640 L0 640Z" fill="#6E6A8A"/>
-          <path d="M170 262 L194 292 L172 284 L156 292Z M320 214 L348 254 L322 244 L292 256Z M520 300 L544 322 L520 314 L500 324Z" fill="url(#hs-snow)"/>
+          <!-- birds (light mode) -->
+          <g class="hs-birds" fill="none" stroke-width="1.6" stroke-linecap="round">
+            <path d="M398 120 q6 -6 12 0 q6 -6 12 0"/>
+            <path d="M436 104 q4 -4 8 0 q4 -4 8 0"/>
+          </g>
 
-          <!-- mid ridge -->
-          <path d="M0 450 C80 410 130 430 190 400 C250 372 300 410 360 392 C430 370 500 410 600 384 L600 640 L0 640Z" fill="#3A3358"/>
+          <!-- farthest range -->
+          <path class="hs-far" d="M0 372 L50 330 L90 344 L140 300 L190 330 L230 312 L280 276 L330 310 L380 286 L440 320 L500 292 L560 318 L600 300 L600 640 L0 640Z"/>
+
+          <!-- main snow peaks -->
+          <path class="hs-peak" d="M0 410 L70 340 L110 360 L170 262 L215 322 L250 300 L320 210 L372 292 L410 270 L470 334 L520 300 L600 360 L600 640 L0 640Z"/>
+          <path class="hs-snow" d="M170 262 L188 291 L178 286 L170 296 L161 285 L152 292Z M320 210 L343 246 L332 240 L320 254 L308 238 L296 249Z M520 300 L536 318 L526 314 L518 322 L508 314Z"/>
+
+          <!-- valley haze -->
+          <rect y="350" width="600" height="110" fill="url(#hs-haze)"/>
+
+          <!-- mid ridge with rice terraces -->
+          <path class="hs-mid" d="M0 450 C80 410 130 430 190 400 C250 372 300 410 360 392 C430 370 500 410 600 384 L600 640 L0 640Z"/>
+          <g class="hs-terrace" fill="none" stroke-width="1.2" stroke-linecap="round">
+            <path d="M360 412 C420 396 480 420 560 404"/>
+            <path d="M350 428 C420 412 490 436 580 420"/>
+            <path d="M370 444 C430 430 500 452 590 438"/>
+          </g>
 
           <!-- prayer flags strung across the mid ridge -->
-          <path d="M60 430 Q200 470 330 418" fill="none" stroke="#C9A55E" stroke-width="1" opacity=".8"/>
+          <path class="hs-string" d="M60 430 Q200 470 330 418" fill="none" stroke-width="1"/>
           <g class="hs-flags">
-            <path d="M84 440 l10 2 -2 14 -10 -2Z" fill="#E8823A"/>
-            <path d="M112 449 l10 2 -1 14 -10 -1Z" fill="#F3E7D4"/>
-            <path d="M141 455 l10 1 -1 14 -10 -1Z" fill="#C9A55E"/>
-            <path d="M171 458 l10 0 0 14 -10 0Z" fill="#B4501A"/>
-            <path d="M201 458 l10 -1 1 14 -10 1Z" fill="#E8823A"/>
-            <path d="M231 455 l10 -2 2 14 -10 2Z" fill="#F3E7D4"/>
-            <path d="M261 448 l10 -2 2 14 -10 2Z" fill="#C9A55E"/>
-            <path d="M291 438 l10 -3 3 13 -10 3Z" fill="#B4501A"/>
+            <path d="M84 440 l10 2 -2 14 -10 -2Z" fill="#3D6FB6"/>
+            <path d="M112 449 l10 2 -1 14 -10 -1Z" fill="#F4F1EA"/>
+            <path d="M141 455 l10 1 -1 14 -10 -1Z" fill="#C8402E"/>
+            <path d="M171 458 l10 0 0 14 -10 0Z" fill="#3E8E5A"/>
+            <path d="M201 458 l10 -1 1 14 -10 1Z" fill="#E9B83A"/>
+            <path d="M231 455 l10 -2 2 14 -10 2Z" fill="#3D6FB6"/>
+            <path d="M261 448 l10 -2 2 14 -10 2Z" fill="#F4F1EA"/>
+            <path d="M291 438 l10 -3 3 13 -10 3Z" fill="#C8402E"/>
           </g>
 
           <!-- near hill with the walking path -->
-          <path d="M0 520 C120 480 220 500 300 470 C390 438 480 470 600 450 L600 640 L0 640Z" fill="#1B1F3F"/>
-          <path d="M600 470 C520 490 470 520 400 530 C330 540 300 570 240 590 C200 604 170 620 150 640" fill="none" stroke="#C9A55E" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round" opacity=".85"/>
+          <path class="hs-near" d="M0 520 C120 480 220 500 300 470 C390 438 480 470 600 450 L600 640 L0 640Z"/>
+          <path class="hs-path" d="M600 470 C520 490 470 520 400 530 C330 540 300 570 240 590 C200 604 170 620 150 640" fill="none" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
 
-          <!-- small stupa on the far right hill -->
-          <g transform="translate(470 452)" fill="#11142B">
+          <!-- small stupa on the right hill -->
+          <g class="hs-stupa" transform="translate(470 452)">
             <rect x="-14" y="-4" width="28" height="6"/>
             <path d="M-11 -4 A11 11 0 0 1 11 -4Z"/>
             <rect x="-3" y="-24" width="6" height="10"/>
             <path d="M0 -36 L4 -24 L-4 -24Z"/>
           </g>
 
+          <!-- a walker with a stick, partway up the path -->
+          <g class="hs-walker" transform="translate(392 506)">
+            <circle cx="0" cy="-22" r="3.4"/>
+            <path d="M-3 -18 L3 -18 L4 -6 L1 -6 L0 2 L-2 2 L-2 -6 L-4 -6Z"/>
+            <path d="M3 -15 L9 4" fill="none" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+
           <!-- foreground -->
-          <path d="M0 590 C140 560 260 600 380 580 C470 566 540 590 600 580 L600 640 L0 640Z" fill="#11142B"/>
+          <path class="hs-fore" d="M0 590 C140 560 260 600 380 580 C470 566 540 590 600 580 L600 640 L0 640Z"/>
         </svg>
       </figure>
     </div>
