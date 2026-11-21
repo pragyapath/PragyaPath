@@ -1,56 +1,59 @@
 <header>
-<!-- Navbar with solid background -->
-<nav id="navbar" aria-label="Main navigation" class="fixed top-0 w-full z-50 transition-all duration-500 bg-base/95 backdrop-blur border-b border-line">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 md:py-5 flex justify-between items-center">
-        
+<!-- Navbar: clear over the hero, solid night indigo once the page scrolls -->
+<nav id="navbar" aria-label="Main navigation" class="nav-night fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-4 md:py-5 flex justify-between items-center">
+
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 group" aria-label="Pragya Path – Home">
-            <picture class="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <picture class="flex-shrink-0">
                 <source srcset="/images/brand/logo-mark.webp" type="image/webp">
-                <img src="/images/brand/logo-mark.png" alt="" width="256" height="208" class="h-9 md:h-11 w-auto">
+                <img src="/images/brand/logo-mark.png" alt="" width="256" height="208" class="h-9 md:h-10 w-auto">
             </picture>
             <div class="flex flex-col">
-                <span class="brand-wordmark text-[17px] md:text-xl font-serif font-bold uppercase leading-none">Pragya Path</span>
-                <span class="brand-tagline text-[9px] md:text-[10px] font-serif font-medium mt-1 leading-none">Awaken. Heal. Transform.</span>
+                <span class="brand-wordmark text-[15px] md:text-base font-bold uppercase leading-none">Pragya Path</span>
+                <span class="brand-tagline text-[11px] md:text-xs font-medium mt-1.5 leading-none">Hatha yoga &amp; sound healing</span>
             </div>
         </a>
 
         <!-- Desktop Nav -->
         <ul class="hidden lg:flex items-center gap-1 font-ui text-[0.9375rem] font-medium" role="list">
-            <li><a href="/" class="nav-link px-3.5 py-2 text-stone hover:text-gold rounded-md transition-colors">Home</a></li>
-            <li><a href="#programs" class="nav-link px-3.5 py-2 text-stone hover:text-gold rounded-md transition-colors">Programs</a></li>
-            <li><a href="#schedule" class="nav-link px-3.5 py-2 text-stone hover:text-gold rounded-md transition-colors">Schedule</a></li>
-            <li><a href="#about" class="nav-link px-3.5 py-2 text-stone hover:text-gold rounded-md transition-colors">About</a></li>
-            <li><a href="#contact" class="nav-link px-3.5 py-2 text-stone hover:text-gold rounded-md transition-colors">Contact</a></li>
-            <li class="ml-3">
-                <a href="#schedule" class="btn-primary !min-h-0 !py-2.5 !px-5">Book a class</a>
+            <li><a href="#programs" class="nav-link px-3.5 py-2 transition-colors">Programs</a></li>
+            <li><a href="#schedule" class="nav-link px-3.5 py-2 transition-colors">Class times</a></li>
+            <li><a href="#about" class="nav-link px-3.5 py-2 transition-colors">About</a></li>
+            <li><a href="#gallery" class="nav-link px-3.5 py-2 transition-colors">Photos</a></li>
+            <li><a href="#contact" class="nav-link px-3.5 py-2 transition-colors">Contact</a></li>
+            <li class="ml-4">
+                <a href="#schedule" class="btn-brass !min-h-0 !py-2.5 !px-5">Book a class</a>
             </li>
         </ul>
 
         <!-- Mobile Hamburger -->
-        <button id="menu-toggle" class="lg:hidden p-2.5 text-stone hover:text-gold rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <button id="menu-toggle" class="lg:hidden p-2.5 -mr-2.5 text-white hover:text-brass transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brass" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-width="1.5" d="M4 8h16M4 16h16"/>
             </svg>
         </button>
     </div>
 </nav>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 z-[60] bg-base text-stone flex-col items-center justify-center hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <button id="menu-close" class="absolute top-6 right-6 p-2 text-gray-600 hover:text-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-md" aria-label="Close menu">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-    </button>
-    <nav class="flex flex-col items-center gap-8" aria-label="Mobile navigation links">
-        <a href="/" class="mobile-link text-3xl font-ui font-medium text-stone hover:text-gold transition-colors">Home</a>
-        <a href="#programs" class="mobile-link text-3xl font-ui font-medium text-stone hover:text-gold transition-colors">Programs</a>
-        <a href="#schedule" class="mobile-link text-3xl font-ui font-medium text-stone hover:text-gold transition-colors">Schedule</a>
-        <a href="#about" class="mobile-link text-3xl font-ui font-medium text-stone hover:text-gold transition-colors">About</a>
-        <a href="#contact" class="mobile-link text-3xl font-ui font-medium text-stone hover:text-gold transition-colors">Contact</a>
-        <a href="#schedule" class="mobile-link btn-primary mt-4">Book a class</a>
+<div id="mobile-menu" class="on-night fixed inset-0 z-[60] flex-col justify-between hidden px-6 pt-6 pb-10" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="flex justify-between items-center">
+        <span class="hero-deva">प्रज्ञा पथ</span>
+        <button id="menu-close" class="p-2 -mr-2 text-white hover:text-brass transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brass" aria-label="Close menu">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+    <nav class="flex flex-col" aria-label="Mobile navigation links">
+        <a href="#programs" class="mobile-link font-serif text-4xl text-white py-3 border-b border-brass/20 hover:text-brass transition-colors">Programs</a>
+        <a href="#schedule" class="mobile-link font-serif text-4xl text-white py-3 border-b border-brass/20 hover:text-brass transition-colors">Class times</a>
+        <a href="#about" class="mobile-link font-serif text-4xl text-white py-3 border-b border-brass/20 hover:text-brass transition-colors">About</a>
+        <a href="#gallery" class="mobile-link font-serif text-4xl text-white py-3 border-b border-brass/20 hover:text-brass transition-colors">Photos</a>
+        <a href="#contact" class="mobile-link font-serif text-4xl text-white py-3 border-b border-brass/20 hover:text-brass transition-colors">Contact</a>
     </nav>
+    <a href="#schedule" class="mobile-link btn-brass w-full">Book a class</a>
 </div>
 </header>
 
@@ -62,17 +65,10 @@
     const menu = document.getElementById('mobile-menu');
     const links = document.querySelectorAll('.mobile-link');
 
-    // Scroll behavior - add shadow on scroll
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (y > 10) {
-            navbar.classList.add('shadow-md');
-        } else {
-            navbar.classList.remove('shadow-md');
-        }
-        lastScroll = y;
-    }, { passive: true });
+    // Solid background once the page has scrolled past the top of the hero
+    const setSolid = () => navbar.classList.toggle('is-solid', window.scrollY > 40);
+    window.addEventListener('scroll', setSolid, { passive: true });
+    setSolid();
 
     // Mobile menu
     const openMenu = () => {
@@ -80,6 +76,7 @@
         menu.classList.add('flex');
         document.body.style.overflow = 'hidden';
         toggle.setAttribute('aria-expanded', 'true');
+        close.focus();
     };
     const closeMenu = () => {
         menu.classList.add('hidden');

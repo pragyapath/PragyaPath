@@ -12,22 +12,22 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 84px; /* fixed navbar height, so #anchors are not hidden */
-    background-color: #FAF9F6;
+    background-color: #F6F2EB;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    font-family: 'Literata', Georgia, serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     color: #1F2347;
-    background: #FAF9F6;
+    background: #F6F2EB;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, sans-serif;
-    color: #1F2347;
+    font-family: 'Bodoni Moda', Didot, Georgia, serif;
+    color: #1B1F3F;
     overflow-wrap: break-word;
   }
 
@@ -78,7 +78,7 @@
     border: 1.5px solid #DAD7E4;
     border-radius: 0.5rem;
     padding: 0.875rem 1rem;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     font-size: 1rem; /* 16px stops iOS zooming into the field */
     line-height: 1.5;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -97,7 +97,7 @@
   .form-label {
     display: block;
     margin-bottom: 0.5rem;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     color: #1F2347;
@@ -116,7 +116,7 @@
     min-height: 48px;
     padding: 0.875rem 2rem;
     border-radius: 9999px;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
@@ -333,7 +333,7 @@
 }
 
 .card-number {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.625rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -342,7 +342,7 @@
 }
 
 .card-tag {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   color: #8F6430 !important;
@@ -353,7 +353,7 @@
 }
 
 .card-title {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: #1F2347 !important;
@@ -362,7 +362,7 @@
 }
 
 .card-desc {
-  font-family: 'Literata', Georgia, serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #4F5372 !important;
@@ -374,7 +374,7 @@
    ═══════════════════════════════════════════════ */
 
 .section-label {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
   color: #B9541A !important;
@@ -388,7 +388,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   color: #1F2347 !important;
@@ -560,7 +560,7 @@
   border-radius: 9999px;
   border: 1px solid #E2DFEA;
   background: transparent;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -743,7 +743,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.1);
@@ -785,162 +785,334 @@
 }
 
 /* ═══════════════════════════════════════════════
-   BRAND LOCKUP (navbar logo text, matches logo artwork)
+   TEMPLE AT DUSK — night indigo, singing-bowl brass, saffron
+   Display: Bodoni Moda · Text: Manrope · Accents: Tiro Devanagari
    ═══════════════════════════════════════════════ */
-@layer components {
-  .brand-wordmark,
-  a .brand-wordmark { color: #EC7A31 !important; letter-spacing: 0.04em; }
-  .brand-tagline,
-  a .brand-tagline { color: #EC7A31 !important; opacity: 0.85; letter-spacing: 0.02em; }
+
+:root {
+  --night: #11142B;
+  --indigo: #1B1F3F;
+  --brass: #C9A55E;
+  --brass-deep: #8C6A2F;
+  --brass-soft: rgba(201, 165, 94, 0.35);
+  --saffron: #E8823A;
+  --saffron-deep: #B4501A;
+  --paper: #F6F2EB;
+  --muted: #585C78;
+  --on-night: #D6D3E3;
+  --on-night-muted: #A5A6C2;
 }
 
-/* ═══════════════════════════════════════════════
-   2026 REFRESH — saffron + dusk indigo
-   ═══════════════════════════════════════════════ */
+body { font-size: 1.0625rem; letter-spacing: 0.002em; }
 
-/* Small section label: sentence case, saffron, no rules or tracking */
+/* Display headings */
+.h-section,
+.h-display {
+  font-family: 'Bodoni Moda', Didot, Georgia, serif;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  color: var(--indigo);
+}
+.h-display { font-size: clamp(2.5rem, 5.2vw, 4.5rem); }
+.on-night .h-section, .on-night .h-display { color: #fff; }
+
+/* Devanagari mark above a heading: the page's signature detail.
+   A real Nepali word for the section, with its English meaning beside it. */
+.deva-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+  color: var(--brass-deep);
+}
+.deva-mark .deva {
+  font-family: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+.deva-mark .gloss {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding-left: 0.9rem;
+  border-left: 1px solid currentColor;
+  line-height: 1.1;
+}
+.on-night .deva-mark { color: var(--brass); }
+.deva-mark.center { justify-content: center; }
+
 .eyebrow {
   display: inline-block;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #B9541A;
+  color: var(--brass-deep);
   margin-bottom: 0.75rem;
 }
 
-/* Headings: Outfit, tight, sentence case — mirrors the logo lettering */
-.h-section {
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.08;
-  color: #1F2347;
-}
+.lede { font-size: 1.1875rem; line-height: 1.7; color: var(--muted); max-width: 34rem; }
+.on-night .lede, .on-night .prose-body { color: var(--on-night); }
 
 .prose-body p + p { margin-top: 1.1em; }
-.prose-body { line-height: 1.75; max-width: 62ch; }
+.prose-body { line-height: 1.8; max-width: 60ch; }
 
-/* Program card link that pre-fills the contact form */
-.card-ask {
-  margin-top: auto;
-  padding-top: 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  color: #B9541A;
-  text-decoration: underline;
-  text-decoration-color: rgba(185, 84, 26, 0.35);
-  text-underline-offset: 4px;
-}
-.card-ask:hover { text-decoration-color: #B9541A; }
-
-/* ── The schedule band (the page's one loud moment) ── */
-.schedule-band {
+/* Dark sections: night indigo with a faint warm glow and film grain */
+/* position only when the element isn't already fixed (the mobile menu is) */
+.on-night:not(.fixed) { position: relative; }
+.on-night {
   background:
-    radial-gradient(120% 140% at 100% 0%, rgba(236, 122, 49, 0.18), transparent 55%),
-    #1F2347;
-  color: #fff;
+    radial-gradient(90% 70% at 85% 0%, rgba(232, 130, 58, 0.10), transparent 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(201, 165, 94, 0.08), transparent 60%),
+    var(--night);
+  color: var(--on-night);
+  isolation: isolate;
 }
-.schedule-band h2, .schedule-band h3 { color: #fff; }
-.schedule-time {
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  font-size: clamp(3.25rem, 11vw, 7.5rem);
+.on-night::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0.07; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.on-night h2, .on-night h3, .on-night h4 { color: #fff; }
+
+/* Brass hairline rule with a small lotus in the middle */
+.brass-rule {
+  display: flex; align-items: center; gap: 1rem;
+  color: var(--brass);
+}
+.brass-rule::before, .brass-rule::after {
+  content: ""; flex: 1; height: 1px; background: currentColor; opacity: 0.55;
+}
+.brass-rule svg { width: 28px; height: 28px; flex: none; }
+
+/* ── Buttons ── */
+.btn-primary,
+.btn-outline,
+.btn-light,
+.btn-ghost-light,
+.btn-brass {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem;
+  min-height: 52px; padding: 0.9rem 1.9rem;
+  border-radius: 2px;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.01em;
+  white-space: nowrap; cursor: pointer;
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.btn-primary { background: var(--saffron-deep); color: #fff; border: 1px solid var(--saffron-deep); }
+.btn-primary:hover { background: #9A4314; border-color: #9A4314; color: #fff; transform: none; box-shadow: 0 14px 30px -14px rgba(180, 80, 26, .7); }
+.btn-outline { background: transparent; color: var(--indigo); border: 1px solid var(--indigo); }
+.btn-outline:hover { background: var(--indigo); color: #fff; transform: none; }
+.btn-brass { background: var(--brass); color: var(--night); border: 1px solid var(--brass); }
+.btn-brass:hover { background: #D9B972; border-color: #D9B972; }
+.btn-light { background: #F6F2EB; color: var(--night); border: 1px solid #F6F2EB; }
+.btn-light:hover { background: #fff; transform: none; }
+.btn-ghost-light { color: #fff; border: 1px solid rgba(201, 165, 94, 0.55); background: transparent; }
+.btn-ghost-light:hover { border-color: var(--brass); background: rgba(201, 165, 94, 0.10); }
+.btn-primary *, .btn-outline *, .btn-brass *, .btn-light * { color: inherit; }
+
+/* Text link with an underline that draws in */
+.card-ask,
+.link-line {
+  display: inline-flex; align-items: center; gap: .5rem;
+  align-self: flex-start;
+  font-family: 'Manrope', system-ui, sans-serif; font-weight: 600; font-size: .9375rem;
+  color: var(--saffron-deep);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 30% 1px no-repeat;
+  padding: .35rem 0 3px;
+  transition: background-size .4s ease;
+}
+.card-ask:hover, .link-line:hover { background-size: 100% 1px; }
+.on-night .card-ask, .on-night .link-line { color: var(--brass); }
+
+/* ── Hero ── */
+.hero-title {
+  font-family: 'Bodoni Moda', Didot, Georgia, serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
   color: #fff;
-  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: clamp(3.4rem, min(10.5vw, 12.5vh), 8.75rem);
+}
+.hero-title span { display: block; }
+.hero-title i { font-style: normal; color: var(--saffron); }
+.hero-deva {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: var(--brass);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.hero-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(201, 165, 94, 0.35);
+}
+.hero-facts > div { padding: 1rem 1rem 0 0; }
+.hero-facts > div + div { border-left: 1px solid rgba(201, 165, 94, 0.22); padding-left: 1rem; }
+.hero-facts > div:nth-child(3) { display: none; }
+@media (min-width: 768px) {
+  .hero-facts { grid-template-columns: repeat(3, 1fr); }
+  .hero-facts > div { padding: 1.4rem 1.5rem 0 0; }
+  .hero-facts > div + div { padding-left: 1.5rem; }
+  .hero-facts > div:nth-child(3) { display: block; }
+}
+.hero-facts dt { font-size: .8125rem; font-weight: 600; color: var(--brass); margin-bottom: .25rem; }
+.hero-facts dd { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.4rem); color: #fff; }
+
+/* ── Program list (editorial rows, not cards) ── */
+.program-list { border-top: 1px solid #CFC5B3; }
+.program-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .25rem 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #DDD5C7;
+}
+@media (min-width: 768px) {
+  .program-row { grid-template-columns: minmax(0, 1fr) auto; padding: 2.1rem 0; align-items: end; }
+}
+.program-row h3 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+  line-height: 1.1;
+  color: var(--indigo);
+  transition: color .35s ease;
+}
+.program-row:hover h3 { color: var(--saffron-deep); }
+.program-row .tag { font-size: .8125rem; font-weight: 600; color: var(--brass-deep); margin-bottom: .4rem; display: block; }
+.program-row p { color: var(--muted); max-width: 38rem; margin-top: .45rem; line-height: 1.65; }
+.program-row .card-ask { margin-top: .6rem; }
+@media (min-width: 768px) { .program-row .card-ask { margin-top: 0; } }
+
+/* Framed image: offset brass hairline behind the photo */
+.framed { position: relative; isolation: isolate; }
+.framed::after {
+  content: ""; position: absolute; inset: 0;
+  transform: translate(12px, 12px);
+  border: 1px solid #C9A55E;
+  z-index: -1;
+  pointer-events: none;
+}
+@media (min-width: 1024px) { .framed::after { transform: translate(22px, 22px); } }
+.framed img { display: block; width: 100%; }
+.arch img, .arch.framed::after { border-radius: 999px 999px 3px 3px; }
+
+/* ── Quote ── */
+.pull-quote {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  line-height: 1.25;
+  color: var(--indigo);
+}
+
+/* ── Schedule band ── */
+.schedule-band { color: #fff; }
+.schedule-time {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: .9;
+  font-size: clamp(4rem, 12vw, 9rem);
+  color: #fff;
+  font-variant-numeric: lining-nums;
 }
 .schedule-time small {
-  font-size: 0.38em;
-  letter-spacing: 0;
-  font-weight: 500;
-  color: #F3A26B;
-  margin-left: 0.15em;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: .2em; letter-spacing: 0; font-weight: 600;
+  color: var(--brass); margin-left: .4em; vertical-align: .9em;
 }
-.schedule-label {
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #B8BAD3;
-}
-.btn-light {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  min-height: 48px; padding: 0.875rem 1.75rem; border-radius: 9999px;
-  font-family: 'Outfit', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600;
-  background: #fff; color: #1F2347; white-space: nowrap;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.btn-light:hover { background: #F6EFE6; transform: translateY(-2px); }
-.btn-ghost-light {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  min-height: 48px; padding: 0.875rem 1.75rem; border-radius: 9999px;
-  font-family: 'Outfit', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600;
-  color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.45); white-space: nowrap;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-.btn-ghost-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
+.schedule-label { font-size: 1rem; font-weight: 600; color: var(--brass); }
 
-/* Team */
-.team-card {
-  background: #fff;
-  border: 1px solid #E2DFEA;
-  border-radius: 14px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+/* ── Team ── */
+.team-card { background: transparent; border: 0; border-top: 1px solid #CFC5B3; border-radius: 0; padding: 1.75rem 0 0; display: flex; flex-direction: column; align-items: flex-start; }
 .team-avatar, .team-avatar-sm {
   display: flex; align-items: center; justify-content: center;
   border-radius: 9999px;
-  background: #F6EFE6;
-  margin-bottom: 1rem;
+  background: var(--night);
+  box-shadow: inset 0 0 0 1px var(--brass), 0 0 0 4px var(--paper), 0 0 0 5px var(--brass-soft);
+  margin-bottom: 1.1rem;
 }
-.team-avatar { width: 64px; height: 64px; }
-.team-avatar-sm { width: 56px; height: 56px; margin-left: auto; margin-right: auto; }
-.team-avatar span, .team-avatar-sm span { color: #8F6430 !important; font-weight: 600; font-size: 1.125rem; }
-.team-card-sm {
-  text-align: center;
-  padding: 1.25rem 0.75rem;
-  border-radius: 14px;
-  border: 1px solid #E2DFEA;
-  background: #fff;
+.team-avatar { width: 72px; height: 72px; }
+.team-avatar-sm { width: 64px; height: 64px; margin-left: auto; margin-right: auto; }
+.team-avatar span, .team-avatar-sm span { color: var(--brass) !important; font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 1.35rem; }
+.team-card-sm { text-align: center; padding: 1rem .5rem; border: 0; background: transparent; }
+
+/* ── Gallery mosaic ── */
+.mosaic { display: grid; gap: 8px; grid-template-columns: repeat(2, 1fr); }
+.mosaic > * { overflow: hidden; position: relative; background: #E6DFD2; }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.mosaic > *:hover img { transform: scale(1.04); }
+.mosaic > :first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
+.mosaic > :not(:first-child) { aspect-ratio: 1; }
+@media (min-width: 768px) {
+  .mosaic { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; height: min(72vh, 640px); }
+  .mosaic > :first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .mosaic > :not(:first-child) { aspect-ratio: auto; }
 }
+
+/* ── Contact on night ── */
+.contact-list { margin-top: 2.5rem; }
+.contact-row { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; padding: 1.1rem 0; border-top: 1px solid rgba(201,165,94,.22); }
+.contact-row:last-child { border-bottom: 1px solid rgba(201,165,94,.22); }
+.contact-row dt { font-size: .8125rem; font-weight: 600; color: var(--brass); }
+.contact-row dd { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.1rem, 2vw, 1.35rem); color: #fff; overflow-wrap: anywhere; }
+.contact-row a { transition: color .3s ease; }
+.contact-row a:hover { color: var(--brass); }
+.form-panel { background: var(--paper); color: var(--indigo); padding: 1.75rem; border-radius: 2px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
+@media (min-width: 640px) { .form-panel { padding: 2.75rem; } }
+.form-input { background: #FFFDF9; border: 1px solid #D3C9B7; border-radius: 2px; }
+.form-input:focus { border-color: var(--saffron-deep); box-shadow: 0 0 0 3px rgba(180, 80, 26, .15); }
+.form-label { color: var(--indigo); font-weight: 600; }
+
+.on-night .social-icon { background: transparent; border: 1px solid rgba(201,165,94,.45); color: #fff; }
+.on-night .social-icon:hover { border-color: var(--brass); color: var(--brass); background: transparent; }
 
 /* Floating WhatsApp button (phones) */
 .wa-fab {
   position: fixed; right: 16px; bottom: 16px; z-index: 40;
   width: 56px; height: 56px; border-radius: 9999px;
   display: flex; align-items: center; justify-content: center;
-  background: #1F2347; color: #fff;
-  box-shadow: 0 10px 24px -8px rgba(31, 35, 71, 0.55);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  background: var(--night); color: var(--brass);
+  box-shadow: inset 0 0 0 1px var(--brass), 0 12px 28px -10px rgba(17, 20, 43, .7);
+  transition: transform .25s ease, opacity .25s ease;
 }
 .wa-fab svg { width: 26px; height: 26px; }
 .wa-fab.is-hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
 @media (min-width: 1024px) { .wa-fab { display: none; } }
 
-/* Footer on dusk */
-.site-footer { background: #1F2347; color: #C9CBE0; }
-.site-footer a { color: #C9CBE0; }
-.site-footer a:hover { color: #fff; }
-.site-footer h3, .site-footer h4 { color: #fff; }
-.site-footer .social-icon { background: transparent; border-color: rgba(255,255,255,0.25); color: #fff; }
-.site-footer .social-icon:hover { border-color: #EC7A31; color: #EC7A31; }
+/* Footer */
+.site-footer { background: #0C0F22; color: var(--on-night-muted); }
+.site-footer a { color: var(--on-night); }
+.site-footer a:hover { color: var(--brass); }
+.site-footer h3, .site-footer h4 { color: var(--brass); }
+.site-footer .social-icon { background: transparent; border: 1px solid rgba(201,165,94,.4); color: #fff; }
+.site-footer .social-icon:hover { border-color: var(--brass); color: var(--brass); }
 
+/* Brand lockup in the nav (on night) */
+.brand-wordmark { font-family: 'Manrope', system-ui, sans-serif; color: #fff; letter-spacing: .14em; }
+.brand-tagline { font-family: 'Manrope', system-ui, sans-serif; color: var(--brass); letter-spacing: .02em; }
 
-/* Hero headline: the logo's tagline, one word per line, saffron full stops */
-.hero-title {
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
-  font-size: clamp(3.5rem, 13vw, 8.5rem);
-}
-.hero-title span { display: block; }
-.hero-title i { font-style: normal; color: #EC7A31; }
+/* Nav: clear over the hero, solid night once the page scrolls */
+.nav-night { background: transparent; transition: background-color .4s ease, border-color .4s ease; border-bottom: 1px solid transparent; }
+.nav-night.is-solid { background: rgba(17, 20, 43, 0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: rgba(201,165,94,.2); }
+.nav-night .nav-link { color: #E9E6F2; position: relative; }
+.nav-night .nav-link::after { content: ""; position: absolute; left: .875rem; right: .875rem; bottom: .2rem; height: 1px; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
+.nav-night .nav-link:hover { color: #fff; }
+.nav-night .nav-link:hover::after { transform: scaleX(1); }
+
+/* Art classes list */
+.card { background: transparent; border: 0; border-top: 1px solid #CFC5B3; border-radius: 0; padding: 1.5rem 0 .25rem; box-shadow: none; display: flex; flex-direction: column; gap: .35rem; }
+.card:hover { border-color: #CFC5B3; box-shadow: none; transform: none; }
+.card-title { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; color: var(--indigo); }
+.card-tag { font-family: 'Manrope', system-ui, sans-serif; font-size: .8125rem; font-weight: 600; color: var(--brass-deep); background: none; padding: 0; border: 0; border-radius: 0; text-transform: none; letter-spacing: 0; }
+.card-desc { font-family: 'Manrope', system-ui, sans-serif; color: var(--muted); }
+
+/* One orchestrated entrance in the hero; sections below stay still */
+.fade-up, .stagger-child { opacity: 1 !important; transform: none !important; }
