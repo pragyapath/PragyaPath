@@ -1,1027 +1,398 @@
-﻿<%- include('partials/head') %>
+<%- include('partials/head') %>
 <%- include('partials/nav') %>
 
 <main class="overflow-x-hidden">
+<%
+  // Shared bits for this page
+  const waLink = 'https://wa.me/9779828589863?text=' + encodeURIComponent("Namaste! I'd like to know more about classes at Pragya Path.");
+  const waIcon = '<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+  // Line-drawn lotus used as a small brass ornament
+  const lotus = '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"><path d="M16 6c3 3.5 3 9.5 0 14-3-4.5-3-10.5 0-14z"/><path d="M16 20c-2.5-4-6.5-6.5-11-6.5 1 5 5 7.5 11 6.5z"/><path d="M16 20c2.5-4 6.5-6.5 11-6.5-1 5-5 7.5-11 6.5z"/><path d="M6 24h20"/></svg>';
+  // Newsroom stays hidden until there are real articles to link to
+  const showNewsroom = false;
+%>
 
 <!-- ═══════════════════════════════════════════════
-     HERO
+     HERO — type-led, with photographs set inside the headline
 ════════════════════════════════════════════════ -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink" aria-label="Hero">
+<section class="photo-hero" aria-label="Welcome">
+  <img class="photo-hero-img" src="/images/hero.webp" alt="A teacher seated in meditation beside a singing bowl, mountains beyond the window" fetchpriority="high">
 
-  <!-- Background image with luxury overlay -->
-  <div class="absolute inset-0 transition-transform duration-[20000ms] ease-out scale-105 hover:scale-110">
-    <img
-      src="/images/hero.png"
-      alt=""
-      role="presentation"
-      class="w-full h-full object-cover opacity-90"
-      loading="eager"
-    >
-    <!-- Gradient shifting from left (dark for text) to right (transparent for the subject) -->
-    <div class="absolute inset-0 bg-gradient-to-r from-base via-base/60 to-transparent"></div>
-    <!-- Bottom fade to blend seamlessly into the next section -->
-    <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-base to-transparent"></div>
-    <!-- Top shadow gradient specifically to guarantee Navigation legibility -->
-    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base/80 to-transparent z-0"></div>
-    <!-- Radial vignette for cinematic depth -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, transparent 30%, rgba(15,56,61,0.25) 100%);"></div>
-    <!-- Grain texture -->
-    <div class="grain"></div>
-  </div>
-
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 text-left pt-32 md:pt-40 pb-20">
-    <div class="max-w-3xl flex flex-col items-start">
-      <div class="badge hero-reveal">
-        <span class="badge-dot"></span>
-        <p class="text-[10px] font-sans font-bold uppercase tracking-widest3">Bhaktapur, Nepal</p>
-      </div>
-      
-      <h1 class="font-serif text-5xl sm:text-6xl md:text-[7.5rem] lg:text-[8.5rem] text-stone font-medium leading-[1.1] md:leading-[1.0] mb-8 md:mb-10 hero-reveal d1 drop-shadow-2xl">
-        Awaken.<br>Heal.<br><span class="italic text-gold">Transform.</span>
-      </h1>
-      
-      <p class="font-sans text-stone/80 text-lg md:text-2xl font-light leading-relaxed max-w-xl mb-10 hero-reveal d2">
-        Traditional Hatha Yoga and Sound Healing in the ancient city of Bhaktapur. A quiet space to return to yourself.
+  <div class="photo-hero-inner">
+    <div class="photo-hero-copy">
+      <p class="photo-hero-deva hero-reveal" lang="ne">प्रज्ञा पथ</p>
+      <h1 class="photo-hero-title hero-reveal d1">Awaken, heal<br>and transform<i>.</i></h1>
+      <p class="photo-hero-intro hero-reveal d2">
+        Traditional hatha yoga and sound healing in a quiet studio in old Bhaktapur. <em>Pragya Path</em> means “the path of wisdom”, and beginners are always welcome.
       </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-start gap-6 hero-reveal d3 w-full sm:w-auto">
-        <a href="#services" class="btn-primary w-full sm:w-auto group">
-          Begin Your Journey
-          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a href="#contact" class="btn-outline w-full sm:w-auto">
-          Get in Touch
-        </a>
+      <div class="flex flex-col sm:flex-row gap-3 mt-9 hero-reveal d3">
+        <a href="#schedule" class="btn-primary">See class times</a>
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="photo-hero-ghost"><%- waIcon %>WhatsApp us</a>
       </div>
     </div>
-  </div>
 
-  <!-- Scroll hint -->
-  <div class="absolute bottom-12 left-6 md:left-12 flex flex-col items-center gap-3 hero-reveal d4">
-    <div class="scroll-indicator-line"></div>
-    <span class="text-[9px] font-sans uppercase tracking-widest3 text-stone/40 writing-mode-vertical" style="writing-mode: vertical-rl; letter-spacing: 0.35em;">Scroll</span>
+    <div class="photo-hero-foot hero-reveal d4">
+      <a href="#schedule">Classes every day, 6–9am and 5–8pm</a>
+      <span>Dattatraye, Bhaktapur, Nepal</span>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     INTRO STRIP
+     QUOTE
 ════════════════════════════════════════════════ -->
-<section class="bg-sage py-16 relative overflow-hidden" aria-label="Studio tagline">
-  <div class="absolute -right-20 -top-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
-  <div class="grain" style="opacity:0.02;"></div>
+<section class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-40" aria-label="Our approach">
+  <figure class="max-w-[88rem] mx-auto quote-grid">
+    <span class="quote-mark" aria-hidden="true">“</span>
+    <blockquote class="pull-quote">
+      Yoga is not just repetition of a few postures — it is the exploration and discovery of the subtle energies of life.
+    </blockquote>
+    <figcaption class="quote-cap">The idea every class at Pragya Path starts from</figcaption>
+  </figure>
+</section>
 
-  <!-- Desktop: full quote layout -->
-  <div class="hidden md:flex max-w-7xl mx-auto px-6 md:px-12 flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-    <p class="font-serif italic text-stone/90 text-2xl md:text-4xl font-medium text-center md:text-left leading-snug">
-      "Yoga is not just repetition of few postures — it is more about the exploration and discovery of the subtle energies of life."
+
+<!-- ═══════════════════════════════════════════════
+     PROGRAMS — large list; a photo follows the cursor on desktop
+════════════════════════════════════════════════ -->
+<section id="programs" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-36" aria-labelledby="programs-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end mb-12 md:mb-20">
+      <h2 id="programs-heading" class="h-display md:col-span-7">Six ways to practise with us</h2>
+      <p class="lede md:col-span-4 md:col-start-9">Drop in to a daily class, book a private session, or train to teach. Not sure which fits? Ask, and we'll suggest one.</p>
+    </div>
+
+    <% const primary = [
+      { name: 'Regular yoga classes', desc: 'Daily hatha yoga to build strength, flexibility and inner stillness.', tag: 'Daily, all levels', img: '/images/gallery/yoda-session-sm.webp' },
+      { name: 'Therapeutic yoga', desc: 'One-to-one sessions shaped around your body and health goals, with a guided diet plan.', tag: 'Private', img: '/images/girl-with-tibetean-bowl.webp' },
+      { name: 'Sound healing', desc: 'Tibetan singing bowls used to release tension and settle the nervous system.', tag: 'Relaxation', img: '/images/gallery/sound-healing-glimp-sm.webp' },
+      { name: 'Singing bowl training', desc: 'Certified courses at levels 1, 2 and 3, from first strike to practitioner.', tag: 'Certificate', img: '/images/gallery/healing-sound-sm.webp' },
+      { name: 'Yoga teacher training', desc: 'Become a certified yoga teacher, grounded in traditional hatha practice.', tag: 'Certificate', img: '/images/gallery/yoga-traning-sm.webp' },
+      { name: 'Retreats & tours', desc: 'Multi-day retreats, spiritual tours and mindful hikes around the Kathmandu Valley.', tag: 'Multi-day', img: '/images/gallery/group-photo-with-guest-sm.webp' }
+    ]; %>
+
+    <div class="prog-layout">
+    <ul class="reveal-list" role="list">
+      <% primary.forEach(function(s) { %>
+      <li>
+        <a href="#contact" class="reveal-row" data-topic="<%= s.name %>" data-img="<%= s.img %>" data-tag="<%= s.tag %>">
+          <img class="reveal-thumb" src="<%= s.img %>" alt="" loading="lazy">
+          <span class="reveal-name"><%= s.name %></span>
+          <span class="reveal-desc"><%= s.desc %></span>
+          <span class="reveal-tag"><%= s.tag %></span>
+          <span class="reveal-go" aria-hidden="true">Ask</span>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <figure class="prog-figure" aria-hidden="true">
+      <div class="prog-frame">
+        <img class="prog-img is-on" src="<%= primary[0].img %>" alt="">
+        <img class="prog-img" alt="">
+      </div>
+      <figcaption class="prog-cap"><span data-prog-name><%= primary[0].name %></span><span data-prog-tag><%= primary[0].tag %></span></figcaption>
+    </figure>
+    </div>
+
+    <p class="mt-10 text-muted leading-relaxed max-w-3xl">
+      <span class="font-semibold text-stone">Also on offer:</span>
+      <% const extras = ['Kids yoga', 'Corporate yoga', 'Yogic Zumba', 'Mindfulness hikes', 'Spiritual tours']; %>
+      <% extras.forEach(function(name, i) { %><a href="#contact" data-topic="<%= name %>" class="link-line !p-0 !inline"><%= name %></a><%= i < extras.length - 1 ? ', ' : '.' %> <% }) %>
     </p>
-    <div class="flex items-center gap-8 text-stone/60 text-[11px] font-sans uppercase tracking-widest2 shrink-0">
-      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>Est. Bhaktapur</span>
-      <span class="w-px h-6 bg-white/20"></span>
-      <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-gold rounded-full"></div>All Levels Welcome</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CLASS TIMES — the day drawn as a line
+════════════════════════════════════════════════ -->
+<section id="schedule" class="band px-5 sm:px-6 md:px-12 py-24 md:py-36" aria-labelledby="schedule-heading">
+  <div class="max-w-[88rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10">
+
+    <div class="lg:col-span-4">
+      <h2 id="schedule-heading" class="h-display">Every day, twice a day</h2>
+      <p class="lede mt-6">Same times all week, including weekends. Drop in for one class or ask about weekly and monthly passes — message us first and we'll keep a mat for you.</p>
+      <div class="mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Book on WhatsApp</a>
+        <a href="#contact" class="btn-quiet">Send a message</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 lg:col-start-6">
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <p class="schedule-label">Morning</p>
+          <p class="schedule-time">6–9<small>am</small></p>
+        </div>
+        <div>
+          <p class="schedule-label">Evening</p>
+          <p class="schedule-time">5–8<small>pm</small></p>
+        </div>
+      </div>
+
+      <p class="live-status" data-live hidden><span class="live-dot" aria-hidden="true"></span><span data-live-text></span></p>
+
+      <!-- The day from 4am to 10pm, with the two class blocks marked -->
+      <div class="dayline mt-12" role="img" aria-label="Classes run from 6 to 9 in the morning and 5 to 8 in the evening">
+        <div class="dayline-track">
+          <span class="dayline-block" style="left: 11.11%; width: 16.67%;"></span>
+          <span class="dayline-block" style="left: 72.22%; width: 16.67%;"></span>
+          <span class="dayline-now" hidden></span>
+        </div>
+        <div class="dayline-ticks" aria-hidden="true">
+          <span style="left: 0%">4am</span>
+          <span style="left: 22.22%">8am</span>
+          <span style="left: 44.44%">noon</span>
+          <span style="left: 66.67%">4pm</span>
+          <span style="left: 88.89%">8pm</span>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Mobile: marquee ticker -->
-  <div class="md:hidden marquee-wrap relative z-10">
-    <div class="marquee-track">
-      <% const tagItems = [
-        'Traditional Hatha Yoga', 'Sound Healing', 'Bhaktapur, Nepal', 'All Levels Welcome',
-        'Tibetan Singing Bowls', 'Mindfulness Hikes', 'Yoga Teacher Training', 'Sacred Retreats',
-        'Traditional Hatha Yoga', 'Sound Healing', 'Bhaktapur, Nepal', 'All Levels Welcome',
-        'Tibetan Singing Bowls', 'Mindfulness Hikes', 'Yoga Teacher Training', 'Sacred Retreats'
-      ]; %>
-      <% tagItems.forEach(function(item) { %>
-      <span class="flex items-center gap-6 px-8 py-4 text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone/70 shrink-0">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
-        <%= item %>
-      </span>
-      <% }); %>
+<!-- ═══════════════════════════════════════════════
+     HIKING — wide heading, illustration leads, notes to the side
+════════════════════════════════════════════════ -->
+<section id="hiking" class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-36 overflow-hidden" aria-labelledby="hiking-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <p class="deva-mark"><span class="deva" lang="ne">यात्रा</span><span class="gloss">Journeys</span></p>
+    <h2 id="hiking-heading" class="walk-title">Mindful walks<br>in the hills</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 mt-12 md:mt-16 items-end">
+      <div class="lg:col-span-7">
+      <figure class="walk-figure">
+        <svg class="hike-scene block w-full h-auto" viewBox="0 0 600 640" role="img" aria-labelledby="hike-scene-title">
+          <title id="hike-scene-title">Illustration of a walker on a path through terraced hills below snowy Himalayan peaks, with prayer flags and a small stupa</title>
+          <defs>
+            <linearGradient id="hs-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" class="hs-sky-1"/>
+              <stop offset=".35" class="hs-sky-2"/>
+              <stop offset=".55" class="hs-sky-3"/>
+              <stop offset=".68" class="hs-sky-4"/>
+            </linearGradient>
+            <radialGradient id="hs-glow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" class="hs-glow-a"/>
+              <stop offset="1" class="hs-glow-b"/>
+            </radialGradient>
+            <linearGradient id="hs-haze" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" class="hs-haze-a"/>
+              <stop offset="1" class="hs-haze-b"/>
+            </linearGradient>
+            <filter id="hs-soft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+          </defs>
+
+          <rect width="600" height="640" fill="url(#hs-sky)"/>
+
+          <!-- stars (dark mode only) -->
+          <g class="hs-stars">
+            <circle cx="70" cy="60" r="1.2"/><circle cx="140" cy="110" r=".9"/><circle cx="230" cy="48" r="1.1"/>
+            <circle cx="380" cy="80" r=".9"/><circle cx="470" cy="40" r="1.3"/><circle cx="540" cy="120" r=".8"/>
+            <circle cx="300" cy="140" r=".7"/><circle cx="40" cy="170" r=".8"/>
+          </g>
+
+          <!-- sun with a soft glow, resting between the peaks -->
+          <circle cx="252" cy="292" r="140" fill="url(#hs-glow)"/>
+          <circle class="hs-sun" cx="252" cy="292" r="40"/>
+
+          <!-- soft clouds -->
+          <g class="hs-cloud" filter="url(#hs-soft)">
+            <ellipse cx="110" cy="208" rx="90" ry="12"/>
+            <ellipse cx="160" cy="222" rx="60" ry="8"/>
+            <ellipse cx="470" cy="168" rx="80" ry="10"/>
+          </g>
+
+          <!-- birds (light mode) -->
+          <g class="hs-birds" fill="none" stroke-width="1.6" stroke-linecap="round">
+            <path d="M398 120 q6 -6 12 0 q6 -6 12 0"/>
+            <path d="M436 104 q4 -4 8 0 q4 -4 8 0"/>
+          </g>
+
+          <!-- farthest range -->
+          <path class="hs-far" d="M0 372 L50 330 L90 344 L140 300 L190 330 L230 312 L280 276 L330 310 L380 286 L440 320 L500 292 L560 318 L600 300 L600 640 L0 640Z"/>
+
+          <!-- main snow peaks -->
+          <path class="hs-peak" d="M0 410 L70 340 L110 360 L170 262 L215 322 L250 300 L320 210 L372 292 L410 270 L470 334 L520 300 L600 360 L600 640 L0 640Z"/>
+          <path class="hs-snow" d="M170 262 L188 291 L178 286 L170 296 L161 285 L152 292Z M320 210 L343 246 L332 240 L320 254 L308 238 L296 249Z M520 300 L536 318 L526 314 L518 322 L508 314Z"/>
+
+          <!-- valley haze -->
+          <rect y="350" width="600" height="110" fill="url(#hs-haze)"/>
+
+          <!-- mid ridge with rice terraces -->
+          <path class="hs-mid" d="M0 450 C80 410 130 430 190 400 C250 372 300 410 360 392 C430 370 500 410 600 384 L600 640 L0 640Z"/>
+          <g class="hs-terrace" fill="none" stroke-width="1.2" stroke-linecap="round">
+            <path d="M360 412 C420 396 480 420 560 404"/>
+            <path d="M350 428 C420 412 490 436 580 420"/>
+            <path d="M370 444 C430 430 500 452 590 438"/>
+          </g>
+
+          <!-- prayer flags strung across the mid ridge -->
+          <path class="hs-string" d="M60 430 Q200 470 330 418" fill="none" stroke-width="1"/>
+          <g class="hs-flags">
+            <path d="M84 440 l10 2 -2 14 -10 -2Z" fill="#3D6FB6"/>
+            <path d="M112 449 l10 2 -1 14 -10 -1Z" fill="#F4F1EA"/>
+            <path d="M141 455 l10 1 -1 14 -10 -1Z" fill="#C8402E"/>
+            <path d="M171 458 l10 0 0 14 -10 0Z" fill="#3E8E5A"/>
+            <path d="M201 458 l10 -1 1 14 -10 1Z" fill="#E9B83A"/>
+            <path d="M231 455 l10 -2 2 14 -10 2Z" fill="#3D6FB6"/>
+            <path d="M261 448 l10 -2 2 14 -10 2Z" fill="#F4F1EA"/>
+            <path d="M291 438 l10 -3 3 13 -10 3Z" fill="#C8402E"/>
+          </g>
+
+          <!-- near hill with the walking path -->
+          <path class="hs-near" d="M0 520 C120 480 220 500 300 470 C390 438 480 470 600 450 L600 640 L0 640Z"/>
+          <path class="hs-path" d="M600 470 C520 490 470 520 400 530 C330 540 300 570 240 590 C200 604 170 620 150 640" fill="none" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+
+          <!-- small stupa on the right hill -->
+          <g class="hs-stupa" transform="translate(470 452)">
+            <rect x="-14" y="-4" width="28" height="6"/>
+            <path d="M-11 -4 A11 11 0 0 1 11 -4Z"/>
+            <rect x="-3" y="-24" width="6" height="10"/>
+            <path d="M0 -36 L4 -24 L-4 -24Z"/>
+          </g>
+
+          <!-- a walker with a stick, partway up the path -->
+          <g class="hs-walker" transform="translate(392 506)">
+            <circle cx="0" cy="-22" r="3.4"/>
+            <path d="M-3 -18 L3 -18 L4 -6 L1 -6 L0 2 L-2 2 L-2 -6 L-4 -6Z"/>
+            <path d="M3 -15 L9 4" fill="none" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+
+          <!-- foreground -->
+          <path class="hs-fore" d="M0 590 C140 560 260 600 380 580 C470 566 540 590 600 580 L600 640 L0 640Z"/>
+        </svg>
+      </figure>
+      </div>
+
+      <div class="lg:col-span-4 lg:col-start-9 lg:pb-4">
+        <div class="prose-body text-muted text-lg">
+          <p>Healing also happens outdoors. Our guided hikes take you into the hills around the Kathmandu Valley.</p>
+          <p>We walk slowly, meditate in the open air and stop for the Himalayan views. Each hike is paced so you come back grounded, not tired.</p>
+        </div>
+        <ul class="hike-list mt-8">
+          <li>Mindful walking at an unhurried pace</li>
+          <li>Meditation in the open air</li>
+          <li>Himalayan viewpoints above the valley</li>
+        </ul>
+        <div class="mt-10">
+          <a href="#contact" data-topic="Mindfulness hikes" class="btn-primary">Ask about the next hike</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════════════
-     GRATITUDE (Crown Chakra)
+     KALANIL ART GALLERY — three classes set side by side
 ════════════════════════════════════════════════ -->
-<section id="gratitude" class="py-12 md:py-20 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="gratitude-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 -top-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
-
-    <!-- Image -->
-    <div class="fade-up order-2 lg:order-1 group relative">
-      <!-- Tilted gold backing card -->
-      <div class="absolute inset-0 bg-gold/10 rounded-none transform rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
-      <!-- Image wrapper lifts on hover; img-hover handles inner scale -->
-      <div class="img-hover rounded-none shadow-2xl relative z-10"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
-        <img
-          src="/images/loard%20shive.png"
-          alt="Lord Shiva - The Adiyogi"
-          class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
-          loading="lazy"
-        >
-      </div>
+<section id="art-gallery" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-32" aria-labelledby="art-gallery-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-end">
+      <h2 id="art-gallery-heading" class="h-display md:col-span-7">Drawing classes at Kalanil</h2>
+      <p class="lede md:col-span-4 md:col-start-9">Kalanil Art Gallery, our sister gallery, shares the studio. Come and draw with us, or take home a painting made in Bhaktapur.</p>
     </div>
 
-    <!-- Text -->
-    <div class="order-1 lg:order-2 fade-up delay-2">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Gratitude</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="gratitude-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        Honoring our <span class="italic text-gold">gurus</span>
-      </h2>
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
-        <p>
-          We bow in gratitude to the divine teachings of Lord Shiva, the Adiyogi, whose ancient wisdom of yoga and meditation forms the foundation of all our practices.
-        </p>
-        <p>
-          Our guidance flows from a lineage of dedicated gurus who have preserved these sacred traditions. Through their blessings and teachings, we are able to share authentic practices that transform lives.
-        </p>
-        <p class="font-light text-stone">
-          Every class, every session, every healing sound — all are offerings rooted in this timeless wisdom.
-        </p>
-      </div>
-
-      <!-- Decorative element -->
-      <div class="mt-12 flex items-center gap-4">
-        <div class="w-16 h-px bg-gold/50"></div>
-        <span class="font-serif italic text-gold text-lg">Namah Shivaya</span>
-        <div class="w-16 h-px bg-gold/50"></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     YOGA & SOUND HEALING PROGRAMS (Throat Chakra)
-════════════════════════════════════════════════ -->
-<section id="programs" class="py-12 md:py-16 px-6 md:px-12 bg-base relative border-b border-line" aria-labelledby="programs-heading">
-  <div class="max-w-7xl mx-auto">
-
-    <!-- Header -->
-    <div class="mb-20 md:mb-28 max-w-2xl fade-up text-center mx-auto">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Yoga & Sound Healing Programs</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="programs-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Practices for body, mind & soul
-      </h2>
-    </div>
-
-    <!-- Primary services -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-
-      <% const primary = [
-        {
-          num: '01',
-          name: 'Regular Yoga Classes',
-          desc: 'Daily Hatha Yoga sessions to build strength, flexibility, and inner stillness. Open to all levels.',
-          tag: 'Daily · All Levels'
-        },
-        {
-          num: '02',
-          name: 'Therapeutic Yoga',
-          desc: 'Personalised sessions designed around your body and health goals, paired with a guided diet plan.',
-          tag: 'Personalised'
-        },
-        {
-          num: '03',
-          name: 'Sound Healing',
-          desc: 'Gentle vibrational therapy using Tibetan singing bowls to release tension and restore harmony.',
-          tag: 'Healing · Relaxation'
-        },
-        {
-          num: '04',
-          name: 'Singing Bowl Training',
-          desc: 'Professional certification courses at Levels 1, 2, and 3 — from beginner to advanced practitioner.',
-          tag: 'Certification L1–L3'
-        },
-        {
-          num: '05',
-          name: "Yoga Teacher's Training",
-          desc: 'Comprehensive programmes to become a certified yoga instructor, grounded in authentic tradition.',
-          tag: 'Certification'
-        },
-        {
-          num: '06',
-          name: 'Retreats & Tours',
-          desc: 'Immersive yoga retreats, spiritual tours, and mindfulness hikes through the sacred landscapes of Nepal.',
-          tag: 'Multi-day'
-        }
-      ] %>
-
-      <% primary.forEach(function(s, i) { %>
-      <article class="card group stagger-child">
-        <!-- Decorative bg circle on hover -->
-        <div class="absolute -right-20 -top-20 w-48 h-48 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/15 transition-colors duration-700 pointer-events-none"></div>
-        
-        <div class="flex items-start justify-between relative z-10">
-          <span class="card-number"><%= s.num %></span>
-          <span class="card-tag"><%= s.tag %></span>
-        </div>
-        <div class="flex-grow relative z-10">
-          <h3 class="card-title"><%= s.name %></h3>
-          <p class="card-desc"><%= s.desc %></p>
-        </div>
-        <div class="mt-auto pt-6 flex items-center gap-4 relative z-10">
-          <span class="btn-ghost">
-            Explore
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </span>
-        </div>
+    <% const artClasses = [
+      { name: 'Regular drawing classes', desc: 'Steady weekly practice to build drawing skills from the ground up.', when: 'Every week' },
+      { name: 'Special workshops', desc: 'Focused sessions on one technique or medium at a time.', when: 'Announced monthly' },
+      { name: 'Saturday classes', desc: 'A weekend class for anyone who works through the week.', when: 'Saturdays' }
+    ]; %>
+    <div class="art-cols mt-14 md:mt-20">
+      <% artClasses.forEach(function(c) { %>
+      <article>
+        <p class="art-when"><%= c.when %></p>
+        <h3><%= c.name %></h3>
+        <p class="art-desc"><%= c.desc %></p>
+        <a href="#contact" class="link-line" data-topic="<%= c.name %>">Book a place</a>
       </article>
       <% }) %>
     </div>
 
-    <!-- Secondary services row -->
-    <div class="flex flex-wrap justify-center gap-4 mb-16">
-      <% const secondary = ['Kids Yoga', 'Corporate Yoga', 'Yogic Zumba', 'Mindfulness Hikes', 'Spiritual Tours'] %>
-      <% secondary.forEach(function(name) { %>
-      <div class="bg-transparent rounded-full px-8 py-4 border border-line text-center hover:border-gold hover:bg-gold/5 group transition-all duration-500 cursor-default stagger-child">
-        <span class="font-sans text-xs font-light text-muted group-hover:text-gold uppercase tracking-widest3 transition-colors duration-500"><%= name %></span>
-      </div>
-      <% }) %>
-    </div>
-
-    <!-- Available Time & Book Now -->
-    <div class="max-w-4xl mx-auto fade-up">
-      <div class="card group">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <!-- Schedule Info -->
-          <div>
-            <div class="inline-flex items-center gap-3 mb-4">
-              <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <span class="section-label">Available Time</span>
-            </div>
-            <div class="space-y-4">
-              <div class="flex items-center gap-6 p-4 bg-ink/50 rounded-none border border-line/30">
-                <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="font-serif text-xl text-stone">Morning</span>
-                  <span class="font-sans text-base text-muted font-light ml-3">6:00 – 9:00 AM</span>
-                </div>
-              </div>
-              <div class="flex items-center gap-6 p-4 bg-ink/50 rounded-none border border-line/30">
-                <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span class="font-serif text-xl text-stone">Evening</span>
-                  <span class="font-sans text-base text-muted font-light ml-3">5:00 – 8:00 PM</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book Now Button -->
-          <div class="flex flex-col items-start md:items-end gap-6">
-            <p class="font-sans text-sm text-muted font-light">Ready to begin your journey?</p>
-            <a href="#contact" class="btn-primary group">
-              Book Now
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 
-     HIKING & NATURE RETREATS
--->
-<section id="hiking" class="py-12 md:py-16 px-6 md:px-12 bg-ink relative border-b border-line overflow-hidden" aria-labelledby="hiking-heading">
-  <!-- Decorative background elements -->
-  <div class="absolute -right-40 -bottom-40 w-[40rem] h-[40rem] bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-
-    <!-- Content -->
-    <div class="order-1 lg:order-1 fade-up relative z-20">
-      <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Nature Retreats</p>
-      </div>
-
-      <h2 id="hiking-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        Connect with <br><span class="italic text-gold">Nature</span>
-      </h2>
-
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
-        <p>
-          Beyond the mat and the singing bowls, true healing happens when we step outside. Our guided hiking retreats take you into the breathtaking hills surrounding the Kathmandu Valley.
-        </p>
-        <p>
-          Experience mindful walking, outdoor meditation sessions, and breathtaking panoramic views of the Himalayas. These hikes are designed to ground your energy, clear your mind, and deepen your spiritual practice in the embrace of nature.
-        </p>
-      </div>
-
-      <div class="mt-14 pt-10 border-t border-line flex flex-wrap gap-8">
-        <div>
-          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
-            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Local
-          </div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Trails</div>
-        </div>
-        <div>
-          <div class="font-serif text-4xl text-stone mb-2 flex items-center gap-2">
-            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            Morning
-          </div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Sessions</div>
-        </div>
-      </div>
-      
-      <div class="mt-12">
-        <a href="#contact" class="btn-primary group">
-          Join a Hike
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Interactive Mini-Game / Simulation -->
-    <div class="relative fade-up delay-2 order-2 lg:order-2 group">
-      <!-- Ambient glow backing -->
-      <div class="absolute inset-0 bg-sage/20 rounded-none transform -rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
-
-      <!-- Canvas Container -->
-      <div class="rounded-none shadow-2xl relative z-10 bg-ink border border-line/20 img-hover"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
-        <canvas id="hiking-canvas" class="w-full aspect-[4/3] lg:aspect-square object-cover cursor-pointer touch-none"></canvas>
-      </div>
-    </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Hiking Interactive Script (Playable Mini-Game) -->
-<script>
-  (function() {
-    const canvas = document.getElementById('hiking-canvas');
-    if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w, h;
-    
-    // Game state
-    let scrollX = 0;
-    let targetScrollX = 0;
-    
-    // Physics / Jumping
-    let hikerYOffset = 0;
-    let hikerVY = 0;
-    let isJumping = false;
-    const gravity = 0.6;
-    const jumpPower = -11;
-    
-    // Game mechanics
-    let score = 0;
-    let rocks = [];
-    let nextRockX = 600;
-    let gameState = 'playing'; // 'playing', 'hit'
-    let hitTimer = 0;
-    
-    // Colors matching palette
-    const COLOR_SKY = '#F4F9F9';
-    const COLOR_SUN = '#EE7924';
-    const COLOR_MOUNTAIN_FAR = '#8BD3DD';
-    const COLOR_MOUNTAIN_MID = '#1A6A73';
-    const COLOR_MOUNTAIN_NEAR = '#0F383D';
-    
-    function resize() {
-      w = canvas.parentElement.clientWidth;
-      h = canvas.parentElement.clientHeight;
-      canvas.width = w * window.devicePixelRatio;
-      canvas.height = h * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
-    
-    window.addEventListener('resize', resize);
-    setTimeout(resize, 100);
-    
-    // Controls: Any click/tap makes the hiker jump
-    const jump = (e) => {
-      e.preventDefault(); 
-      if(!isJumping) {
-        isJumping = true;
-        hikerVY = jumpPower;
-        if(gameState === 'hit') gameState = 'playing';
-      }
-    };
-    
-    canvas.addEventListener('mousedown', jump);
-    canvas.addEventListener('touchstart', jump, {passive: false});
-    // Remove pointer-events from canvas temporarily if user wants to scroll past it, 
-    // but the aspect ratio requires them to touch it. 
-    // We only prevent default on the canvas itself, so scrolling outside works.
-    
-    // Terrain math (reused for drawing and collision)
-    function getTerrainY(worldX, yBase, amplitude, frequency) {
-      const noise = Math.sin(worldX * frequency) * amplitude 
-                  + Math.cos(worldX * frequency * 2.5) * (amplitude * 0.3);
-      return yBase - noise;
-    }
-    
-    // Draw mountain layer
-    function drawMountains(offset, yBase, amplitude, frequency, color) {
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(0, h);
-      for(let x = 0; x <= w; x += 10) {
-        ctx.lineTo(x, getTerrainY(x + offset, yBase, amplitude, frequency));
-      }
-      ctx.lineTo(w, h);
-      ctx.fill();
-    }
-    
-    // Draw Hiker
-    let stepCycle = 0;
-    function drawHiker(x, baseY) {
-      ctx.save();
-      ctx.translate(x, baseY + hikerYOffset);
-      
-      // Stop walking animation if jumping or hit
-      if(!isJumping && gameState !== 'hit') {
-        stepCycle += 0.2;
-      }
-      
-      const bob = isJumping ? -2 : Math.sin(stepCycle * 2) * 2;
-      
-      ctx.fillStyle = gameState === 'hit' ? '#FF5555' : COLOR_SUN;
-      
-      // Torso/Backpack
-      ctx.beginPath();
-      ctx.roundRect(-4, bob - 16, 8, 16, 3);
-      ctx.fill();
-      
-      // Head
-      ctx.beginPath();
-      ctx.arc(0, bob - 24, 6, 0, Math.PI*2);
-      ctx.fill();
-      
-      // Backpack detailing
-      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
-      ctx.beginPath();
-      ctx.roundRect(-7, bob - 14, 5, 12, 2); 
-      ctx.fill();
-      
-      // Legs
-      ctx.strokeStyle = gameState === 'hit' ? '#FF5555' : COLOR_SUN;
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      
-      // Left leg
-      ctx.beginPath();
-      ctx.moveTo(-1, bob);
-      ctx.lineTo(isJumping ? -4 : -2 + Math.sin(stepCycle) * 8, bob + 12);
-      ctx.stroke();
-      
-      // Right leg
-      ctx.beginPath();
-      ctx.moveTo(2, bob);
-      ctx.lineTo(isJumping ? 4 : 2 + Math.sin(stepCycle + Math.PI) * 8, bob + 12);
-      ctx.stroke();
-      
-      // Hiking stick (hide if hit)
-      if (gameState !== 'hit') {
-        ctx.strokeStyle = COLOR_MOUNTAIN_NEAR;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(8, bob - 5);
-        ctx.lineTo(12 + Math.sin(stepCycle + Math.PI) * 5, bob + 14);
-        ctx.stroke();
-      }
-      
-      ctx.restore();
-    }
-    
-    // Draw obstacles (rocks)
-    function drawRocks(terrainParams) {
-      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
-      for (let i = rocks.length - 1; i >= 0; i--) {
-        const r = rocks[i];
-        const screenX = r.x - scrollX;
-        
-        // Remove offscreen
-        if (screenX < -50) {
-          rocks.splice(i, 1);
-          continue;
-        }
-        
-        // Draw if on screen
-        if (screenX < w + 50) {
-          const terrainY = getTerrainY(r.x, ...terrainParams);
-          
-          ctx.beginPath();
-          // Draw a jagged rock shape
-          ctx.moveTo(screenX - 10, terrainY);
-          ctx.lineTo(screenX - 5, terrainY - 15);
-          ctx.lineTo(screenX + 5, terrainY - 18);
-          ctx.lineTo(screenX + 12, terrainY - 10);
-          ctx.lineTo(screenX + 15, terrainY);
-          ctx.fill();
-          
-          // Collision Check
-          const hikerScreenX = w / 2;
-          if (!r.passed && screenX > hikerScreenX - 15 && screenX < hikerScreenX + 15) {
-             // Hiker is over the rock X-wise. Check Y-wise.
-             if (hikerYOffset > -15) { // Collided!
-                gameState = 'hit';
-                hitTimer = 30;
-                score = Math.max(0, score - 5);
-                r.passed = true;
-             } else {
-                // Successfully jumped over!
-                score += 10;
-                r.passed = true;
-             }
-          }
-        }
-      }
-    }
-    
-    function loop() {
-      // Auto run
-      const speed = gameState === 'hit' ? 0.5 : 3.5;
-      targetScrollX += speed;
-      scrollX += (targetScrollX - scrollX) * 0.2;
-      
-      // Generate new rocks
-      if (scrollX + w > nextRockX) {
-        rocks.push({ x: nextRockX, passed: false });
-        nextRockX += 300 + Math.random() * 400; // random gap between 300-700px
-      }
-      
-      // Physics (Gravity & Jumping)
-      if(isJumping) {
-        hikerVY += gravity;
-        hikerYOffset += hikerVY;
-        if(hikerYOffset >= 0) {
-          hikerYOffset = 0;
-          hikerVY = 0;
-          isJumping = false;
-        }
-      }
-      
-      // Hit flash logic
-      if (hitTimer > 0) hitTimer--;
-      if (hitTimer === 0 && gameState === 'hit') gameState = 'playing';
-      
-      // Background / Sky
-      ctx.fillStyle = hitTimer > 0 && hitTimer % 4 < 2 ? '#FFDDDD' : COLOR_SKY;
-      ctx.fillRect(0, 0, w, h);
-      
-      // Sun
-      ctx.fillStyle = COLOR_SUN;
-      ctx.beginPath();
-      ctx.arc(w * 0.7 - (scrollX * 0.02), h * 0.25, w * 0.1, 0, Math.PI*2);
-      ctx.fill();
-      
-      // Parallax Layers
-      drawMountains(scrollX * 0.3, h * 0.45, h * 0.15, 0.004, COLOR_MOUNTAIN_FAR);
-      drawMountains(scrollX * 0.6, h * 0.65, h * 0.12, 0.007, COLOR_MOUNTAIN_MID);
-      
-      // Foreground Layer Params
-      const fgParams = [h * 0.85, h * 0.08, 0.012];
-      drawMountains(scrollX, fgParams[0], fgParams[1], fgParams[2], COLOR_MOUNTAIN_NEAR);
-      
-      // Obstacles
-      drawRocks(fgParams);
-      
-      // Get exact Y position of foreground at center of screen for the hiker to stand on
-      const hikerTerrainY = getTerrainY(scrollX + w/2, fgParams[0], fgParams[1], fgParams[2]);
-      drawHiker(w/2, hikerTerrainY);
-      
-      // UI / Text
-      ctx.fillStyle = COLOR_MOUNTAIN_NEAR;
-      ctx.font = '800 16px Montserrat, sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText(`Zen Points: ${score}`, 20, 30);
-      
-      ctx.fillStyle = COLOR_SKY;
-      ctx.font = '600 12px Montserrat, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.globalAlpha = 0.9;
-      // letterSpacing hack for canvas
-      const text = "TAP TO JUMP";
-      ctx.fillText(text, w/2, h - 20);
-      ctx.globalAlpha = 1.0;
-      
-      requestAnimationFrame(loop);
-    }
-    
-    loop();
-  })();
-</script>
-
-
-<!-- ═══════════════════════════════════════════════
-     KALANIL ART GALLERY (Heart Chakra)
-════════════════════════════════════════════════ -->
-<section id="art-gallery" class="py-12 md:py-16 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="art-gallery-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 -bottom-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-
-    <!-- Header -->
-    <div class="mb-16 md:mb-24 text-center max-w-2xl mx-auto fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Kalanil Art Gallery</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="art-gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Where art meets <span class="italic text-gold">wellness</span>
-      </h2>
-      <p class="mt-6 font-sans text-muted font-light text-lg">
-        Express your creativity through art classes and discover unique paintings that inspire peace and transformation.
-      </p>
-    </div>
-
-    <!-- Art Classes -->
-    <div class="mb-20 fade-up">
-      <div class="flex items-center gap-4 mb-10">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Art Classes</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <% const artClasses = [
-          {
-            name: 'Regular Drawing Classes',
-            desc: 'Consistent practice sessions to build foundational drawing skills and artistic expression.',
-            tag: 'Ongoing'
-          },
-          {
-            name: 'Special Drawing Classes',
-            desc: 'Focused workshops on specific techniques and advanced artistic methods.',
-            tag: 'Workshop'
-          },
-          {
-            name: 'Saturday Drawing Classes',
-            desc: 'Weekend sessions perfect for those with busy schedules who want to explore art.',
-            tag: 'Weekend'
-          }
-        ]; %>
-
-        <% artClasses.forEach(function(c, i) { %>
-        <div class="card group stagger-child">
-          <div class="absolute -right-16 -top-16 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/15 transition-colors duration-700 pointer-events-none"></div>
-          
-          <div class="relative z-10">
-            <span class="card-tag"><%= c.tag %></span>
-          </div>
-          <div class="flex-grow relative z-10">
-            <h4 class="card-title text-2xl md:text-2xl"><%= c.name %></h4>
-            <p class="card-desc text-base"><%= c.desc %></p>
-          </div>
-          <a href="#contact" class="mt-auto btn-ghost">
-            Book Now
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-        <% }) %>
-      </div>
-    </div>
-
-    <!-- Paintings on Sale -->
-    <div class="fade-up">
-      <div class="flex items-center gap-4 mb-10">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Paintings on Sale</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <% const paintings = [
-          { name: 'Oil / Acrylic Painting', medium: 'Oil & Acrylic' },
-          { name: 'Water Colour Painting', medium: 'Water Colour' },
-          { name: 'Portrait', medium: 'Oil / Acrylic / Water' },
-          { name: 'Other Paintings', medium: 'Mixed Media' }
-        ]; %>
-
-        <% paintings.forEach(function(p, i) { %>
-        <div class="bg-base border border-line p-6 flex flex-col items-center text-center group hover:border-gold transition-all duration-500">
-          <!-- Painting placeholder -->
-          <div class="w-full aspect-square bg-gradient-to-br from-sage/50 via-base to-surface border border-line/30 mb-6 flex items-center justify-center group-hover:border-gold/50 transition-colors duration-500 img-hover">
-            <svg class="w-12 h-12 text-gold/30 group-hover:text-gold/60 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h4 class="font-serif text-lg font-medium text-stone group-hover:text-gold mb-2 transition-colors duration-500"><%= p.name %></h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-4"><%= p.medium %></p>
-          <a href="#contact" class="mt-auto inline-flex items-center gap-2 text-[11px] font-sans font-bold uppercase tracking-widest2 text-stone hover:text-gold transition-all duration-500 group/btn">
-            Buy Now
-            <svg class="w-3 h-3 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-        <% }) %>
-      </div>
-    </div>
-
+    <p class="art-sale">
+      Paintings for sale: oil and acrylic, watercolour, mixed media, and portraits painted to order.
+      <a href="#contact" data-topic="Paintings for sale" class="link-line !p-0 !inline">Ask for photos and prices</a>
+    </p>
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════════════
-     ABOUT
+     GRATITUDE — one full-bleed image, the mantra set large
 ════════════════════════════════════════════════ -->
-<section id="about" class="py-12 md:py-16 px-6 md:px-12 bg-surface relative overflow-hidden border-b border-line" aria-labelledby="about-heading">
-  <!-- Decorative background elements -->
-  <div class="absolute -left-40 top-40 w-[40rem] h-[40rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-
-    <!-- Images -->
-    <div class="relative fade-up order-2 lg:order-1 group">
-      <!-- Ambient glow backing -->
-      <div class="absolute inset-0 bg-gold/10 rounded-none transform rotate-3 scale-105"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-backing></div>
-
-      <!-- Main Image — lift on hover, inner img scales via img-hover -->
-      <div class="img-hover rounded-none shadow-2xl relative z-10"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform;"
-           data-parallax-main>
-        <img
-          src="/images/girl-with-tibetean-bowl.png"
-          alt="Yoga practitioner in a peaceful pose"
-          class="w-full aspect-[4/3] lg:aspect-square object-cover filter grayscale opacity-80"
-          loading="lazy"
-        >
-      </div>
-
-      <!-- Floating Singing Bowl PNG -->
-      <div class="absolute -bottom-16 -right-10 md:-right-20 w-2/3 max-w-[300px] z-20 pointer-events-none img-hover-light"
-           style="transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease; will-change: transform;"
-           data-parallax-float>
-        <img
-          src="/images/tibetansingingbowl.png"
-          alt="Tibetan singing bowls"
-          class="w-full h-auto object-contain filter grayscale opacity-80 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-          style="transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, filter;"
-          loading="lazy"
-        >
-      </div>
+<section id="gratitude" class="guru-band" aria-labelledby="gratitude-heading">
+  <img src="/images/loard-shive.webp" alt="Statue of Lord Shiva as Adiyogi, the first yogi" loading="lazy">
+  <div class="guru-inner">
+    <p class="guru-mantra" lang="sa">ॐ नमः शिवाय</p>
+    <div class="guru-text">
+      <h2 id="gratitude-heading">Honouring our gurus</h2>
+      <p>We bow to Lord Shiva, the Adiyogi, and to the line of teachers who kept these practices alive. Every class and every healing sound here is an offering to them.</p>
     </div>
-
-    <!-- Text -->
-    <div class="order-1 lg:order-2 fade-up delay-2">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Our Story</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="about-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight mb-10">
-        A sanctuary for<br><span class="italic text-gold">inner growth</span>
-      </h2>
-      <div class="space-y-6 font-sans text-muted font-light leading-relaxed text-lg">
-        <p>
-          Nestled in the ancient city of Bhaktapur, Pragya Path was founded with a single intention —
-          to offer a genuine space where people can slow down, breathe, and reconnect with themselves.
-        </p>
-        <p>
-          We draw from the deep roots of Hatha Yoga and the meditative tradition of Sound Healing,
-          offering practices that are both time-honoured and accessible to modern life.
-        </p>
-        <p class="font-light text-stone">
-          Whether you are a complete beginner or an experienced practitioner, you are welcome here.
-        </p>
-      </div>
-
-      <!-- Stats -->
-      <div class="mt-14 grid grid-cols-3 gap-8 pt-10 border-t border-line">
-        <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2"><span class="stat-count" data-target="11" data-suffix="+">11+</span></div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Services</div>
-        </div>
-        <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2"><span class="stat-count" data-target="2" data-suffix="×">2×</span></div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Daily Classes</div>
-        </div>
-        <div class="stagger-child">
-          <div class="font-serif text-5xl text-gold mb-2">All</div>
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted">Levels</div>
-        </div>
-      </div>
-    </div>
-
   </div>
+</section>
 
-  <!-- Management Team & Trainers -->
-  <div class="max-w-7xl mx-auto mt-20 pt-16 border-t border-line relative z-10">
 
-    <!-- Management Team -->
-    <div class="mb-20 fade-up">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center gap-4 mb-6">
-          <span class="w-12 h-px bg-gold/50"></span>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Leadership</p>
-          <span class="w-12 h-px bg-gold/50"></span>
+<!-- ═══════════════════════════════════════════════
+     ABOUT — a long opening sentence, then photo and people
+════════════════════════════════════════════════ -->
+<section id="about" class="bg-paper px-5 sm:px-6 md:px-12 py-24 md:py-36 overflow-hidden" aria-labelledby="about-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <h2 id="about-heading" class="sr-only">About Pragya Path</h2>
+    <p class="about-lead">
+      Pragya Path began in the old city of Bhaktapur with one intention: a genuine place to slow down, breathe and come back to yourself.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 mt-16 md:mt-24">
+      <div class="lg:col-span-5 relative pr-6 pb-6 lg:pr-0">
+        <div class="framed arch max-w-md">
+          <img src="/images/girl-with-tibetean-bowl.webp" alt="A student playing a Tibetan singing bowl in the studio" class="aspect-[4/5] object-cover" loading="lazy">
         </div>
-        <h3 class="font-serif text-3xl md:text-4xl font-medium text-stone">Management Team</h3>
+        <img src="/images/tibetansingingbowl.webp" alt="" class="absolute bottom-0 right-0 lg:right-4 w-36 md:w-48 h-auto drop-shadow-[0_24px_28px_rgba(27,31,63,0.25)] pointer-events-none" loading="lazy">
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Aarati Dhakal -->
-        <div class="team-card stagger-child">
-          <div class="team-avatar">
-            <span class="font-serif text-3xl text-gold">AD</span>
-          </div>
-          <h4 class="font-serif text-2xl font-medium text-stone mb-2">Aarati Dhakal</h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Pragya Path</p>
-          <p class="font-sans text-sm text-muted font-light leading-relaxed">Dedicated to sharing authentic yoga and sound healing traditions with the world.</p>
+      <div class="lg:col-span-6 lg:col-start-7">
+        <div class="prose-body text-muted text-lg">
+          <p>We teach Hatha Yoga and the meditative tradition of sound healing as they were taught to us, in a way that fits modern life.</p>
+          <p>Whether you are a complete beginner or have practised for years, you are welcome here.</p>
         </div>
 
-        <!-- Anil Basnet -->
-        <div class="team-card stagger-child">
-          <div class="team-avatar">
-            <span class="font-serif text-3xl text-gold">AB</span>
-          </div>
-          <h4 class="font-serif text-2xl font-medium text-stone mb-2">Anil Basnet</h4>
-          <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4">Founder, Kalanil Art Gallery</p>
-          <p class="font-sans text-sm text-muted font-light leading-relaxed">Bringing art and creativity together with wellness and healing.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Our Trainers -->
-    <div class="fade-up">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center justify-center gap-4 mb-6">
-          <span class="w-12 h-px bg-gold/50"></span>
-          <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Expert Guidance</p>
-          <span class="w-12 h-px bg-gold/50"></span>
-        </div>
-        <h3 class="font-serif text-3xl md:text-4xl font-medium text-stone">Our Trainers</h3>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <% const trainers = [
-          { name: 'Aarati Dhakal', initials: 'AD' },
-          { name: 'Sumon Acharya', initials: 'SA' },
-          { name: 'Ramash Kadel', initials: 'RK' },
-          { name: 'Meena K. Raut', initials: 'MR' },
-          { name: 'Kalpana Gajmer', initials: 'KG' }
+        <h3 class="people-title">The people you'll meet</h3>
+        <% const people = [
+          { name: 'Aarati Dhakal', role: 'Founder of Pragya Path, teacher' },
+          { name: 'Anil Basnet', role: 'Founder of Kalanil Art Gallery' },
+          { name: 'Sumon Acharya', role: 'Teacher' },
+          { name: 'Ramash Kadel', role: 'Teacher' },
+          { name: 'Meena K. Raut', role: 'Teacher' },
+          { name: 'Kalpana Gajmer', role: 'Teacher' }
         ]; %>
-
-        <% trainers.forEach(function(t) { %>
-        <div class="team-card-sm group stagger-child">
-          <div class="team-avatar-sm">
-            <span class="font-serif text-2xl text-gold"><%= t.initials %></span>
-          </div>
-          <h4 class="font-serif text-lg font-medium text-stone"><%= t.name %></h4>
-        </div>
-        <% }) %>
+        <ul class="people" role="list">
+          <% people.forEach(function(p) { %>
+          <li><span class="people-name"><%= p.name %></span><span class="people-role"><%= p.role %></span></li>
+          <% }) %>
+        </ul>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
-     GALLERY (Solar Plexus Chakra)
+     GALLERY
 ════════════════════════════════════════════════ -->
-<section id="gallery" class="py-12 md:py-16 px-4 md:px-6 bg-base border-b border-line" aria-labelledby="gallery-heading">
-  <div class="max-w-[140rem] mx-auto">
-    <div class="text-center mb-12 fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Galleries</p>
-        <span class="w-12 h-px bg-gold/50"></span>
+<section id="gallery" class="bg-ink px-5 sm:px-6 md:px-12 py-24 md:py-32" aria-labelledby="gallery-heading">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
+      <div>
+        <h2 id="gallery-heading" class="h-display">Inside the studio</h2>
+        <p class="lede mt-5">Classes, sound baths, trainings and the people who come to them.</p>
       </div>
-      <h2 id="gallery-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone">
-        Glimpses of the <span class="italic text-gold">Sanctuary</span>
-      </h2>
-      <p class="mt-4 font-sans text-sm text-muted font-light">50 photos</p>
+      <button id="view-all-btn" class="btn-outline self-start md:self-auto">See all 50 photos</button>
     </div>
 
-    <!-- Tabs -->
-    <div class="flex justify-center gap-4 mb-8 fade-up">
-      <button id="tab-photos" class="gallery-tab active px-8 py-3 text-[11px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold text-base transition-all duration-300">
-        Photos
-      </button>
-      <button id="tab-videos" class="gallery-tab px-8 py-3 text-[11px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted hover:border-gold hover:text-gold transition-all duration-300">
-        Videos
-      </button>
-    </div>
-
-    <!-- Photos Tab -->
-    <div id="gallery-photos" class="gallery-content">
-    <!-- Compact Preview Grid (5 images) -->
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/sound%20healing%20group.jpeg" alt="Group Healing Session" class="w-full h-full object-cover" loading="lazy">
-      </div>
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/girl-with-tibetean-bowl.png" alt="Tibetan Bowl Practice" class="w-full h-full object-cover" loading="lazy">
-      </div>
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A5972.jpg" alt="Yoga Session" class="w-full h-full object-cover" loading="lazy">
-      </div>
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A5994.jpg" alt="Sound Healing" class="w-full h-full object-cover" loading="lazy">
-      </div>
-      <div class="img-hover aspect-square bg-surface/30">
-        <img src="/images/gallery/2O3A6005.jpg" alt="Yoga Practice" class="w-full h-full object-cover" loading="lazy">
-      </div>
-    </div>
-
-      <!-- View All Button -->
-      <div class="text-center mb-8">
-        <button id="view-all-btn" class="btn-primary group">
-          View All Photos (50)
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Videos Tab -->
-    <div id="gallery-videos" class="gallery-content hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Sound Healing Session</h4>
-            <p class="font-sans text-sm text-muted font-light">Experience the healing power of Tibetan singing bowls</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Morning Yoga Flow</h4>
-            <p class="font-sans text-sm text-muted font-light">Traditional Hatha Yoga practice in the morning light</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Singing Bowl Training</h4>
-            <p class="font-sans text-sm text-muted font-light">Learn the art of playing Tibetan singing bowls</p>
-          </div>
-        </div>
-        <div class="bg-surface border border-line overflow-hidden group hover:border-gold transition-all duration-500">
-          <div class="relative aspect-video bg-gradient-to-br from-ink via-surface to-base flex items-center justify-center img-hover">
-            <div class="relative z-10 w-16 h-16 rounded-full border-2 border-gold/50 flex items-center justify-center group-hover:border-gold group-hover:scale-110 transition-all duration-500 cursor-pointer">
-              <svg class="w-6 h-6 text-gold ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="p-6">
-            <h4 class="font-serif text-xl font-medium text-stone group-hover:text-gold transition-colors mb-2">Retreat Highlights</h4>
-            <p class="font-sans text-sm text-muted font-light">Moments from our yoga retreats in Nepal</p>
-          </div>
-        </div>
-      </div>
+    <div id="gallery-photos" class="mosaic">
+      <div><img src="/images/gallery/sound-healing-group.webp" alt="A group sound healing session with singing bowls" loading="lazy"></div>
+      <div><img src="/images/gallery/healing-sound-sm.webp" alt="A teacher playing a singing bowl over a student's head" loading="lazy"></div>
+      <div><img src="/images/gallery/sound-healing-glimp-sm.webp" alt="Students resting during a sound bath" loading="lazy"></div>
+      <div><img src="/images/gallery/yoda-session-sm.webp" alt="A yoga class in the studio" loading="lazy"></div>
+      <div><img src="/images/gallery/2o3a5994-sm.webp" alt="A student receiving a training certificate" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -1031,15 +402,15 @@
   <div class="gallery-modal-header">
     <div>
       <h3 class="font-serif text-xl font-medium text-stone">All Photos</h3>
-      <p id="modal-counter" class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mt-1">50 photos</p>
+      <p id="modal-counter" class="text-sm font-ui font-medium text-muted mt-1">50 photos</p>
     </div>
     <div class="flex items-center gap-4">
       <div class="hidden md:flex gap-2" id="modal-filters">
-        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
-        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
-        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
-        <button data-filter="training" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
-        <button data-filter="community" class="modal-filter px-4 py-1.5 text-[9px] font-sans font-bold uppercase tracking-widest3 border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
+        <button data-filter="all" class="modal-filter active px-4 py-1.5 text-sm font-ui font-medium border border-gold bg-gold/10 text-gold rounded-full transition-all duration-300">All</button>
+        <button data-filter="yoga" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Yoga</button>
+        <button data-filter="healing" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Healing</button>
+        <button data-filter="training" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Training</button>
+        <button data-filter="community" class="modal-filter px-4 py-1.5 text-sm font-ui font-medium border border-line text-muted rounded-full transition-all duration-300 hover:border-gold hover:text-gold">Community</button>
       </div>
       <button id="modal-close-btn" class="gallery-modal-close">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1080,56 +451,56 @@
 (function() {
   // All gallery images data
   var allImages = [
-    { src: '/images/gallery/sound%20healing%20group.jpeg', alt: 'Group Healing Session', cat: 'healing' },
-    { src: '/images/gallery/girl-with-tibetean-bowl.png', alt: 'Tibetan Bowl Practice', cat: 'healing' },
-    { src: '/images/gallery/healing%20sound.jpeg', alt: 'Sound Resonance', cat: 'healing' },
-    { src: '/images/gallery/with%20foregin%20guest%20group%20photo.jpeg', alt: 'Global Community', cat: 'community' },
-    { src: '/images/gallery/yoda%20session.jpeg', alt: 'Hatha Yoga Flow', cat: 'yoga' },
-    { src: '/images/gallery/sound%20healing%20glimp.jpeg', alt: 'Vibrational Therapy', cat: 'healing' },
-    { src: '/images/gallery/yoga%20traning.jpeg', alt: 'Teacher Training', cat: 'training' },
-    { src: '/images/gallery/sound%20healing.jpeg', alt: 'Deep Meditation', cat: 'healing' },
-    { src: '/images/gallery/group%20photo%20with%20guest.jpeg', alt: 'Sangha & Connection', cat: 'community' },
-    { src: '/images/gallery/sound-healing.png', alt: 'Acoustic Healing', cat: 'healing' },
-    { src: '/images/gallery/2O3A5972.jpg', alt: 'Yoga Session 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5975.jpg', alt: 'Yoga Session 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5978.jpg', alt: 'Yoga Session 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5983.jpg', alt: 'Yoga Session 4', cat: 'yoga' },
-    { src: '/images/gallery/2O3A5994.jpg', alt: 'Sound Healing 1', cat: 'healing' },
-    { src: '/images/gallery/2O3A5996.jpg', alt: 'Sound Healing 2', cat: 'healing' },
-    { src: '/images/gallery/2O3A5997.jpg', alt: 'Sound Healing 3', cat: 'healing' },
-    { src: '/images/gallery/2O3A5999.jpg', alt: 'Sound Healing 4', cat: 'healing' },
-    { src: '/images/gallery/2O3A6000.jpg', alt: 'Sound Healing 5', cat: 'healing' },
-    { src: '/images/gallery/2O3A6004.jpg', alt: 'Meditation Practice', cat: 'healing' },
-    { src: '/images/gallery/2O3A6005.jpg', alt: 'Yoga Practice 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6009.jpg', alt: 'Yoga Practice 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6010.jpg', alt: 'Yoga Practice 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6012.jpg', alt: 'Training 1', cat: 'training' },
-    { src: '/images/gallery/2O3A6013.jpg', alt: 'Training 2', cat: 'training' },
-    { src: '/images/gallery/2O3A6014.jpg', alt: 'Training 3', cat: 'training' },
-    { src: '/images/gallery/2O3A6019.jpg', alt: 'Singing Bowl', cat: 'healing' },
-    { src: '/images/gallery/2O3A6022.jpg', alt: 'Yoga Flow 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6023.jpg', alt: 'Yoga Flow 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6024.jpg', alt: 'Yoga Flow 3', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6025.jpg', alt: 'Sound Therapy', cat: 'healing' },
-    { src: '/images/gallery/2O3A6027.jpg', alt: 'Group Practice', cat: 'community' },
-    { src: '/images/gallery/2O3A6029.jpg', alt: 'Community Session', cat: 'community' },
-    { src: '/images/gallery/2O3A6034.jpg', alt: 'Yoga Class 1', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6035.jpg', alt: 'Yoga Class 2', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6038.jpg', alt: 'Healing Circle', cat: 'healing' },
-    { src: '/images/gallery/2O3A6039.jpg', alt: 'Sound Bath', cat: 'healing' },
-    { src: '/images/gallery/2O3A6040.jpg', alt: 'Meditation Group', cat: 'healing' },
-    { src: '/images/gallery/2O3A6041.jpg', alt: 'Yoga Retreat 1', cat: 'training' },
-    { src: '/images/gallery/2O3A6042.jpg', alt: 'Yoga Retreat 2', cat: 'training' },
-    { src: '/images/gallery/2O3A6044.jpg', alt: 'Bowl Healing', cat: 'healing' },
-    { src: '/images/gallery/2O3A6045.jpg', alt: 'Sound Session', cat: 'healing' },
-    { src: '/images/gallery/2O3A6047.jpg', alt: 'Yoga Workshop', cat: 'training' },
-    { src: '/images/gallery/2O3A6054.jpg', alt: 'Group Healing 2', cat: 'healing' },
-    { src: '/images/gallery/2O3A6056.jpg', alt: 'Yoga Practice 4', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6060.jpg', alt: 'Sound Healing 6', cat: 'healing' },
-    { src: '/images/gallery/2O3A6062.jpg', alt: 'Yoga Session 5', cat: 'yoga' },
-    { src: '/images/gallery/2O3A6064.jpg', alt: 'Meditation Session', cat: 'healing' },
-    { src: '/images/gallery/2O3A6066.jpg', alt: 'Training Workshop', cat: 'training' },
-    { src: '/images/gallery/2O3A6068.jpg', alt: 'Final Session', cat: 'community' }
+    { src: '/images/gallery/sound-healing-group.webp', alt: 'Group Healing Session', cat: 'healing' },
+    { src: '/images/gallery/girl-with-tibetean-bowl.webp', alt: 'Tibetan Bowl Practice', cat: 'healing' },
+    { src: '/images/gallery/healing-sound.webp', alt: 'Sound Resonance', cat: 'healing' },
+    { src: '/images/gallery/with-foregin-guest-group-photo.webp', alt: 'Global Community', cat: 'community' },
+    { src: '/images/gallery/yoda-session.webp', alt: 'Hatha Yoga Flow', cat: 'yoga' },
+    { src: '/images/gallery/sound-healing-glimp.webp', alt: 'Vibrational Therapy', cat: 'healing' },
+    { src: '/images/gallery/yoga-traning.webp', alt: 'Teacher Training', cat: 'training' },
+    { src: '/images/gallery/sound-healing.webp', alt: 'Deep Meditation', cat: 'healing' },
+    { src: '/images/gallery/group-photo-with-guest.webp', alt: 'Sangha & Connection', cat: 'community' },
+    { src: '/images/gallery/sound-healing.webp', alt: 'Acoustic Healing', cat: 'healing' },
+    { src: '/images/gallery/2o3a5972.webp', alt: 'Yoga Session 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5975.webp', alt: 'Yoga Session 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5978.webp', alt: 'Yoga Session 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5983.webp', alt: 'Yoga Session 4', cat: 'yoga' },
+    { src: '/images/gallery/2o3a5994.webp', alt: 'Sound Healing 1', cat: 'healing' },
+    { src: '/images/gallery/2o3a5996.webp', alt: 'Sound Healing 2', cat: 'healing' },
+    { src: '/images/gallery/2o3a5997.webp', alt: 'Sound Healing 3', cat: 'healing' },
+    { src: '/images/gallery/2o3a5999.webp', alt: 'Sound Healing 4', cat: 'healing' },
+    { src: '/images/gallery/2o3a6000.webp', alt: 'Sound Healing 5', cat: 'healing' },
+    { src: '/images/gallery/2o3a6004.webp', alt: 'Meditation Practice', cat: 'healing' },
+    { src: '/images/gallery/2o3a6005.webp', alt: 'Yoga Practice 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6009.webp', alt: 'Yoga Practice 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6010.webp', alt: 'Yoga Practice 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6012.webp', alt: 'Training 1', cat: 'training' },
+    { src: '/images/gallery/2o3a6013.webp', alt: 'Training 2', cat: 'training' },
+    { src: '/images/gallery/2o3a6014.webp', alt: 'Training 3', cat: 'training' },
+    { src: '/images/gallery/2o3a6019.webp', alt: 'Singing Bowl', cat: 'healing' },
+    { src: '/images/gallery/2o3a6022.webp', alt: 'Yoga Flow 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6023.webp', alt: 'Yoga Flow 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6024.webp', alt: 'Yoga Flow 3', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6025.webp', alt: 'Sound Therapy', cat: 'healing' },
+    { src: '/images/gallery/2o3a6027.webp', alt: 'Group Practice', cat: 'community' },
+    { src: '/images/gallery/2o3a6029.webp', alt: 'Community Session', cat: 'community' },
+    { src: '/images/gallery/2o3a6034.webp', alt: 'Yoga Class 1', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6035.webp', alt: 'Yoga Class 2', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6038.webp', alt: 'Healing Circle', cat: 'healing' },
+    { src: '/images/gallery/2o3a6039.webp', alt: 'Sound Bath', cat: 'healing' },
+    { src: '/images/gallery/2o3a6040.webp', alt: 'Meditation Group', cat: 'healing' },
+    { src: '/images/gallery/2o3a6041.webp', alt: 'Yoga Retreat 1', cat: 'training' },
+    { src: '/images/gallery/2o3a6042.webp', alt: 'Yoga Retreat 2', cat: 'training' },
+    { src: '/images/gallery/2o3a6044.webp', alt: 'Bowl Healing', cat: 'healing' },
+    { src: '/images/gallery/2o3a6045.webp', alt: 'Sound Session', cat: 'healing' },
+    { src: '/images/gallery/2o3a6047.webp', alt: 'Yoga Workshop', cat: 'training' },
+    { src: '/images/gallery/2o3a6054.webp', alt: 'Group Healing 2', cat: 'healing' },
+    { src: '/images/gallery/2o3a6056.webp', alt: 'Yoga Practice 4', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6060.webp', alt: 'Sound Healing 6', cat: 'healing' },
+    { src: '/images/gallery/2o3a6062.webp', alt: 'Yoga Session 5', cat: 'yoga' },
+    { src: '/images/gallery/2o3a6064.webp', alt: 'Meditation Session', cat: 'healing' },
+    { src: '/images/gallery/2o3a6066.webp', alt: 'Training Workshop', cat: 'training' },
+    { src: '/images/gallery/2o3a6068.webp', alt: 'Final Session', cat: 'community' }
   ];
 
   var currentFilter = 'all';
@@ -1144,24 +515,6 @@
   var lightboxImg = document.getElementById('lightbox-img');
   var lightboxCounter = document.getElementById('lightbox-counter');
 
-  // Tab switching
-  document.getElementById('tab-photos').addEventListener('click', function() {
-    document.getElementById('gallery-photos').classList.remove('hidden');
-    document.getElementById('gallery-videos').classList.add('hidden');
-    this.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
-    this.classList.remove('text-muted', 'border-line');
-    document.getElementById('tab-videos').classList.remove('active', 'bg-gold', 'text-white', 'border-gold');
-    document.getElementById('tab-videos').classList.add('text-muted', 'border-line');
-  });
-
-  document.getElementById('tab-videos').addEventListener('click', function() {
-    document.getElementById('gallery-videos').classList.remove('hidden');
-    document.getElementById('gallery-photos').classList.add('hidden');
-    this.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
-    this.classList.remove('text-muted', 'border-line');
-    document.getElementById('tab-photos').classList.remove('active', 'bg-gold', 'text-white', 'border-gold');
-    document.getElementById('tab-photos').classList.add('text-muted', 'border-line');
-  });
 
   // View All button - open modal
   document.getElementById('view-all-btn').addEventListener('click', function() {
@@ -1200,8 +553,8 @@
     var html = '';
     filteredImages.forEach(function(img, i) {
       html += '<div class="gallery-masonry-item img-hover cursor-pointer" data-idx="' + i + '">' +
-        '<img src="' + img.src + '" alt="' + img.alt + '" class="w-full object-cover" loading="lazy">' +
-        '<div class="img-caption"><p class="font-sans text-[9px] font-bold uppercase tracking-widest3 text-white/90">' + img.alt + '</p></div>' +
+        '<img src="' + img.src.replace(/\.webp$/, '-sm.webp') + '" alt="' + img.alt + '" class="w-full object-cover" loading="lazy" decoding="async">' +
+        '<div class="img-caption"><p class="font-ui text-sm font-medium text-white">' + img.alt + '</p></div>' +
         '</div>';
     });
     modalGrid.innerHTML = html;
@@ -1263,18 +616,15 @@
 <!-- ═══════════════════════════════════════════════
      NEWSROOMS (Sacral Chakra)
 ════════════════════════════════════════════════ -->
-<section id="newsrooms" class="py-12 md:py-16 px-6 md:px-12 bg-surface border-b border-line" aria-labelledby="newsrooms-heading">
+<% if (showNewsroom) { %>
+<section id="newsrooms" class="py-16 md:py-24 px-5 sm:px-6 md:px-12 bg-surface relative overflow-hidden" aria-labelledby="newsrooms-heading">
   <div class="max-w-7xl mx-auto relative z-10">
 
     <!-- Header -->
     <div class="mb-16 md:mb-24 text-center max-w-2xl mx-auto fade-up">
-      <div class="inline-flex items-center justify-center gap-4 mb-6">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <p class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Newsrooms</p>
-        <span class="w-12 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="newsrooms-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-stone leading-tight">
-        Stay <span class="italic text-gold">informed</span>
+      <p class="eyebrow">Newsrooms</p>
+      <h2 id="newsrooms-heading" class="h-section text-4xl md:text-5xl lg:text-[3.5rem]">
+        Stay informed
       </h2>
       <p class="mt-6 font-sans text-muted font-light text-lg">
         Read our latest articles, news, and interviews about yoga, wellness, and spiritual growth.
@@ -1284,8 +634,7 @@
     <!-- Articles -->
     <div class="mb-16 fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Articles</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Articles</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1297,7 +646,7 @@
 
         <% articles.forEach(function(a) { %>
         <article class="article-card group stagger-child">
-          <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold mb-4"><%= a.date %></div>
+          <div class="text-sm font-ui font-medium text-gold mb-4"><%= a.date %></div>
           <h4 class="font-serif text-xl font-medium text-stone mb-4"><%= a.title %></h4>
           <p class="font-sans text-muted font-light leading-relaxed mb-6"><%= a.excerpt %></p>
           <a href="#" class="btn-ghost">
@@ -1314,8 +663,7 @@
     <!-- Online News -->
     <div class="mb-16 fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Online News</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Online News</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1328,9 +676,9 @@
         <% news.forEach(function(n) { %>
         <article class="article-card group stagger-child">
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= n.date %></span>
+            <span class="text-sm font-ui font-medium text-gold"><%= n.date %></span>
             <span class="w-1 h-1 bg-gold rounded-full"></span>
-            <span class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted"><%= n.source %></span>
+            <span class="text-sm font-ui font-medium text-muted"><%= n.source %></span>
           </div>
           <h4 class="font-serif text-lg font-medium text-stone"><%= n.title %></h4>
         </article>
@@ -1341,8 +689,7 @@
     <!-- Interviews -->
     <div class="fade-up">
       <div class="flex items-center gap-4 mb-8">
-        <span class="w-12 h-px bg-gold/50"></span>
-        <h3 class="font-serif text-2xl md:text-3xl font-medium text-stone">Interviews</h3>
+        <h3 class="h-section text-2xl md:text-3xl">Interviews</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1360,7 +707,7 @@
             </div>
             <div>
               <h4 class="font-serif text-lg font-medium text-stone"><%= interview.name %></h4>
-              <p class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-gold"><%= interview.role %></p>
+              <p class="text-sm font-ui font-medium text-gold"><%= interview.role %></p>
             </div>
           </div>
           <p class="font-sans text-sm text-muted font-light italic">"<%= interview.topic %>"</p>
@@ -1371,108 +718,66 @@
 
   </div>
 </section>
+<% } %>
 
 <!-- ═══════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════════ -->
-<section id="contact" class="py-12 md:py-16 px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="contact-heading">
-  <!-- Decorative background -->
-  <div class="absolute -right-40 bottom-0 w-[50rem] h-[50rem] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+<section id="contact" class="bg-ink py-24 md:py-36 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="contact-heading">
 
-  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative z-10">
+  <div class="max-w-[88rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
 
     <!-- Left: info -->
-    <div class="fade-up">
-      <div class="inline-flex items-center gap-4 mb-6">
-        <span class="text-[11px] font-sans font-bold uppercase tracking-widest3 text-gold">Get in Touch</span>
-        <span class="w-16 h-px bg-gold/50"></span>
-      </div>
-      <h2 id="contact-heading" class="font-serif text-6xl md:text-7xl font-medium text-stone leading-tight mb-8">
-        We'd love to<br><span class="italic text-gold">hear from you</span>
+    <div class="lg:col-span-5">
+      <p class="deva-mark"><span class="deva" lang="ne">सम्पर्क</span><span class="gloss">Contact</span></p>
+      <h2 id="contact-heading" class="h-display mb-7">
+        We'd love to hear from you
       </h2>
-      <p class="font-sans text-muted font-light leading-relaxed text-lg mb-10 max-w-md">
-        Whether you have a question about classes, want to arrange a retreat,
-        or simply want to know more — reach out and we'll get back to you soon.
+      <p class="lede mb-9">
+        WhatsApp is the quickest way to reach us. For anything longer, use the form and we'll reply by email within a day.
       </p>
 
-      <address class="not-italic space-y-10">
-        <a href="tel:+9779828589863" class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 3z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Phone</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">+977 9828589863</div>
-          </div>
-        </a>
+      <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Chat on WhatsApp</a>
 
-        <a href="mailto:pragyapath1@gmail.com" class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Email</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">pragyapath1@gmail.com</div>
-          </div>
-        </a>
-
-        <div class="flex items-center gap-8 group">
-          <div class="w-16 h-16 rounded-full border border-line flex items-center justify-center shrink-0 group-hover:border-gold group-hover:scale-110 transition-all duration-500">
-            <svg class="w-6 h-6 text-muted group-hover:text-gold transition-colors" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-            </svg>
-          </div>
-          <div>
-            <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-2">Location</div>
-            <div class="font-serif text-3xl text-stone group-hover:text-gold transition-colors">Dattatraye, Bhaktapur, Nepal</div>
-          </div>
+      <dl class="contact-list">
+        <div class="contact-row">
+          <dt>Phone</dt>
+          <dd><a href="tel:+9779828589863">+977 982 858 9863</a></dd>
         </div>
-      </address>
+        <div class="contact-row">
+          <dt>Email</dt>
+          <dd><a href="mailto:pragyapath1@gmail.com">pragyapath1@gmail.com</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>Studio</dt>
+          <dd>Dattatraye, Bhaktapur, Nepal</dd>
+        </div>
+      </dl>
 
       <!-- Social Media Links -->
-      <div class="mt-12 pt-8 border-t border-line/50">
-        <div class="text-[10px] font-sans font-bold uppercase tracking-widest3 text-muted mb-6">Follow Us</div>
-        <div class="flex flex-wrap gap-4">
-          <!-- WhatsApp -->
-          <a href="https://wa.me/9779828589863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/profile.php?id=61587079890163" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/pragyapath1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </a>
-          <!-- TikTok -->
-          <a href="https://www.tiktok.com/@pragyapath1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon">
-            <svg fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13.2a8.16 8.16 0 005.58 2.16v-3.45a4.85 4.85 0 01-5.58-2.72V2h3.45v2.54a4.83 4.83 0 013.77-1.35z"/>
-            </svg>
-           </a>
-         </div>
-       </div>
-     </div>
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <span class="text-sm font-semibold text-bronze mr-2">Follow us</span>
+        <a href="https://www.facebook.com/profile.php?id=61587079890163" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pragyapath1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@pragyapath1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13.2a8.16 8.16 0 005.58 2.16v-3.45a4.85 4.85 0 01-5.58-2.72V2h3.45v2.54a4.83 4.83 0 013.77-1.35z"/></svg>
+        </a>
+      </div>
+    </div>
 
     <!-- Right: form -->
-    <div class="fade-up delay-2 bg-surface p-8 md:p-16 relative">
-      <div class="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-gold via-gold/50 to-transparent"></div>
-      <form action="/inquiry" method="POST" novalidate class="space-y-10" id="inquiry-form">
+    <div class="lg:col-span-7">
+      <div class="form-panel">
+      <h3 class="font-serif text-3xl font-medium text-stone mb-2">Send us a message</h3>
+      <p class="text-muted mb-8">Tell us what you're interested in and when you'd like to visit.</p>
+      <form action="/inquiry" method="POST" novalidate class="space-y-6" id="inquiry-form">
         <% const errors = locals.errors || {}; const values = locals.values || {}; %>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="form-group">
             <input
               type="text" id="name" name="name"
@@ -1484,7 +789,7 @@
             >
             <label for="name" class="form-label">Name *</label>
             <% if (errors.name) { %>
-            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.name %></p>
+            <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.name %></p>
             <% } %>
           </div>
           <div class="form-group">
@@ -1498,7 +803,7 @@
             >
             <label for="email" class="form-label">Email *</label>
             <% if (errors.email) { %>
-            <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.email %></p>
+            <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.email %></p>
             <% } %>
           </div>
         </div>
@@ -1511,32 +816,43 @@
             class="form-input <%= errors.phone ? 'form-input-error' : '' %>"
             autocomplete="tel"
           >
-          <label for="phone" class="form-label">Phone <span class="normal-case tracking-normal font-light text-muted">(optional)</span></label>
+          <label for="phone" class="form-label">Phone <span class="font-normal text-muted">(optional)</span></label>
+          <% if (errors.phone) { %>
+          <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.phone %></p>
+          <% } %>
         </div>
+
+        <fieldset class="chips">
+          <legend class="form-label">What are you interested in?</legend>
+          <div class="chips-row">
+            <% ['Yoga classes', 'Sound healing', 'Teacher or bowl training', 'Retreats and hikes', 'Drawing classes'].forEach(function(c) { %>
+            <button type="button" class="chip" data-chip="<%= c %>" aria-pressed="false"><%= c %></button>
+            <% }) %>
+          </div>
+        </fieldset>
 
         <div class="form-group">
           <textarea
             id="message" name="message"
-            rows="4"
+            rows="5"
             placeholder=" "
             required
             class="form-input resize-none <%= errors.message ? 'form-input-error' : '' %>"
           ><%= values.message || '' %></textarea>
           <label for="message" class="form-label">Message *</label>
           <% if (errors.message) { %>
-          <p class="mt-2 text-[10px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.message %></p>
+          <p class="mt-2 text-sm font-ui text-red-700" role="alert"><%= errors.message %></p>
           <% } %>
         </div>
 
-        <button
-          type="submit" id="submit-btn"
-          class="btn-primary w-full py-6 mt-8 group">
-          <span>Send Message</span>
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </button>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+          <button type="submit" id="submit-btn" class="btn-primary sm:min-w-[14rem]">
+            <span>Send message</span>
+          </button>
+          <p class="text-sm text-muted">We only use your details to reply to you.</p>
+        </div>
       </form>
+      </div>
     </div>
 
   </div>
@@ -1545,6 +861,8 @@
 </main>
 
 <!-- Scroll reveal -->
+<a id="wa-fab" href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="wa-fab is-hidden" aria-label="Message Pragya Path on WhatsApp"><%- waIcon %></a>
+
 <script>
 (function () {
   // Hero reveal animations — fire immediately
@@ -1654,10 +972,131 @@
   var btn  = document.getElementById('submit-btn');
   if (form && btn) {
     form.addEventListener('submit', function () {
-      btn.innerHTML = '<span>Sending...</span><svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+      btn.innerHTML = '<span>Sending…</span><svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
       btn.disabled = true;
       btn.classList.add('opacity-60', 'cursor-not-allowed');
     });
+  }
+
+  // ── "Ask about …" links pre-fill the message box ───────────────────────
+  var msg = document.getElementById('message');
+  document.querySelectorAll('[data-topic]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (!msg) return;
+      var topic = link.getAttribute('data-topic');
+      if (!msg.value.trim() || msg.dataset.prefilled === '1') {
+        msg.value = "Hi, I'd like to know more about " + topic.toLowerCase() + '. ';
+        msg.dataset.prefilled = '1';
+      }
+      setTimeout(function () { (document.getElementById('name') || msg).focus({ preventScroll: true }); }, 600);
+    });
+  });
+  if (msg) msg.addEventListener('input', function () { msg.dataset.prefilled = '0'; });
+  document.querySelectorAll('[data-topic]').forEach(function (l) { l.addEventListener('click', function () { document.querySelectorAll('[data-chip]').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); }); }); });
+
+  // ── Floating WhatsApp button: hidden while the hero, schedule band or
+  //    contact section covers the middle of the screen (they have their own CTAs)
+  var fab = document.getElementById('wa-fab');
+  if (fab) {
+    var fabZones = ['[aria-label="Welcome"]', '#schedule', '#contact']
+      .map(function (sel) { return document.querySelector(sel); })
+      .filter(Boolean);
+    var fabTick = false;
+    var updateFab = function () {
+      fabTick = false;
+      var mid = window.innerHeight / 2;
+      var over = fabZones.some(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top < mid && r.bottom > mid;
+      });
+      fab.classList.toggle('is-hidden', over);
+    };
+    var queueFab = function () { if (!fabTick) { fabTick = true; requestAnimationFrame(updateFab); } };
+    window.addEventListener('scroll', queueFab, { passive: true });
+    window.addEventListener('resize', queueFab);
+    updateFab();
+  }
+
+  // ── Programs: a photo follows the cursor over the list (desktop, fine pointer) ──
+  // ── Programs: the photo panel follows the row being pointed at or focused
+  var progFig = document.querySelector('.prog-figure');
+  if (progFig) {
+    var progImgs = progFig.querySelectorAll('.prog-img'), progCur = 0;
+    var progName = progFig.querySelector('[data-prog-name]');
+    var progTag = progFig.querySelector('[data-prog-tag]');
+    var progRows = document.querySelectorAll('.reveal-row');
+    var showProg = function (row) {
+      progRows.forEach(function (r) { r.classList.toggle('is-active', r === row); });
+      progName.textContent = row.querySelector('.reveal-name').textContent;
+      progTag.textContent = row.getAttribute('data-tag');
+      var src = row.getAttribute('data-img');
+      if (progImgs[progCur].getAttribute('src') === src) return;
+      var next = 1 - progCur;
+      progImgs[next].src = src;
+      progImgs[next].classList.add('is-on');
+      progImgs[progCur].classList.remove('is-on');
+      progCur = next;
+    };
+    progRows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () { showProg(row); });
+      row.addEventListener('focus', function () { showProg(row); });
+    });
+    if (progRows[0]) progRows[0].classList.add('is-active');
+  }
+
+  // ── Contact: topic chips write the opening line of the message
+  var chips = document.querySelectorAll('[data-chip]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      if (!msg || (msg.value.trim() && msg.dataset.prefilled !== '1')) return;
+      var picked = [];
+      chips.forEach(function (c) { if (c.getAttribute('aria-pressed') === 'true') picked.push(c.getAttribute('data-chip').toLowerCase()); });
+      if (!picked.length) { msg.value = ''; return; }
+      var list = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked[picked.length - 1] : picked[0];
+      msg.value = "Hi, I'd like to know more about " + list + '. ';
+      msg.dataset.prefilled = '1';
+    });
+  });
+
+  // ── Class times: live status in Bhaktapur time (UTC+5:45)
+  var live = document.querySelector('[data-live]');
+  if (live) {
+    var liveText = live.querySelector('[data-live-text]');
+    var nowMark = document.querySelector('.dayline-now');
+    var classes = [[360, 540, 'Morning class'], [1020, 1200, 'Evening class']];
+    var clock = function (m) {
+      var h = Math.floor(m / 60) % 24, mm = m % 60, ap = h < 12 ? 'am' : 'pm', h12 = h % 12 || 12;
+      return h12 + (mm ? ':' + (mm < 10 ? '0' : '') + mm : '') + ap;
+    };
+    var span = function (d) {
+      var h = Math.floor(d / 60), m = d % 60;
+      return (h ? h + ' h ' : '') + (m || !h ? m + ' min' : '').trim();
+    };
+    var tickLive = function () {
+      var d = new Date();
+      var m = (d.getUTCHours() * 60 + d.getUTCMinutes() + 345) % 1440;
+      var text = '', on = false;
+      classes.forEach(function (c) {
+        if (m >= c[0] && m < c[1]) { on = true; text = c[2] + ' is on now, until ' + clock(c[1]) + '.'; }
+      });
+      if (!on) {
+        var next = classes.filter(function (c) { return c[0] > m; })[0];
+        text = next
+          ? 'Next class today at ' + clock(next[0]) + ', in ' + span(next[0] - m).trim() + '.'
+          : 'Next class tomorrow at ' + clock(classes[0][0]) + '.';
+      }
+      liveText.textContent = text + ' It is ' + clock(m) + ' in Bhaktapur.';
+      live.classList.toggle('is-live', on);
+      live.hidden = false;
+      if (nowMark) {
+        var inDay = m >= 240 && m <= 1320;
+        nowMark.hidden = !inDay;
+        if (inDay) nowMark.style.left = ((m - 240) / 1080 * 100).toFixed(2) + '%';
+      }
+    };
+    tickLive();
+    setInterval(tickLive, 30000);
   }
 
   // ── Smooth scroll for anchor links ────────────────────────────────────

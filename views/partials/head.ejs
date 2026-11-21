@@ -10,11 +10,22 @@
   <meta name="keywords" content="yoga Bhaktapur, hatha yoga Nepal, sound healing Nepal, singing bowl training, yoga teacher training Nepal, therapeutic yoga, yoga retreat Nepal, Pragya Path">
   <meta name="author" content="Pragya Path">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="theme-color" content="#C49A5C">
+  <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11142B" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Apply a saved light/dark choice before first paint (no flash) -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 
   <!-- Favicon / Icons -->
-  <link rel="icon" type="image/png" href="/images/logo.png">
-  <link rel="apple-touch-icon" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/brand/favicon-192.png">
+  <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png">
 
   <!-- Geo -->
   <meta name="geo.region" content="NP-BA">
@@ -83,12 +94,12 @@
   </script>
 
   <!-- Preload hero image -->
-  <link rel="preload" as="image" href="/images/hero.png">
+  <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/output.css">
 </head>
