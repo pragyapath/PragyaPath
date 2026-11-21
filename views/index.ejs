@@ -82,10 +82,11 @@
       { name: 'Retreats & tours', desc: 'Multi-day retreats, spiritual tours and mindful hikes around the Kathmandu Valley.', tag: 'Multi-day', img: '/images/gallery/group-photo-with-guest-sm.webp' }
     ]; %>
 
+    <div class="prog-layout">
     <ul class="reveal-list" role="list">
       <% primary.forEach(function(s) { %>
       <li>
-        <a href="#contact" class="reveal-row" data-topic="<%= s.name %>" data-img="<%= s.img %>">
+        <a href="#contact" class="reveal-row" data-topic="<%= s.name %>" data-img="<%= s.img %>" data-tag="<%= s.tag %>">
           <img class="reveal-thumb" src="<%= s.img %>" alt="" loading="lazy">
           <span class="reveal-name"><%= s.name %></span>
           <span class="reveal-desc"><%= s.desc %></span>
@@ -95,7 +96,14 @@
       </li>
       <% }) %>
     </ul>
-    <div class="reveal-float" aria-hidden="true"><img alt=""></div>
+    <figure class="prog-figure" aria-hidden="true">
+      <div class="prog-frame">
+        <img class="prog-img is-on" src="<%= primary[0].img %>" alt="">
+        <img class="prog-img" alt="">
+      </div>
+      <figcaption class="prog-cap"><span data-prog-name><%= primary[0].name %></span><span data-prog-tag><%= primary[0].tag %></span></figcaption>
+    </figure>
+    </div>
 
     <p class="mt-10 text-muted leading-relaxed max-w-3xl">
       <span class="font-semibold text-stone">Also on offer:</span>
@@ -132,11 +140,14 @@
         </div>
       </div>
 
+      <p class="live-status" data-live hidden><span class="live-dot" aria-hidden="true"></span><span data-live-text></span></p>
+
       <!-- The day from 4am to 10pm, with the two class blocks marked -->
       <div class="dayline mt-12" role="img" aria-label="Classes run from 6 to 9 in the morning and 5 to 8 in the evening">
         <div class="dayline-track">
           <span class="dayline-block" style="left: 11.11%; width: 16.67%;"></span>
           <span class="dayline-block" style="left: 72.22%; width: 16.67%;"></span>
+          <span class="dayline-now" hidden></span>
         </div>
         <div class="dayline-ticks" aria-hidden="true">
           <span style="left: 0%">4am</span>
@@ -822,6 +833,15 @@
           <% } %>
         </div>
 
+        <fieldset class="chips">
+          <legend class="form-label">What are you interested in?</legend>
+          <div class="chips-row">
+            <% ['Yoga classes', 'Sound healing', 'Teacher or bowl training', 'Retreats and hikes', 'Drawing classes'].forEach(function(c) { %>
+            <button type="button" class="chip" data-chip="<%= c %>" aria-pressed="false"><%= c %></button>
+            <% }) %>
+          </div>
+        </fieldset>
+
         <div class="form-group">
           <textarea
             id="message" name="message"
@@ -983,6 +1003,7 @@
     });
   });
   if (msg) msg.addEventListener('input', function () { msg.dataset.prefilled = '0'; });
+  document.querySelectorAll('[data-topic]').forEach(function (l) { l.addEventListener('click', function () { document.querySelectorAll('[data-chip]').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); }); }); });
 
   // ── Floating WhatsApp button: hidden while the hero, schedule band or
   //    contact section covers the middle of the screen (they have their own CTAs)
@@ -1008,27 +1029,85 @@
   }
 
   // ── Programs: a photo follows the cursor over the list (desktop, fine pointer) ──
-  var floatBox = document.querySelector('.reveal-float');
-  if (floatBox && window.matchMedia('(hover: hover) and (min-width: 900px)').matches) {
-    var floatImg = floatBox.querySelector('img');
-    var fx = 0, fy = 0, tx = 0, ty = 0, raf = null, on = false;
-    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var step = function () {
-      fx += (tx - fx) * (still ? 1 : 0.18);
-      fy += (ty - fy) * (still ? 1 : 0.18);
-      floatBox.style.transform = 'translate3d(' + (fx + 28) + 'px,' + (fy - 160) + 'px,0) scale(' + (on ? 1 : .92) + ')';
-      raf = (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) ? requestAnimationFrame(step) : null;
+  // ── Programs: the photo panel follows the row being pointed at or focused
+  var progFig = document.querySelector('.prog-figure');
+  if (progFig) {
+    var progImgs = progFig.querySelectorAll('.prog-img'), progCur = 0;
+    var progName = progFig.querySelector('[data-prog-name]');
+    var progTag = progFig.querySelector('[data-prog-tag]');
+    var progRows = document.querySelectorAll('.reveal-row');
+    var showProg = function (row) {
+      progRows.forEach(function (r) { r.classList.toggle('is-active', r === row); });
+      progName.textContent = row.querySelector('.reveal-name').textContent;
+      progTag.textContent = row.getAttribute('data-tag');
+      var src = row.getAttribute('data-img');
+      if (progImgs[progCur].getAttribute('src') === src) return;
+      var next = 1 - progCur;
+      progImgs[next].src = src;
+      progImgs[next].classList.add('is-on');
+      progImgs[progCur].classList.remove('is-on');
+      progCur = next;
     };
-    var move = function (e) { tx = e.clientX; ty = e.clientY; if (!raf) raf = requestAnimationFrame(step); };
-    document.querySelectorAll('.reveal-row').forEach(function (row) {
-      row.addEventListener('mouseenter', function (e) {
-        floatImg.src = row.getAttribute('data-img');
-        if (!on) { fx = tx = e.clientX; fy = ty = e.clientY; }
-        on = true; floatBox.classList.add('is-on'); move(e);
-      });
-      row.addEventListener('mousemove', move);
-      row.addEventListener('mouseleave', function () { on = false; floatBox.classList.remove('is-on'); });
+    progRows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () { showProg(row); });
+      row.addEventListener('focus', function () { showProg(row); });
     });
+    if (progRows[0]) progRows[0].classList.add('is-active');
+  }
+
+  // ── Contact: topic chips write the opening line of the message
+  var chips = document.querySelectorAll('[data-chip]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      if (!msg || (msg.value.trim() && msg.dataset.prefilled !== '1')) return;
+      var picked = [];
+      chips.forEach(function (c) { if (c.getAttribute('aria-pressed') === 'true') picked.push(c.getAttribute('data-chip').toLowerCase()); });
+      if (!picked.length) { msg.value = ''; return; }
+      var list = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked[picked.length - 1] : picked[0];
+      msg.value = "Hi, I'd like to know more about " + list + '. ';
+      msg.dataset.prefilled = '1';
+    });
+  });
+
+  // ── Class times: live status in Bhaktapur time (UTC+5:45)
+  var live = document.querySelector('[data-live]');
+  if (live) {
+    var liveText = live.querySelector('[data-live-text]');
+    var nowMark = document.querySelector('.dayline-now');
+    var classes = [[360, 540, 'Morning class'], [1020, 1200, 'Evening class']];
+    var clock = function (m) {
+      var h = Math.floor(m / 60) % 24, mm = m % 60, ap = h < 12 ? 'am' : 'pm', h12 = h % 12 || 12;
+      return h12 + (mm ? ':' + (mm < 10 ? '0' : '') + mm : '') + ap;
+    };
+    var span = function (d) {
+      var h = Math.floor(d / 60), m = d % 60;
+      return (h ? h + ' h ' : '') + (m || !h ? m + ' min' : '').trim();
+    };
+    var tickLive = function () {
+      var d = new Date();
+      var m = (d.getUTCHours() * 60 + d.getUTCMinutes() + 345) % 1440;
+      var text = '', on = false;
+      classes.forEach(function (c) {
+        if (m >= c[0] && m < c[1]) { on = true; text = c[2] + ' is on now, until ' + clock(c[1]) + '.'; }
+      });
+      if (!on) {
+        var next = classes.filter(function (c) { return c[0] > m; })[0];
+        text = next
+          ? 'Next class today at ' + clock(next[0]) + ', in ' + span(next[0] - m).trim() + '.'
+          : 'Next class tomorrow at ' + clock(classes[0][0]) + '.';
+      }
+      liveText.textContent = text + ' It is ' + clock(m) + ' in Bhaktapur.';
+      live.classList.toggle('is-live', on);
+      live.hidden = false;
+      if (nowMark) {
+        var inDay = m >= 240 && m <= 1320;
+        nowMark.hidden = !inDay;
+        if (inDay) nowMark.style.left = ((m - 240) / 1080 * 100).toFixed(2) + '%';
+      }
+    };
+    tickLive();
+    setInterval(tickLive, 30000);
   }
 
   // ── Smooth scroll for anchor links ────────────────────────────────────

@@ -101,6 +101,23 @@
     window.addEventListener('scroll', setSolid, { passive: true });
     setSolid();
 
+    // Highlight the link for the section in view
+    const spyLinks = [...document.querySelectorAll('.site-nav .nav-link')];
+    let spyTick = false;
+    const spy = () => {
+        spyTick = false;
+        const line = window.innerHeight * 0.4;
+        spyLinks.forEach(a => {
+            const sec = document.querySelector(a.getAttribute('href'));
+            const r = sec && sec.getBoundingClientRect();
+            const on = !!r && r.top <= line && r.bottom > line;
+            a.classList.toggle('is-active', on);
+            if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+        });
+    };
+    window.addEventListener('scroll', () => { if (!spyTick) { spyTick = true; requestAnimationFrame(spy); } }, { passive: true });
+    window.addEventListener('load', spy);
+
     // Mobile menu
     const openMenu = () => {
         menu.classList.remove('hidden');
