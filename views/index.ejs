@@ -1512,6 +1512,9 @@
             autocomplete="tel"
           >
           <label for="phone" class="form-label">Phone <span class="normal-case tracking-normal font-light text-muted">(optional)</span></label>
+          <% if (errors.phone) { %>
+          <p class="mt-2 text-[11px] font-sans text-red-500 uppercase tracking-widest2"><%= errors.phone %></p>
+          <% } %>
         </div>
 
         <div class="form-group">
