@@ -7,23 +7,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Pragya Path — "temple at dusk": night indigo, singing-bowl brass,
-        // logo saffron, on warm sandstone paper.
+        // Theme colours come from CSS variables (public/css/input.css),
+        // so every utility switches between light and dark mode.
         // Token names kept from the old theme so existing classes re-theme.
-        base:    '#F6F2EB', // sandstone paper — page background
-        surface: '#FFFDF9', // warm white — raised panels, form
-        stone:   '#1B1F3F', // indigo — headings, primary text
-        ink:     '#EDE7DC', // deeper sandstone — alternate section background
-        muted:   '#585C78', // indigo grey — body text (6.4:1 on paper)
-        gold:    '#B4501A', // deep saffron — links, primary buttons
-        terra:   '#E8823A', // logo saffron — accents on dark
-        sage:    '#E9E2D4', // tinted fills
-        line:    '#DDD5C7', // hairlines on paper
-        bronze:  '#8C6A2F', // brass, readable on paper
-        brass:   '#C9A55E', // brass — ornaments and labels on dark
-        night:   '#11142B', // night indigo — dark sections
-        dusk:    '#1B1F3F',
-        saffron: '#E8823A',
+        paper:   'rgb(var(--c-bg) / <alpha-value>)',
+        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+        ink:     'rgb(var(--c-bg-alt) / <alpha-value>)',      // alternate section background
+        stone:   'rgb(var(--c-heading) / <alpha-value>)',     // headings, primary text
+        muted:   'rgb(var(--c-muted) / <alpha-value>)',
+        gold:    'rgb(var(--c-accent) / <alpha-value>)',      // links, primary buttons
+        terra:   'rgb(var(--c-saffron) / <alpha-value>)',
+        saffron: 'rgb(var(--c-saffron) / <alpha-value>)',
+        sage:    'rgb(var(--c-bg-alt) / <alpha-value>)',
+        line:    'rgb(var(--c-line) / <alpha-value>)',
+        bronze:  'rgb(var(--c-brass-text) / <alpha-value>)',
+        brass:   'rgb(var(--c-brass) / <alpha-value>)',
+        band:    'rgb(var(--c-band) / <alpha-value>)',
+        dusk:    'rgb(var(--c-heading) / <alpha-value>)',
       },
       fontFamily: {
         // serif = display (Bodoni Moda); sans/ui = Manrope; deva = Devanagari accents

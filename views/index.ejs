@@ -15,38 +15,42 @@
 <!-- ═══════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
-<section class="relative min-h-[100svh] flex flex-col justify-end overflow-hidden bg-night" aria-label="Welcome">
-  <img
-    src="/images/hero.webp"
-    alt=""
-    class="absolute inset-0 w-full h-full object-cover object-[72%_center]"
-    fetchpriority="high"
-  >
-  <!-- Night wash: deep on the left and bottom where the type sits, open over the teacher -->
-  <div class="absolute inset-0 bg-gradient-to-t from-night via-night/70 to-night/20 md:bg-gradient-to-r md:from-night md:via-night/75 md:to-transparent" aria-hidden="true"></div>
-  <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night to-transparent" aria-hidden="true"></div>
+<section class="relative bg-paper overflow-hidden" aria-label="Welcome">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 pt-28 md:pt-36 pb-10 md:pb-14">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-12 pt-32 pb-8 md:pb-10">
-    <div class="max-w-3xl">
-      <p class="hero-reveal hero-deva mb-5" lang="ne">प्रज्ञा पथ</p>
+      <div class="lg:col-span-7">
+        <p class="hero-reveal hero-deva mb-5" lang="ne">प्रज्ञा पथ</p>
 
-      <h1 class="hero-title hero-reveal d1">
-        <span>Awaken<i>.</i></span>
-        <span>Heal<i>.</i></span>
-        <span>Transform<i>.</i></span>
-      </h1>
+        <h1 class="hero-title hero-reveal d1">
+          <span>Awaken<i>.</i></span>
+          <span>Heal<i>.</i></span>
+          <span>Transform<i>.</i></span>
+        </h1>
 
-      <p class="hero-reveal d2 text-[#DAD8E8] text-lg md:text-xl leading-relaxed max-w-xl mt-7 mb-9">
-        Hatha yoga and sound healing in a quiet studio in old Bhaktapur. Come as you are — beginners are always welcome.
-      </p>
+        <p class="hero-reveal d2 text-muted text-lg md:text-xl leading-relaxed max-w-xl mt-7 mb-9">
+          Hatha yoga and sound healing in a quiet studio in old Bhaktapur. Come as you are — beginners are always welcome.
+        </p>
 
-      <div class="hero-reveal d3 flex flex-col sm:flex-row gap-3 sm:gap-4">
-        <a href="#schedule" class="btn-brass">See class times</a>
-        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-ghost-light"><%- waIcon %>Message us on WhatsApp</a>
+        <div class="hero-reveal d3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="#schedule" class="btn-primary">See class times</a>
+          <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-quiet"><%- waIcon %>Message us on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 hero-reveal d2 pr-3 lg:pr-0">
+        <div class="framed arch hero-photo max-w-md mx-auto lg:ml-auto">
+          <img
+            src="/images/hero.webp"
+            alt="A teacher seated in meditation in the Pragya Path studio"
+            class="aspect-[4/5] object-cover object-[72%_center]"
+            fetchpriority="high"
+          >
+        </div>
       </div>
     </div>
 
-    <dl class="hero-facts hero-reveal d4 mt-12 md:mt-14">
+    <dl class="hero-facts hero-reveal d4 mt-14 md:mt-16">
       <div><dt>Morning class</dt><dd>6 – 9 am</dd></div>
       <div><dt>Evening class</dt><dd>5 – 8 pm</dd></div>
       <div><dt>Studio</dt><dd>Dattatraye, Bhaktapur</dd></div>
@@ -57,7 +61,7 @@
 <!-- ═══════════════════════════════════════════════
      QUOTE
 ════════════════════════════════════════════════ -->
-<section class="bg-base py-20 md:py-32 px-5 sm:px-6 md:px-12" aria-label="Our approach">
+<section class="bg-paper py-20 md:py-32 px-5 sm:px-6 md:px-12" aria-label="Our approach">
   <figure class="max-w-4xl mx-auto text-center">
     <div class="brass-rule max-w-xs mx-auto mb-10" aria-hidden="true"><%- lotus %></div>
     <blockquote class="pull-quote">
@@ -121,7 +125,7 @@
 <!-- ═══════════════════════════════════════════════
      SCHEDULE BAND
 ════════════════════════════════════════════════ -->
-<section id="schedule" class="schedule-band on-night px-5 sm:px-6 md:px-12 py-20 md:py-32" aria-labelledby="schedule-heading">
+<section id="schedule" class="band px-5 sm:px-6 md:px-12 py-20 md:py-32" aria-labelledby="schedule-heading">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
       <div>
@@ -131,22 +135,22 @@
       <p class="lede md:text-right md:max-w-sm">Same times all week, including weekends and holidays.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 border-t border-brass/30">
+    <div class="grid grid-cols-1 md:grid-cols-2 border-t border-line">
       <div class="pt-8 pb-10 md:py-12 md:pr-10">
         <p class="schedule-label mb-4">Morning</p>
         <p class="schedule-time">6–9<small>am</small></p>
       </div>
-      <div class="pt-8 pb-10 md:py-12 md:pl-12 border-t md:border-t-0 md:border-l border-brass/30">
+      <div class="pt-8 pb-10 md:py-12 md:pl-12 border-t md:border-t-0 md:border-l border-line">
         <p class="schedule-label mb-4">Evening</p>
         <p class="schedule-time">5–8<small>pm</small></p>
       </div>
     </div>
 
-    <div class="pt-10 border-t border-brass/30 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-      <p class="text-[#D6D3E3] text-lg max-w-xl leading-relaxed">Drop in for a single class or ask about weekly and monthly passes. Message us before your first visit so we can save you a mat.</p>
+    <div class="pt-10 border-t border-line flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+      <p class="text-muted text-lg max-w-xl leading-relaxed">Drop in for a single class or ask about weekly and monthly passes. Message us before your first visit so we can save you a mat.</p>
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-brass"><%- waIcon %>Book on WhatsApp</a>
-        <a href="#contact" class="btn-ghost-light">Send a message</a>
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Book on WhatsApp</a>
+        <a href="#contact" class="btn-quiet">Send a message</a>
       </div>
     </div>
   </div>
@@ -155,7 +159,7 @@
 <!--
      HIKING & NATURE RETREATS
 -->
-<section id="hiking" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="hiking-heading">
+<section id="hiking" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-paper relative overflow-hidden" aria-labelledby="hiking-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
 
@@ -282,7 +286,7 @@
       <h2 id="art-gallery-heading" class="h-display">Where art meets wellness</h2>
       <p class="lede mt-6">Our sister gallery shares the studio. Join a drawing class, or take home a painting made in Bhaktapur.</p>
 
-      <div class="mt-10 pt-6 border-t border-[#CFC5B3]">
+      <div class="mt-10 pt-6 border-t border-line">
         <h3 class="font-serif text-2xl font-medium text-stone">Paintings for sale</h3>
         <p class="mt-3 text-muted leading-relaxed">Oil and acrylic, watercolour, mixed media, and portraits painted to order.</p>
         <a href="#contact" data-topic="Paintings for sale" class="card-ask mt-3">Ask for photos and prices</a>
@@ -315,7 +319,7 @@
 <!-- ═══════════════════════════════════════════════
      GRATITUDE
 ════════════════════════════════════════════════ -->
-<section id="gratitude" class="on-night py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="gratitude-heading">
+<section id="gratitude" class="bg-surface py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="gratitude-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
 
@@ -342,13 +346,13 @@
         <p>
           Our guidance comes from a lineage of gurus who kept these traditions alive. Through their blessings we can share authentic practice with you.
         </p>
-        <p class="text-white">
+        <p class="text-stone font-medium">
           Every class, every session, every healing sound is an offering rooted in this wisdom.
         </p>
       </div>
 
-      <p class="mt-10 font-deva text-3xl text-brass" lang="sa">ॐ नमः शिवाय</p>
-      <p class="mt-1 text-sm text-[#A5A6C2]">Om Namah Shivaya</p>
+      <p class="mt-10 font-deva text-3xl text-bronze" lang="sa">ॐ नमः शिवाय</p>
+      <p class="mt-1 text-sm text-muted">Om Namah Shivaya</p>
     </div>
 
   </div>
@@ -357,7 +361,7 @@
 <!-- ═══════════════════════════════════════════════
      ABOUT
 ════════════════════════════════════════════════ -->
-<section id="about" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-base relative overflow-hidden" aria-labelledby="about-heading">
+<section id="about" class="py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-paper relative overflow-hidden" aria-labelledby="about-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
 
@@ -373,7 +377,7 @@
       <img
         src="/images/tibetansingingbowl.webp"
         alt=""
-        class="absolute -bottom-8 right-0 lg:-right-10 w-40 md:w-52 h-auto drop-shadow-[0_24px_28px_rgba(17,20,43,0.35)] pointer-events-none"
+        class="absolute -bottom-8 right-0 lg:-right-10 w-40 md:w-52 h-auto drop-shadow-[0_24px_28px_rgba(27,31,63,0.25)] pointer-events-none"
         loading="lazy"
       >
     </div>
@@ -791,7 +795,7 @@
 <!-- ═══════════════════════════════════════════════
      CONTACT
 ════════════════════════════════════════════════ -->
-<section id="contact" class="on-night py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="contact-heading">
+<section id="contact" class="bg-ink py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden" aria-labelledby="contact-heading">
 
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
 
@@ -805,7 +809,7 @@
         WhatsApp is the quickest way to reach us. For anything longer, use the form and we'll reply by email within a day.
       </p>
 
-      <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-brass"><%- waIcon %>Chat on WhatsApp</a>
+      <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-primary"><%- waIcon %>Chat on WhatsApp</a>
 
       <dl class="contact-list">
         <div class="contact-row">
@@ -824,7 +828,7 @@
 
       <!-- Social Media Links -->
       <div class="mt-10 flex flex-wrap items-center gap-4">
-        <span class="text-sm font-semibold text-brass mr-2">Follow us</span>
+        <span class="text-sm font-semibold text-bronze mr-2">Follow us</span>
         <a href="https://www.facebook.com/profile.php?id=61587079890163" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
           <svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
@@ -840,7 +844,7 @@
     <!-- Right: form -->
     <div class="lg:col-span-7">
       <div class="form-panel">
-      <h3 class="font-serif text-3xl font-medium !text-stone mb-2">Send us a message</h3>
+      <h3 class="font-serif text-3xl font-medium text-stone mb-2">Send us a message</h3>
       <p class="text-muted mb-8">Tell us what you're interested in and when you'd like to visit.</p>
       <form action="/inquiry" method="POST" novalidate class="space-y-6" id="inquiry-form">
         <% const errors = locals.errors || {}; const values = locals.values || {}; %>

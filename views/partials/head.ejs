@@ -10,7 +10,17 @@
   <meta name="keywords" content="yoga Bhaktapur, hatha yoga Nepal, sound healing Nepal, singing bowl training, yoga teacher training Nepal, therapeutic yoga, yoga retreat Nepal, Pragya Path">
   <meta name="author" content="Pragya Path">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="theme-color" content="#11142B">
+  <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11142B" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Apply a saved light/dark choice before first paint (no flash) -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 
   <!-- Favicon / Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png">
