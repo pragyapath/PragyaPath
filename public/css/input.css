@@ -1478,3 +1478,70 @@ textarea.form-input { min-height: 8rem; }
 @media (min-width: 640px) { .footer-mark { font-size: min(calc((100vw - 3rem) / 3.95), 20.7rem); } }
 @media (min-width: 768px) { .footer-mark { font-size: min(calc((100vw - 6rem) / 3.95), 20.7rem); } }
 .footer-col a { overflow-wrap: anywhere; }
+
+/* ═══════════════════════════════════════════════
+   PHOTO HERO — the studio photograph fills the first screen
+   ═══════════════════════════════════════════════ */
+.photo-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; background: #0E1018; color: #F4EFE6;
+}
+.photo-hero-img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%;
+  animation: hero-settle 2.6s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes hero-settle { from { transform: scale(1.07); opacity: .4; } to { transform: none; opacity: 1; } }
+.photo-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(10,11,18,.78) 0%, rgba(10,11,18,.45) 42%, rgba(10,11,18,0) 70%),
+    linear-gradient(0deg, rgba(10,11,18,.7) 0%, rgba(10,11,18,0) 35%);
+}
+.photo-hero-inner {
+  width: 100%; max-width: 88rem; margin: 0 auto;
+  padding: 8rem 1.25rem 1.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+@media (min-width: 640px) { .photo-hero-inner { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 768px) { .photo-hero-inner { padding: 9rem 3rem 2rem; } }
+.photo-hero-copy { margin-top: auto; margin-bottom: auto; max-width: 40rem; }
+.photo-hero-deva { font-family: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', serif; font-size: 1.35rem; color: #F2C98A; }
+.photo-hero-title {
+  margin-top: 1rem;
+  font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
+  font-size: clamp(3.1rem, 7.4vw, 7.25rem); line-height: .95; letter-spacing: -0.015em; color: #FBF7F0;
+}
+.photo-hero-title i { font-style: normal; color: var(--saffron); }
+.photo-hero-intro { margin-top: 1.75rem; max-width: 31rem; font-size: 1.125rem; line-height: 1.65; color: rgba(244,239,230,.82); }
+.photo-hero-intro em { font-family: 'Instrument Serif', Georgia, serif; font-size: 1.2em; color: #FBF7F0; }
+.photo-hero-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  min-height: 3rem; padding: .85rem 1.5rem; border: 1px solid rgba(244,239,230,.4); border-radius: 2px;
+  font-weight: 600; font-size: .9375rem; color: #FBF7F0; transition: background-color .25s ease, border-color .25s ease;
+}
+.photo-hero-ghost svg { width: 1.1rem; height: 1.1rem; }
+.photo-hero-ghost:hover { background: rgba(244,239,230,.1); border-color: rgba(244,239,230,.75); }
+.photo-hero-ghost:focus-visible { outline: 2px solid #FBF7F0; outline-offset: 2px; }
+.photo-hero-foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem;
+  margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid rgba(244,239,230,.22);
+  font-size: .875rem; color: rgba(244,239,230,.72);
+}
+.photo-hero-foot a { color: #FBF7F0; text-decoration: underline; text-decoration-color: rgba(244,239,230,.35); text-underline-offset: 4px; }
+.photo-hero-foot a:hover { text-decoration-color: currentColor; }
+@media (max-width: 767px) {
+  .photo-hero-img { object-position: 80% 40%; }
+  .photo-hero::before { background: linear-gradient(0deg, rgba(10,11,18,.92) 0%, rgba(10,11,18,.7) 45%, rgba(10,11,18,.15) 75%, rgba(10,11,18,.35) 100%); }
+  .photo-hero-copy { margin-top: auto; margin-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .photo-hero-img { animation: none; } }
+
+/* Nav sits light over the photo until the page scrolls */
+body:has(.photo-hero) .site-nav:not(.is-solid) .brand-wordmark,
+body:has(.photo-hero) .site-nav:not(.is-solid) .nav-link,
+body:has(.photo-hero) .site-nav:not(.is-solid) #menu-toggle { color: #FBF7F0; }
+body:has(.photo-hero) .site-nav:not(.is-solid) .brand-tagline { color: #F2C98A; }
+body:has(.photo-hero) .site-nav:not(.is-solid) .theme-toggle { color: #FBF7F0; border-color: rgba(244,239,230,.35); }
+body:has(.photo-hero) .site-nav:not(.is-solid) .nav-link::after { background: #F2C98A; }

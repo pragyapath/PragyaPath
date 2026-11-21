@@ -15,38 +15,27 @@
 <!-- ═══════════════════════════════════════════════
      HERO — type-led, with photographs set inside the headline
 ════════════════════════════════════════════════ -->
-<section class="bg-paper overflow-hidden" aria-label="Welcome">
-  <div class="max-w-[88rem] mx-auto px-5 sm:px-6 md:px-12 pt-28 md:pt-36">
+<section class="photo-hero" aria-label="Welcome">
+  <img class="photo-hero-img" src="/images/hero.webp" alt="A teacher seated in meditation beside a singing bowl, mountains beyond the window" fetchpriority="high">
 
-    <div class="hero-meta hero-reveal">
-      <span>Hatha yoga &amp; sound healing</span>
-      <span class="font-deva text-bronze" lang="ne">प्रज्ञा पथ</span>
-      <span class="hidden sm:inline">Dattatraye, Bhaktapur</span>
-    </div>
-
-    <h1 class="hero-type hero-reveal d1">
-      <span class="hero-line">Awaken <span class="pill" aria-hidden="true"><img src="/images/girl-with-tibetean-bowl.webp" alt=""></span> heal</span>
-      <span class="hero-line hero-indent">&amp; <span class="pill pill-round" aria-hidden="true"><img src="/images/tibetansingingbowl.webp" alt=""></span> <span>transform<i>.</i></span></span>
-    </h1>
-
-    <div class="hero-foot hero-reveal d2">
-      <p class="hero-intro">
-        <em>Pragya Path</em> means “the path of wisdom”. We teach traditional hatha yoga and sound healing in a quiet studio in old Bhaktapur — beginners are always welcome.
+  <div class="photo-hero-inner">
+    <div class="photo-hero-copy">
+      <p class="photo-hero-deva hero-reveal" lang="ne">प्रज्ञा पथ</p>
+      <h1 class="photo-hero-title hero-reveal d1">Awaken, heal<br>and transform<i>.</i></h1>
+      <p class="photo-hero-intro hero-reveal d2">
+        Traditional hatha yoga and sound healing in a quiet studio in old Bhaktapur. <em>Pragya Path</em> means “the path of wisdom”, and beginners are always welcome.
       </p>
-      <div class="flex flex-col sm:flex-row gap-3">
+      <div class="flex flex-col sm:flex-row gap-3 mt-9 hero-reveal d3">
         <a href="#schedule" class="btn-primary">See class times</a>
-        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="btn-quiet"><%- waIcon %>WhatsApp us</a>
+        <a href="<%= waLink %>" target="_blank" rel="noopener noreferrer" class="photo-hero-ghost"><%- waIcon %>WhatsApp us</a>
       </div>
     </div>
-  </div>
 
-  <figure class="hero-wide hero-reveal d3">
-    <img
-      src="/images/hero.webp"
-      alt="A teacher seated in meditation beside a singing bowl"
-      fetchpriority="high"
-    >
-  </figure>
+    <div class="photo-hero-foot hero-reveal d4">
+      <a href="#schedule">Classes every day, 6–9am and 5–8pm</a>
+      <span>Dattatraye, Bhaktapur, Nepal</span>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
